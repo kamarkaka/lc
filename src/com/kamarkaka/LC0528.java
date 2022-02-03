@@ -45,11 +45,11 @@ package com.kamarkaka;
  *   1 <= w[i] <= 10^5
  *   pickIndex will be called at most 10^4 times.
  */
-public class LC528 {
+public class LC0528 {
    private int[] prefixSum;
    private int totalSum;
 
-   public LC528(int[] w) {
+   public LC0528(int[] w) {
       this.prefixSum = new int[w.length];
       this.totalSum = 0;
 

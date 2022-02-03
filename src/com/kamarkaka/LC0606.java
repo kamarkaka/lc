@@ -21,7 +21,7 @@ import com.kamarkaka.common.TreeNode;
  *   The number of nodes in the tree is in the range [1, 10^4].
  *   -1000 <= Node.val <= 1000
  */
-public class LC606 {
+public class LC0606 {
    public String tree2str(TreeNode root) {
       if (root == null) return "";
 
