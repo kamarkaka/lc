@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC1249.run();
+      LC1438.run();
    }
 }
