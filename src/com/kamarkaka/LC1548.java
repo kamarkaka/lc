@@ -2,7 +2,6 @@ package com.kamarkaka;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 /***
@@ -48,64 +47,57 @@ import java.util.List;
  * Follow up: If each node can be visited only once in the path, What should you change in your solution?
  */
 public class LC1548 {
+   String[] names;
+   String[] targetPath;
+   List<Integer>[] graph;
+   int[][] visited;
+   int[][] nextChoiceForMin;
    public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
-      // Populate roads into an array of ArrayList, so easier to retrive by "node" id
-      // and the node's linked ones
-      List<Integer>[] graph = buildGraph(n, roads);
+      this.names = names;
+      this.targetPath = targetPath;
+      this.graph = buildGraph(n, roads);
+      this.visited = new int[names.length][targetPath.length];
+      this.nextChoiceForMin = new int[names.length][targetPath.length];
 
-      int pathLen = targetPath.length;
-      // here we leave "memory" for each nodes, from 0 ~ n, and each step of path, from 0 ~ pathLen
-      // prev - track previous node
-      // dist - track min edit distance
-      int[][] prev = new int[n][pathLen];
-      int[][] dist = new int[n][pathLen];
+      for (int[] x : visited) Arrays.fill(x, -1);
 
-      // initial edit distance will be max value, so as patthLen
-      for (int[] d : dist) {
-         Arrays.fill(d, pathLen);
-      }
-
-      // intitial for step = 0, if == targetPath[0], we set as 0
-      // otherwise as 1
-      for (int i = 0; i < n; i++) {
-         dist[i][0] = names[i].equals(targetPath[0]) ? 0 : 1;
-      }
-
-      // traverse step by step for the path
-      for (int i = 1; i < pathLen; i++) {
-         // check each nodes
-         for (int j = 0; j < n; j++) {
-            // see if any next nodes of current one has a shorter distance
-            for (int next : graph[j]) {
-               // if next node in previous step (i - 1) is even shorter than current node in this step (i)
-               // we update distance and prev
-               if (dist[j][i] > dist[next][i - 1]) {
-                  dist[j][i] = dist[next][i - 1];
-                  prev[j][i] = next;
-               }
-            }
-
-            // not forget to check & update current step
-            dist[j][i] += names[j].equals(targetPath[i]) ? 0 : 1;
+      int min = Integer.MAX_VALUE;
+      int start = 0;
+      for (int i = 0; i < names.length; i++) {
+         int resp = dfs(i, 0);
+         if (resp < min) {
+            min = resp;
+            start = i;
          }
       }
 
-      // find the city on the last step which has shortest distance
-      int endCity = 0;
-      for (int i = 1; i < n; i++) {
-         if (dist[i][pathLen - 1] < dist[endCity][pathLen - 1]) {
-            endCity = i;
-         }
+      List<Integer> res = new ArrayList<>();
+      while (res.size() < targetPath.length) {
+         res.add(start);
+         start = nextChoiceForMin[start][res.size() - 1];
       }
-
-      List<Integer> res = new LinkedList<>();
-      // use the endCity + prev to trace back the path for answer
-      for (int i = pathLen - 1; i >= 0; i--) {
-         res.add(0, endCity);
-         endCity = prev[endCity][i];
-      }
-
       return res;
+   }
+
+   private int dfs(int namesIdx, int currPathIdx) {
+      if (visited[namesIdx][currPathIdx] != -1) return visited[namesIdx][currPathIdx];
+
+      int editDist = (names[namesIdx].equals(targetPath[currPathIdx])) ? 0 : 1;
+      if (currPathIdx == targetPath.length - 1) return editDist;
+
+      int min = Integer.MAX_VALUE;
+      for (int neighbor : graph[namesIdx]) {
+         int neighborCost = dfs(neighbor, currPathIdx + 1);
+         if (neighborCost < min) {
+            min = neighborCost;
+            nextChoiceForMin[namesIdx][currPathIdx] = neighbor;
+         }
+      }
+
+      editDist += min;
+      visited[namesIdx][currPathIdx] = editDist;
+      return editDist;
+
    }
 
    private List<Integer>[] buildGraph(int n, int[][] roads) {
@@ -123,5 +115,14 @@ public class LC1548 {
       }
 
       return graph;
+   }
+
+   public static void run() {
+      LC1548 solution = new LC1548();
+      System.out.println(solution.mostSimilar(
+      5,
+      new int[][] {{0,2},{0,3},{1,2},{1,3},{1,4},{2,4}},
+      new String[] {"ATL","PEK","LAX","DXB","HND"},
+      new String[] {"ATL","DXB","HND","LAX"}));
    }
 }
