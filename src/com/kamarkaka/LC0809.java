@@ -29,7 +29,7 @@ import java.util.List;
  *   1 <= words[i].length <= 100
  *   s and words[i] consist of lowercase letters.
  */
-public class LC809 {
+public class LC0809 {
    List<CharCount> sList;
    public int expressiveWords(String s, String[] words) {
       sList = buildCharCount(s);
