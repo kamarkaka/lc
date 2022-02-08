@@ -31,6 +31,33 @@ package com.kamarkaka;
  */
 public class LC0552 {
    public int checkRecord(int n) {
+      if (n == 1) return 3;
+      long[][] dp = new long[2][3];
 
+      dp[0][0] = 2;
+      dp[0][1] = 1;
+      dp[0][2] = 1;
+      dp[1][0] = 3;
+      dp[1][1] = 1;
+      dp[1][2] = 0;
+
+      for (int i = 2; i < n; i++) {
+         long[][] newDP = new long[2][3];
+         newDP[0][0] = (dp[0][0] + dp[0][1] + dp[0][2]) % 1_000_000_007;
+         newDP[0][1] = dp[0][0];
+         newDP[0][2] = dp[0][1];
+         newDP[1][0] = (dp[0][0] + dp[0][1] + dp[0][2] + dp[1][0] + dp[1][1] + dp[1][2]) % 1_000_000_007;
+         newDP[1][1] = dp[1][0];
+         newDP[1][2] = dp[1][1];
+         dp = newDP;
+      }
+
+      int res = 0;
+      for (int i = 0; i < 2; i++) {
+         for (int j = 0; j < 3; j++) {
+            res += dp[i][j];
+         }
+      }
+      return (int) (res % 1_000_000_007);
    }
 }
