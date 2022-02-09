@@ -88,6 +88,11 @@
 - when seeing digits append to num
 - when seeing chars append to str
 
+[430. Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
+- recursive call
+- put flattened children behind current node
+- append next node at tail
+
 [433. Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation/)
 - bfs
 - at each idx, you can mutate to other 3 different gene
@@ -170,9 +175,27 @@
 - right++ until reaches end
 - return count
 
+[723. Candy Crush](https://leetcode.com/problems/candy-crush/)
+- check vertically and horizontally to pop
+- update board
+- collapse
+- repeat until no pop required
+
 [797. All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/)
 - dfs
 - add curr vertice to partial res and dfs to see vertices it can go to
+
+[1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)
+- let everyone fly to the city with lowest cost
+- meanwhile remember the price difference to change
+- store price diff in priority queue, from least to most
+- if evenly split, return
+- for every re-distribution, add difference to cost
+
+[1169. Invalid Transactions](https://leetcode.com/problems/invalid-transactions/)
+- list of all transactions
+- map with key: name, value: list of transactions
+- for each transaction, make sure its valid
 
 [1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
 - two pointers
@@ -191,6 +214,11 @@
 [1396. Design Underground System](https://leetcode.com/problems/design-underground-system/)
 - map checkins, key:id, value: record(id,station,time)
 - map average, key:station, value: set(key:station, value:double[avg, count])
+
+[1472. Design Browser History](https://leetcode.com/problems/design-browser-history/)
+- list of string as visits
+- size: total size of visits
+- curr: current idx
 
 [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream/)
 - string[] buckets
