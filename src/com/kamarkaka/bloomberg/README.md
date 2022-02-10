@@ -1,3 +1,6 @@
+[2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+- add nodes one by one, calculate carry, bring to next node
+
 [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - two pointers
 - a hashset keeping track of all characters encountered
@@ -37,6 +40,9 @@
 - dp
 - result of current square is the sum of the square to the top and to the left
 
+[79. Word Search](https://leetcode.com/problems/word-search/)
+- dfs
+
 [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 - recursive call
 - left/right child is valid
@@ -45,6 +51,11 @@
 
 [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
 - bfs
+
+[140. Word Break II](https://leetcode.com/problems/word-break-ii/)
+- put dictionary in a set
+- break input string into 2 (need to try all breaks)
+- if first half is in set, recursively call on second half
 
 [146. LRU Cache](https://leetcode.com/problems/lru-cache/)
 - maintain a hash map with (key, node)
@@ -75,6 +86,13 @@
   - poll from pq if start time larger than top of pq
   - add interval to pq
 - pq size is the answer
+
+[380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
+- hash map with <value, index to list>
+- list of all values
+- current size
+- when add, put into hashmap and append to tail
+- when remove, remove from hashmap and swap index with tail value, then remove
 
 [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 - first loop to count freq
@@ -185,6 +203,14 @@
 - dfs
 - add curr vertice to partial res and dfs to see vertices it can go to
 
+[987. Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
+- dfs
+- hash map with <column number, Pair<row number, node val>>
+- min column number and max column number
+- add current node to hash map and update min/max
+- recursively call node's children with updated row/col numbers
+- print from min column number to max
+
 [1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)
 - let everyone fly to the city with lowest cost
 - meanwhile remember the price difference to change
@@ -204,12 +230,20 @@
   - keeps updating char[] from string
   - keeps updating count[]
 
+[1244. Design A Leaderboard](https://leetcode.com/problems/design-a-leaderboard/)
+- hashmap scores with <player id, score>
+- treemap sorted scores with <score, number of player with this score>
+
 [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
 - keep a stack
 - go through string
 - if char is '[', push stack
 - if char is ']', pop stack if not empty, otherwise delete
 - after loop, delete remaining things in stack
+
+[1274. Number of Ships in a Rectangle](https://leetcode.com/problems/number-of-ships-in-a-rectangle/)
+- recursive call
+- divide matrix into four parts, call on each part recursively
 
 [1396. Design Underground System](https://leetcode.com/problems/design-underground-system/)
 - map checkins, key:id, value: record(id,station,time)
@@ -219,6 +253,12 @@
 - list of string as visits
 - size: total size of visits
 - curr: current idx
+
+[1583. Count Unhappy Friends](https://leetcode.com/problems/count-unhappy-friends/)
+- for every person, check all his preferences (excluding current pair)
+- now you have this person x, his pair y, and his preference u and u's pair v
+- check if x u/v matches better than y v/u
+- increment counter accordingly
 
 [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream/)
 - string[] buckets
