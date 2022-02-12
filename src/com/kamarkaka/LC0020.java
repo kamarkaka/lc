@@ -32,6 +32,29 @@ package com.kamarkaka;
 
 import java.util.Stack;
 
+/***
+ * 20. Valid Parentheses
+ * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * An input string is valid if:
+ *  Open brackets must be closed by the same type of brackets.
+ *  Open brackets must be closed in the correct order.
+ *
+ * Example 1:
+ *  Input: s = "()"
+ *  Output: true
+ *
+ * Example 2:
+ *  Input: s = "()[]{}"
+ *  Output: true
+ *
+ * Example 3:
+ *  Input: s = "(]"
+ *  Output: false
+ *
+ * Constraints:
+ *  1 <= s.length <= 10^4
+ *  s consists of parentheses only '()[]{}'.
+ */
 public class LC0020 {
     public boolean isValid(String s) {
         if (s == null || s.length() < 2) return false;
@@ -41,13 +64,16 @@ public class LC0020 {
             char c = s.charAt(i);
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
-            } else if ((c == ')' && !stack.empty() && stack.peek() == '(') || (c == ']' && !stack.empty() && stack.peek() == '[') || (c == '}' && !stack.empty() && stack.peek() == '{')) {
+            } else if (
+                (c == ')' && !stack.empty() && stack.peek() == '(') ||
+                (c == ']' && !stack.empty() && stack.peek() == '[') ||
+                (c == '}' && !stack.empty() && stack.peek() == '{')) {
                 stack.pop();
             } else {
                 return false;
             }
         }
-        return stack.empty() ? true : false;
+        return stack.empty();
     }
 
     public static void run() {
