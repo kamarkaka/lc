@@ -30,7 +30,7 @@
 
 [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/)
 - bfs
-- memorize all encounter patterns
+- memorize all encountered patterns
 - try all possible moves, then advance until matches target
 
 [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
@@ -82,3 +82,39 @@
 
 [427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/)
 - recursive calls
+
+[757. Set Intersection Size At Least Two](https://leetcode.com/problems/set-intersection-size-at-least-two/)
+- sort array by end element asc
+- get largest 2 elements from 1st interval
+- go through the rest of intervals
+- if not overlapping with the 2 elements picked, pick largest 2 elements, res += 2
+- otherwise there is overlapping, res += 1, update largest elements accordingly
+- return res
+
+[1400. Construct K Palindrome Strings](https://leetcode.com/problems/construct-k-palindrome-strings/)
+- look for chars appears only odd times
+- see if it's larger than k, if yes then return false, otherwise true
+
+[529. Minesweeper](https://leetcode.com/problems/minesweeper/)
+- bfs
+- if click mine, game over
+- if click position has surrounding mines, display mineCount
+- if click position is empty, recursively try click surround 8 positions
+
+[174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)
+- dp
+- go from target back all the way to start
+- memorize minimum health required to enter the room
+- current min health can be caluated by: current room value, min health from room to the right, and down
+
+[305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/)
+- union find
+- one land can overlap with 4 neighbors
+- union the land with its neighbors, one at a time
+- see how many unions are left after each add land
+
+[332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
+- backtracking
+- build graph using hashmap<origin, list<dest>>
+- meanwhile memorize visited nodes
+- 
