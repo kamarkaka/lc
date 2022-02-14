@@ -27,7 +27,7 @@
  *   grid[i][j] is '0' or '1'.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.LinkedList;
 import java.util.Queue;

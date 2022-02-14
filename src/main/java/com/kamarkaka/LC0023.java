@@ -31,10 +31,10 @@
  *   The sum of lists[i].length won't exceed 10^4.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
 
 public class LC0023 {
     public ListNode mergeKLists(ListNode[] lists) {

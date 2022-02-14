@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0053 {
    public int maxSubArray(int[] nums) {

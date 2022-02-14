@@ -24,7 +24,7 @@
  *   2 <= n <= 10^5
  *   0 <= height[i] <= 10^4
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0011 {
     public int maxArea(int[] height) {

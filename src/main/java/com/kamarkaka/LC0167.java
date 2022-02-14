@@ -1,6 +1,6 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 public class LC0167 {
    public int[] twoSum(int[] numbers, int target) {

@@ -20,7 +20,7 @@
  * Constraints:
  * 0 <= num <= 2^31 - 1
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.ArrayList;
 import java.util.List;

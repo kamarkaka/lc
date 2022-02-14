@@ -82,7 +82,7 @@
  *  s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0008 {
     public int myAtoi(String s) {

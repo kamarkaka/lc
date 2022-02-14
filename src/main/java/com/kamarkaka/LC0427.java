@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 /***
  * 427. Construct Quad Tree

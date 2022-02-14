@@ -18,7 +18,7 @@
  *   s consists of only lowercase English letters.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0387 {
     public int firstUniqChar(String s) {

@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0829 {
    public int consecutiveNumbersSum(int n) {

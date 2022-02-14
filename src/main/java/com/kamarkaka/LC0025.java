@@ -28,10 +28,10 @@
  * Follow-up: Can you solve the problem in O(1) extra memory space?
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
 
 public class LC0025 {
     public ListNode reverseKGroup(ListNode head, int k) {

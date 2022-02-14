@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka.stripe;
+package com.kamarkaka.stripe;
 
 import java.util.*;
 

@@ -24,7 +24,7 @@
  *   banned[i] consists of only lowercase English letters.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.HashMap;
 import java.util.HashSet;

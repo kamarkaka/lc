@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 /***
  * 1400. Construct K Palindrome Strings

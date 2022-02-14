@@ -1,6 +1,6 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.TreeNode;
+import com.kamarkaka.common.TreeNode;
 
 /***
  * 226. Invert Binary Tree

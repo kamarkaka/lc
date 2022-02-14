@@ -1,7 +1,6 @@
-package main.java.com.kamarkaka.common;
+package com.kamarkaka.common;
 
-import main.java.com.kamarkaka.LC0239;
-import main.java.kamarkaka.*;
+import com.kamarkaka.*;
 
 import java.util.Arrays;
 import java.util.List;

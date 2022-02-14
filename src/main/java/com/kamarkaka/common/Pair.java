@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka.common;
+package com.kamarkaka.common;
 
 public class Pair<K, V> {
 

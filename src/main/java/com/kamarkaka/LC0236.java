@@ -22,9 +22,9 @@
  *   p and q will exist in the tree.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.TreeNode;
+import com.kamarkaka.common.TreeNode;
 
 public class LC0236 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

@@ -18,9 +18,9 @@
  *   -1000 <= Node.val <= 1000
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.TreeNode;
+import com.kamarkaka.common.TreeNode;
 
 public class LC0124 {
     private int max;

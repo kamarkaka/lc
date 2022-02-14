@@ -16,9 +16,9 @@
  * Follow up: Could you solve it both recursively and iteratively?
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.TreeNode;
+import com.kamarkaka.common.TreeNode;
 
 public class LC0101 {
     public boolean isSymmetric(TreeNode root) {

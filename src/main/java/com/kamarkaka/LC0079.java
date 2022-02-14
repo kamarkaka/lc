@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0079 {
     public boolean exist(char[][] board, String word) {

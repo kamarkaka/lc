@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.Arrays;
 import java.util.SortedMap;

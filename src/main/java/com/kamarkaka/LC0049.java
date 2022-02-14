@@ -19,9 +19,9 @@
  *   0 <= strs[i].length <= 100
  *   strs[i] consists of lowercase English letters.
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 import java.util.*;
 

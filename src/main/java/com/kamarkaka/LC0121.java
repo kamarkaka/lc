@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0121 {
    public int maxProfit(int[] prices) {

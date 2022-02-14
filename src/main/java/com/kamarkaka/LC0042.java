@@ -15,7 +15,7 @@
  *   1 <= n <= 2 * 10^4
  *   0 <= height[i] <= 10^5
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0042 {
     public int trap(int[] height) {

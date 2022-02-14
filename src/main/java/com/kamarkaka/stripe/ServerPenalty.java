@@ -1,6 +1,6 @@
-package main.java.com.kamarkaka.stripe;
+package com.kamarkaka.stripe;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;

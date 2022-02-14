@@ -23,7 +23,7 @@
  *   haystack and needle consist of only lower-case English characters.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0028 {
     public int strStr(String haystack, String needle) {

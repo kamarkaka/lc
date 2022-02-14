@@ -29,7 +29,7 @@
  *
  * Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0268 {
     public int missingNumber(int[] nums) {

@@ -29,7 +29,7 @@
  *   0 <= forest[i][j] <= 10^9
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.*;
 

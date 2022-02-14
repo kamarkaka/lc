@@ -21,10 +21,10 @@
  *   It is guaranteed that the list represents a number that does not have leading zeros.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
 
 public class LC0002 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

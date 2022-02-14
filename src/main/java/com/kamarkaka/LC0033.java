@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0033 {
    public int search(int[] nums, int target) {

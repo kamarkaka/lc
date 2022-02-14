@@ -42,7 +42,7 @@
  *   1 <= num <= 3999
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0012 {
     public String intToRoman(int num) {

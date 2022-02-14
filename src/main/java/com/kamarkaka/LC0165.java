@@ -37,7 +37,7 @@
  *   All the given revisions in version1 and version2 can be stored in a 32-bit integer.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0165 {
     public int compareVersion(String version1, String version2) {

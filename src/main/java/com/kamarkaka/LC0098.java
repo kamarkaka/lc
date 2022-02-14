@@ -18,9 +18,9 @@
  *   The number of nodes in the tree is in the range [1, 104].
  *   -2^31 <= Node.val <= 2^31 - 1
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.TreeNode;
+import com.kamarkaka.common.TreeNode;
 
 public class LC0098 {
     public boolean isValidBST(TreeNode root) {

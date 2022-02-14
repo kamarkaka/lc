@@ -1,7 +1,7 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
 
 public class LC0021 {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {

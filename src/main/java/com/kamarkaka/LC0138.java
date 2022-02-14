@@ -31,7 +31,7 @@
  *   Node.random is null or is pointing to some node in the linked list.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.ArrayList;
 import java.util.HashMap;

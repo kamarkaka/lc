@@ -18,9 +18,9 @@
  *
  * Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 /***
  * 238. Product of Array Except Self

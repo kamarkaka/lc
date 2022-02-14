@@ -28,7 +28,7 @@
  *   1 <= s.length <= 10^4
  *   s consists of parentheses only '()[]{}'.
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.Stack;
 

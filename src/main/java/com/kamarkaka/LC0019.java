@@ -1,6 +1,6 @@
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.ListNode;
 
 import java.util.HashMap;
 import java.util.Map;

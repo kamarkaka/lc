@@ -1,8 +1,10 @@
-package main.java.com.kamarkaka.stripe;
+package com.kamarkaka.stripe;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 import java.util.*;
-
 /***
  * Background
  * Our users have points in their accounts.
@@ -123,5 +125,19 @@ public class UserPoints {
       System.out.println(p1.getBalance());
       System.out.println(p1.spend(5000));
       System.out.println(p1.getBalance());
+   }
+}
+
+class UserPointsTest {
+   @Test
+   @DisplayName("test 1")
+   void Test1() {
+      UserPoints p1 = new UserPoints();
+      p1.add("DANNON", 1000, "2020-11-02 14:00:00");
+      p1.add("UNILEVER", 200, "2020-10-31 11:00:00");
+      p1.add("DANNON", -200, "2020-10-31 15:00:00");
+      p1.add("MILLER COORS", 10000, "2020-11-01 14:00:00");
+      p1.add("DANNON", 300, "2020-10-31 10:00:00");
+
    }
 }

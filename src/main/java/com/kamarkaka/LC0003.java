@@ -25,7 +25,7 @@
  *   0 <= s.length <= 5 * 10^4
  *   s consists of English letters, digits, symbols and spaces.
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.HashSet;
 

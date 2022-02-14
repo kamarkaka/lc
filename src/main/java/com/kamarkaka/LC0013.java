@@ -43,7 +43,7 @@
  *   It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 public class LC0013 {
     public int romanToInt(String s) {

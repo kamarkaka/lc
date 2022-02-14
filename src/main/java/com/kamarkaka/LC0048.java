@@ -25,9 +25,9 @@
  *   -1000 <= matrix[i][j] <= 1000
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 public class LC0048 {
     public void rotate(int[][] matrix) {

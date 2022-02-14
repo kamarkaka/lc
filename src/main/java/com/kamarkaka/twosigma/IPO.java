@@ -1,4 +1,4 @@
-package main.java.com.kamarkaka.twosigma;
+package com.kamarkaka.twosigma;
 
 import java.util.*;
 

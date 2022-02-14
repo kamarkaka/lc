@@ -18,7 +18,7 @@
  *   -10^4 <= target <= 10^4
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.Arrays;
 

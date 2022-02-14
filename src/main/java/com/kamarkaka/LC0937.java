@@ -27,9 +27,9 @@
  *   All the tokens of logs[i] are separated by a single space.
  *   logs[i] is guaranteed to have an identifier and at least one word after the identifier.
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.Utilities;
 
 import java.util.Arrays;
 import java.util.Comparator;

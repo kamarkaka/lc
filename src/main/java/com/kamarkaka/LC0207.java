@@ -24,7 +24,7 @@
  *   All the pairs prerequisites[i] are unique.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.*;
 

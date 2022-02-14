@@ -25,7 +25,7 @@
  *   All the words in wordList are unique.
  */
 
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
 import java.util.*;
 

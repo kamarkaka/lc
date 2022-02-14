@@ -19,10 +19,10 @@
  *
  * Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
  */
-package main.java.com.kamarkaka;
+package com.kamarkaka;
 
-import main.java.com.kamarkaka.common.ListNode;
-import main.java.com.kamarkaka.common.Utilities;
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
 
 public class LC0206 {
     public ListNode reverseList(ListNode head) {
