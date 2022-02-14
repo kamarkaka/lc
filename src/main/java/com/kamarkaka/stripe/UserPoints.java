@@ -1,10 +1,12 @@
 package com.kamarkaka.stripe;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /***
  * Background
  * Our users have points in their accounts.
@@ -130,7 +132,6 @@ public class UserPoints {
 
 class UserPointsTest {
    @Test
-   @DisplayName("test 1")
    void Test1() {
       UserPoints p1 = new UserPoints();
       p1.add("DANNON", 1000, "2020-11-02 14:00:00");
@@ -139,5 +140,8 @@ class UserPointsTest {
       p1.add("MILLER COORS", 10000, "2020-11-01 14:00:00");
       p1.add("DANNON", 300, "2020-10-31 10:00:00");
 
+      assertEquals(p1.getBalance().toString(), "[UNILEVER: 200, MILLER COORS: 10000, DANNON: 1100]");
+      assertEquals(p1.spend(5000).toString(), "[UNILEVER: -200, MILLER COORS: -4700, DANNON: -100]");
+      assertEquals(p1.getBalance().toString(), "[UNILEVER: 0, MILLER COORS: 5300, DANNON: 1000]");
    }
 }
