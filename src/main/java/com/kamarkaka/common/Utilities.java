@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.stripe.UserPoints;
+import com.kamarkaka.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      UserPoints.run();
+      LC1347.run();
    }
 }
