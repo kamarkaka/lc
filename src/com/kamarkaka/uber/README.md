@@ -80,6 +80,104 @@
 - repeat
 - find shorted end-start during the process
 
+[98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+- both subtrees (left and right) are valid
+- max in left subtree smaller than root
+- min in right subtree larger than root
+
+[101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
+- left and right is symmetric if:
+- left.right is symmetric with right.left and
+- left.left is symmetric with right.right
+
+[126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/)
+- bfs from both begin word and end word until they meet in the middle
+- memorize change path in a map with each word
+- dfs to find the path
+- store path in result
+
+[127. Word Ladder](https://leetcode.com/problems/word-ladder/)
+- same as 126
+- bfs from both ends, memorizing current depth
+- return depth when found match
+
+[153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+- binary search
+- find mid element of array
+- if mid > first elemnent, get rid of left
+- otherwise get rid of right
+
+[154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+- binary search
+- find mid element of array
+- if mid > hi, get rid of right
+- if mid < hi, get rid of left
+- if equal, right--
+
+[207. Course Schedule](https://leetcode.com/problems/course-schedule/)
+- hashmap, key is course, value is prerequisite of this course
+- for each node i, do a bfs to find all course that need to be taken before it
+- see if i is in its own set, if yes, there is circular reference
+
+[224. Basic Calculator](https://leetcode.com/problems/basic-calculator/)
+- have a stack store left operand and operator
+- push to stack when "("
+- pop stack when ")"
+
+[238. Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
+- two arrays: left and right
+- left[i] is the product of nums[0] to nums[i-1]
+- right[i] is the product of nums[i+1] to nums[N-1]
+- product[i] = left[i] * right[i]
+
+[239. Sliding Window Maximum]()
+
+[252. Meeting Rooms]()
+
+[259. 3Sum Smaller]()
+
+[295. Find Median from Data Stream]()
+
+[315. Count of Smaller Numbers After Self]()
+
+[332. Reconstruct Itinerary]()
+
+[340. Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+
+[341. Flatten Nested List Iterator]()
+
+[398. Random Pick Index]()
+
+[427. Construct Quad Tree]()
+
+[470. Implement Rand10() Using Rand7()]()
+
+[528. Random Pick with Weight]()
+
+[529. Minesweeper]()
+
+[542. 01 Matrix]()
+
+[636. Exclusive Time of Functions]()
+
+[694. Number of Distinct Islands]()
+
+[729. My Calendar I]()
+
+[824. Goat Latin]()
+
+[855. Exam Room]()
+
+[895. Maximum Frequency Stack]()
+
+[953. Verifying an Alien Dictionary]()
+
+[1182. Shortest Distance to Target Color]()
+
+[1200. Minimum Absolute Difference]()
+
+[1515. Best Position for a Service Centre]()
+
 [427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/)
 - recursive calls
 
