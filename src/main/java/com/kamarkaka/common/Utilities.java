@@ -1,6 +1,7 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.doordash.*;
+import com.kamarkaka.square.Decoder;
+import com.kamarkaka.square.Socks;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +43,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      MenuDiff.run();
+      Decoder.run();
    }
 }

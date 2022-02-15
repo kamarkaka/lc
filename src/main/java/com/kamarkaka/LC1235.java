@@ -63,4 +63,13 @@ public class LC1235 {
 
       return maxProfit;
    }
+
+   public static void run() {
+      LC1235 sol = new LC1235();
+      System.out.println(sol.jobScheduling(
+         new int[] {1,2,3,3},
+         new int[] {3,4,5,6},
+         new int[] {5,1,4,7}
+      ));
+   }
 }
