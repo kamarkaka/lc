@@ -1,5 +1,6 @@
 package com.kamarkaka;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /***
@@ -34,6 +35,35 @@ import java.util.List;
  */
 public class LC1253 {
    public List<List<Integer>> reconstructMatrix(int upper, int lower, int[] colsum) {
+      List<List<Integer>> res = new ArrayList<>();
+      res.add(new ArrayList<>());
+      res.add(new ArrayList<>());
 
+      for (int i = 0; i < colsum.length; i++) {
+         if (colsum[i] == 0) {
+            res.get(0).add(0);
+            res.get(1).add(0);
+         } else if (colsum[i] == 2) {
+            res.get(0).add(1);
+            res.get(1).add(1);
+            upper--;
+            lower--;
+         } else {
+            if (upper > lower) {
+               res.get(0).add(1);
+               res.get(1).add(0);
+               upper--;
+            } else {
+               res.get(0).add(0);
+               res.get(1).add(1);
+               lower--;
+            }
+         }
+      }
+
+      if (upper == 0 && lower == 0) {
+         return res;
+      }
+      return new ArrayList<>();
    }
 }
