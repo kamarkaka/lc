@@ -12,7 +12,7 @@
 - justify line after all words are added
 
 [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
-- bfs
+- binary search
 
 [57. Insert Interval](https://leetcode.com/problems/insert-interval/)
 - go through current intervals one by one
@@ -24,7 +24,7 @@
 - dfs from every single value in matrix
 
 [465. Optimal Account Balancing](https://leetcode.com/problems/optimal-account-balancing/)
-- calculte balances for each one based on transactions
+- calculate balances for each one based on transactions
 - start = 0, need to transfer this guy's balance to someone
 - dfs to find who to transfer
 
@@ -177,15 +177,30 @@
 [398. Random Pick Index](https://leetcode.com/problems/random-pick-index/)
 - hashmap key number, value list of indices
 
-[427. Construct Quad Tree]()
+[427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/)
+- recursive calls
 
-[470. Implement Rand10() Using Rand7()]()
+[470. Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/)
+- rejection sampling
+- run rand7 twice to get uniform random 1-49
+- discard 41-49 (try again)
 
-[528. Random Pick with Weight]()
+[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+- calculate total weight and sum of previous weight to a number
+- randomly generate number in range of total weight
+- binary search in previous weight array to find the number
 
-[529. Minesweeper]()
+[529. Minesweeper](https://leetcode.com/problems/minesweeper/)
+- if click mine, die and game over
+- if click has mine in surrounding 8 blocks, display number and stop
+- if click is empty, bfs 8 surrounding 8 blocks
 
-[542. 01 Matrix]()
+[542. 01 Matrix](https://leetcode.com/problems/01-matrix/)
+- bfs
+- put all 0s in queue
+- update all 1s to -1
+- bfs until queue is empty
+- do not update cells that value is not -1
 
 [636. Exclusive Time of Functions]()
 
@@ -207,8 +222,6 @@
 
 [1515. Best Position for a Service Centre]()
 
-[427. Construct Quad Tree](https://leetcode.com/problems/construct-quad-tree/)
-- recursive calls
 
 [757. Set Intersection Size At Least Two](https://leetcode.com/problems/set-intersection-size-at-least-two/)
 - sort array by end element asc

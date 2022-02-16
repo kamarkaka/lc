@@ -1,8 +1,8 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.LC0315;
-import com.kamarkaka.square.Decoder;
-import com.kamarkaka.square.Socks;
+import com.kamarkaka.*;
+import com.kamarkaka.square.*;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -44,6 +44,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC0315.run();
+      LC0542.run();
    }
 }
