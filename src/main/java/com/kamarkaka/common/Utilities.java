@@ -1,5 +1,6 @@
 package com.kamarkaka.common;
 
+import com.kamarkaka.LC0315;
 import com.kamarkaka.square.Decoder;
 import com.kamarkaka.square.Socks;
 
@@ -43,6 +44,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      Decoder.run();
+      LC0315.run();
    }
 }

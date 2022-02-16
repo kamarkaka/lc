@@ -131,22 +131,51 @@
 - product[i] = left[i] * right[i]
 
 [239. Sliding Window Maximum]()
+- use deque (double ended queue)
+- left end is always the maximum
+- if encounters a number greater than current max, clear deque and push the number in
+- if encounters a number smaller than current max, remove all elements in queue from right that is smaller than current number
 
-[252. Meeting Rooms]()
+[252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/solution/)
+- sort by start time
+- see if there is overlap
 
-[259. 3Sum Smaller]()
+[259. 3Sum Smaller](https://leetcode.com/problems/3sum-smaller/solution/)
+- sort the array
+- pick a number
+- calculate 2SumSmaller for the numbers larger than current number, and target = target - num
+- for 2SumSmaller
+  - two pointers
+  - move right until sum < target
+  - increment by diff of two pointer
+  - move left
 
-[295. Find Median from Data Stream]()
+[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
+- 2 priority queues
+- one min heap storing upper half
+- one max heap storing lower half
+- keep adding to lower half (max heap), then add top of min heap to upper half (min heap)
+- make sure size of two pq are same or diff by 1
 
-[315. Count of Smaller Numbers After Self]()
+[315. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+- merge sort
 
-[332. Reconstruct Itinerary]()
+[332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
+- build graph
+- hashmap key origin, value list of destinations
+- backtrack until a route is found utilizing all tickets
 
 [340. Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+- two pointers and hashmap key char value rightmost index
+- keep adding char into map and increment hi pointer, until map size > k
+- find char with lowest index and remove from map, move lo pointer next to it
+- update max len
 
-[341. Flatten Nested List Iterator]()
+[341. Flatten Nested List Iterator](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+- nested iterator
 
-[398. Random Pick Index]()
+[398. Random Pick Index](https://leetcode.com/problems/random-pick-index/)
+- hashmap key number, value list of indices
 
 [427. Construct Quad Tree]()
 
