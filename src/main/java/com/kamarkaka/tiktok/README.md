@@ -66,12 +66,20 @@
 - if yes, swap with that bigger digit on the rightmost index
 
 [702. Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
+- search for boundaries by doubling each time
+- do regular binary search afterwards
 
 [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/)
+- bfs
 
 [855. Exam Room](https://leetcode.com/problems/exam-room/)
+- priority queue by longest length
+- seat: poll from pq, add two more
+- leave: iterate all elements from pq, find the two intervals with p
+- remove the two intervals, add a new one
 
 [1375. Number of Times Binary String Is Prefix-Aligned](https://leetcode.com/problems/number-of-times-binary-string-is-prefix-aligned/)
+- compare sum of flip and sum (1..i)
 
 [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/)
 
