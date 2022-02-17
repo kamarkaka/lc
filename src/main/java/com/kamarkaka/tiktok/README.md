@@ -61,6 +61,9 @@
 - trie
 
 [670. Maximum Swap](https://leetcode.com/problems/maximum-swap/)
+- store the rightmost index of each digit
+- start from the most significant digit, see if there is a bigger digit on its right
+- if yes, swap with that bigger digit on the rightmost index
 
 [702. Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
 
