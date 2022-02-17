@@ -39,14 +39,26 @@
 - nested iterator
 
 [490. The Maze](https://leetcode.com/problems/the-maze/)
+- bfs
+- use while to find next positions
 
 [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
 
 [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+- it's going to have negatives in array
+- O(n^2) with two pointers
+- fix start and change end, calculate sum for each end
+- increment start and change end and calculate again
 
 [567. Permutation in String](https://leetcode.com/problems/permutation-in-string/)
+- sliding window of fixed size s1.length
+- use int[26] to remember count for each char in s1
+- use another int[26] s2map for each char in window
+- keep updating s2map when sliding window
+- return true if two int[26] equal
 
 [642. Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/)
+- trie
 
 [670. Maximum Swap](https://leetcode.com/problems/maximum-swap/)
 
