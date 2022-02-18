@@ -83,6 +83,11 @@
 
 [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/)
 - sort the array of costs
-- pick cheapest first
+- pick the cheapest first
 
 [1996. The Number of Weak Characters in the Game](https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/)
+- sort array by attack asc
+- for same attack, sort by defence desc
+- go from list end to beginning
+- keep track of max defence
+- if current defence less than max, it is weak as all past elements have higher attack and at least one has max defence
