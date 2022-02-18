@@ -82,5 +82,7 @@
 - compare sum of flip and sum (1..i)
 
 [1833. Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/)
+- sort the array of costs
+- pick cheapest first
 
 [1996. The Number of Weak Characters in the Game](https://leetcode.com/problems/the-number-of-weak-characters-in-the-game/)
