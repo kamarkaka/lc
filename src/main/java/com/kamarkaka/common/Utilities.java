@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.tiktok.QuickSort;
+import com.kamarkaka.LC2096;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      QuickSort.run();
+      LC2096.run();
    }
 }
