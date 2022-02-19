@@ -50,13 +50,18 @@
 - add all dp[i] for final answer
 
 [2096. Step-By-Step Directions From a Binary Tree Node to Another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/)
+- find path to start and dest from root, separately
+- discard LCA path
+- convert remaining start path to u
+- append remaining end path
+
+[2115. Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/)
+- recursively check whether all ingredients in a recipe can:
+- either in supply
+- can be made by a recipe
 
 
-
-
-
-
-(843) Guess the Word
+- (843) Guess the Word
 - pick any word to start with
 - get match count from that word
 - use this word to check against other words
