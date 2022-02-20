@@ -169,6 +169,66 @@
 - reason is, for example if the word returns match 1 with secret
 - the correct word should have exact 1 match with this one, not 0, not 2
 
+[2007. Find Original Array From Doubled Array](https://leetcode.com/problems/find-original-array-from-doubled-array/)
+- sort the array
+- start from smallest number min, say, there are k
+- check if there are at least k numbers with value min*2
+- use map <key: num, val: count>
+- edge case: num is zero since num * 2 = num
+
+[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+- sort all intervals by start time
+- keep a priority queue of end time
+- initially add first interval
+- for all intervals
+    - poll from pq if start time larger than top of pq
+    - add interval to pq
+- pq size is the answer
+
+[45. Jump Game II](https://leetcode.com/problems/jump-game-ii/)
+- greedy
+- remember how far we can jump now
+- calculate how far we can jump within the current jump steps
+- the furthest we be our next jump start
+
+[947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/)
+- union find
+- the observation here is that if a bunch of stones sharing the same row/col with each other
+- there are always ways to remove them until there is only 1 stone left
+- so the problem is reduced to how many isolated "island" are there NOT sharing row/col
+
+[1937. Maximum Number of Points with Cost](https://leetcode.com/problems/maximum-number-of-points-with-cost/)
+- dp[i] means best points you can get
+- for each row, needs two runs on each col: left and right
+- update dp[i] with prev dp[i-1] and next dp[i+1]
+
+[1240. Tiling a Rectangle with the Fewest Squares](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/)
+- dp with memorization
+- dp[i][j] is the minimum sqaure number to fill a rec with size i*j
+- return dp[m][n]
+
+[274. H-Index](https://leetcode.com/problems/h-index/)
+- sort by citation asc
+- idx initially set to 0
+- if citation[end - idx] > idx, 
+- meaning there are at least idx number of papers with citation number larger than idx
+- increment idx and try until break
+
+[1877. Minimize Maximum Pair Sum in Array](https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/)
+- sort by number asc
+- pick smallest and largest as a pair
+- calculate pair sum, update if needed
+
+[1525. Number of Good Ways to Split a String](https://leetcode.com/problems/number-of-good-ways-to-split-a-string/)
+- 1 run go left to right, calculate distinct letters on each idx
+- 1 run go right to left, calculate distinct letters on each idx
+- compare left[i] and right[i+1] if equals, res++
+
+[1509. Minimum Difference Between Largest and Smallest Value in Three Moves](https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/)
+- find 4 largest numbers
+- find 4 smallest numbers
+- remove 1 number in two arrays at a time, try to minimize diff
+
 
 
 
@@ -189,11 +249,6 @@
 - rebuild path
 - memorize visited with min dist to a node at index
 - memorize nextChoiceForMin with next node to choose from a node at index
-
-(1509) Minimum Difference Between Largest and Smallest Value in Three Moves
-- find 4 largest numbers
-- find 4 smallest numbers
-- remove 1 number in two arrays at a time, try to minimize diff
 
 (946) Validate Stack Sequences
 - have a stack push/pop along with the two arrays

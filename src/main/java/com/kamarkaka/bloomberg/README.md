@@ -71,14 +71,6 @@
     - one stores products of all elements to the left of curr idx
     - product of idx is left * right
 
-[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
-- sort all intervals by start time
-- keep a priority queue of end time
-- initially add first interval
-- for all intervals
-  - poll from pq if start time larger than top of pq
-  - add interval to pq
-- pq size is the answer
 
 [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
 - hash map with <value, index to list>
