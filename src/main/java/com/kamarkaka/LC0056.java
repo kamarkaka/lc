@@ -4,33 +4,20 @@ import java.util.*;
 
 public class LC0056 {
    public int[][] merge(int[][] intervals) {
-      List<Integer> start = new ArrayList<>();
-      Map<Integer, Integer> map = new HashMap<>();
-
+      Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+      LinkedList<int[]> merged = new LinkedList<>();
       for (int[] interval : intervals) {
-         start.add(interval[0]);
-         map.put(interval[0], Math.max(interval[1], map.getOrDefault(interval[0], Integer.MIN_VALUE)));
-      }
-
-      Collections.sort(start);
-      List<int[]> res = new ArrayList<>();
-
-      int index = 0;
-      int p0 = start.get(index), p1 = map.get(p0);
-      index++;
-      while (index < intervals.length) {
-         int p0new = start.get(index);
-         if (p1 < p0new) {
-            res.add(new int[] {p0, p1});
-            p0 = p0new;
-            p1 = map.get(p0new);
-         } else {
-            p1 = Math.max(p1, map.get(p0new));
+         // if the list of merged intervals is empty or if the current
+         // interval does not overlap with the previous, simply append it.
+         if (merged.isEmpty() || merged.getLast()[1] < interval[0]) {
+            merged.add(interval);
          }
-         index++;
+         // otherwise, there is overlap, so we merge the current and previous
+         // intervals.
+         else {
+            merged.getLast()[1] = Math.max(merged.getLast()[1], interval[1]);
+         }
       }
-
-      res.add(new int[] {p0, p1});
-      return res.toArray(new int[0][]);
+      return merged.toArray(new int[merged.size()][]);
    }
 }

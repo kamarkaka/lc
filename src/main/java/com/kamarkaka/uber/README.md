@@ -7,10 +7,6 @@
 
 [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 
-[68. Text Justification](https://leetcode.com/problems/text-justification/)
-- add words to line
-- justify line after all words are added
-
 [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - binary search
 
@@ -56,11 +52,6 @@
 - if they overlap, median is max or avg of num1[mid1], num2[mid2]
 - otherwise increase lo or hi accordingly
 
-[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-- stack
-- push if open parentheses
-- pop if close parentheses and is a matched pair with top of stach
-- stack should be empty in the end, if valid
 
 [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - bit masking
@@ -150,15 +141,6 @@
   - increment by diff of two pointer
   - move left
 
-[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
-- 2 priority queues
-- one min heap storing upper half
-- one max heap storing lower half
-- keep adding to lower half (max heap), then add top of min heap to upper half (min heap)
-- make sure size of two pq are same or diff by 1
-
-[315. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
-- merge sort
 
 [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 - build graph
@@ -185,10 +167,6 @@
 - run rand7 twice to get uniform random 1-49
 - discard 41-49 (try again)
 
-[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
-- calculate total weight and sum of previous weight to a number
-- randomly generate number in range of total weight
-- binary search in previous weight array to find the number
 
 [529. Minesweeper](https://leetcode.com/problems/minesweeper/)
 - if click mine, die and game over

@@ -41,7 +41,7 @@ public class LC0552 {
       dp[1][1] = 1;
       dp[1][2] = 0;
 
-      for (int i = 2; i < n; i++) {
+      for (int i = 3; i <= n; i++) {
          long[][] newDP = new long[2][3];
          newDP[0][0] = (dp[0][0] + dp[0][1] + dp[0][2]) % 1_000_000_007;
          newDP[0][1] = dp[0][0];

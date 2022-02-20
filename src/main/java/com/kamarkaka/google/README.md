@@ -60,13 +60,116 @@
 - either in supply
 - can be made by a recipe
 
+[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
+- 2 priority queues
+- one min heap storing upper half
+- one max heap storing lower half
+- keep adding to lower half (max heap), then add top of min heap to upper half (min heap)
+- make sure size of two pq are same or diff by 1
 
-- (843) Guess the Word
+[315. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+- merge sort
+
+[329. Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
+- dfs with memorization
+
+[379. Design Phone Directory](https://leetcode.com/problems/design-phone-directory/)
+- current is the number that is currently available
+- next[] to keep track of number status
+- next[i] = -1 means number i is taken
+- next[i] > 0 means if we take i as the number to return, the next number we should take is next[i]
+- initially, next[i] = i + 1, except that last element points back to 0
+
+[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+- calculate total weight and sum of previous weight to a number
+- randomly generate number in range of total weight
+- binary search in previous weight array to find the number
+
+[54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+- just follow instructions
+- traverse right, down, left up
+- decrease limit after each traversal
+
+[552. Student Attendance Record II](https://leetcode.com/problems/student-attendance-record-ii/)
+- dp[2][3]
+- dp[i][j]: i is number of absent days (can only be 0 or 1)
+- dp[i][j]: j is number of most recent late days (can only be 0, 1, or 2)
+- dp[i][j]: number of possible attendance records
+- n = 1, return 3
+- n = 2, manually calculate dp as base case
+- start from n = 3
+- newdp can be derived from dp
+- return the sum of all dp[i][j]
+
+[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+- sort intervals by start time asc
+- put first into result
+- if next interval overlaps with last interval in result, update end time of last interval in result
+- otherwise, add this interval to result
+- repeat for all intervals
+
+[690. Employee Importance](https://leetcode.com/problems/employee-importance/)
+- have a map <key employee id, value employee object>
+- recursively run getImportance(id) on employee id and add all of his subordinates
+
+[727. Minimum Window Subsequence](https://leetcode.com/problems/minimum-window-subsequence/)
+- increment pointer to find first end of potential match
+- decrease pointer to find shortest match
+- increment pointer again to find next match
+- decrease again to find next shortest match
+- update if needed
+
+[954. Array of Doubled Pairs](https://leetcode.com/problems/array-of-doubled-pairs/)
+- sort array by abs
+- pick from smallest to largest abs
+- create count map <key num, value count>
+- decrease x, x*2 by 1 each in map
+- return false if any x*2 has zero or negative count
+
+[97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
+- greedy would not work
+- dp[j]: whether 0-j chars of s2 can for interleaving string
+- keep updating from i:0-s1.length() and j:0-s2.length()
+
+[68. Text Justification](https://leetcode.com/problems/text-justification/)
+- add words to line
+- justify line after all words are added
+
+[149. Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/)
+- for each point, calculate max points on a line by slope
+- get global max
+- no previous points need to be considered
+
+[708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
+- go through linked list to find place to insert:
+- prev <= insert <= next
+- or insert before smallest
+- or insert after largest
+- edge case: list has only 0 or 1 node
+
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- stack
+- push if open parentheses
+- pop if close parentheses and is a matched pair with top of stack
+- stack should be empty in the end, if valid
+
+[299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
+- array of 10 to store counters for each digit
+- bulls++ if characters are the same at the same index for secret and guess
+- otherwise, counter++ for the digit in secret, counter-- for the digit in guess
+- cows++ if secret counter < 0 or guess counter > 0
+- reason is previous secret or guess has already ++/-- this digit
+
+[843. Guess the Word](https://leetcode.com/problems/guess-the-word/)
 - pick any word to start with
 - get match count from that word
 - use this word to check against other words
 - if a word has the same number of characters at the same position as this word, leave it there
-- if has less, remove from set as it cannot be the answer
+- otherwise, remove from set as it cannot be the answer
+- reason is, for example if the word returns match 1 with secret
+- the correct word should have exact 1 match with this one, not 0, not 2
+
+
 
 
 
@@ -109,9 +212,3 @@
 - all elements larger than nums[hi] in min needs to be removed
 - all elements smaller than nums[hi] in max needs to be removed
 
-(727) Minimum Window Subsequence
-- increment pointer to find first end of potential match
-- decrease pointer to find shortest match
-- increment pointer again to find next match
-- decrease again to find next shortest match
-- update if needed

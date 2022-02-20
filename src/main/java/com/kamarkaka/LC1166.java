@@ -77,16 +77,17 @@ class FileSystem {
 
       return node.value;
    }
-}
 
-class Node {
-   String name;
-   int value;
-   Map<String, Node> children;
+   private class Node {
+      String name;
+      int value;
+      Map<String, Node> children;
 
-   public Node(String name, int value) {
-      this.name = name;
-      this.value = value;
-      this.children = new HashMap<>();
+      public Node(String name, int value) {
+         this.name = name;
+         this.value = value;
+         this.children = new HashMap<>();
+      }
    }
 }
+

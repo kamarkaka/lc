@@ -29,13 +29,6 @@
 - if starting number less than ending number, the range is increasing, do normal binary search
 - otherwise recursively search lower half and higher half, see if result is found
 
-[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
-- sort all starts
-- sort all ends
-- add interval only when
-  - reaches end of intervals
-  - next start is larger than this end
-
 [62. Unique Paths](https://leetcode.com/problems/unique-paths/)
 - dp
 - result of current square is the sum of the square to the top and to the left
