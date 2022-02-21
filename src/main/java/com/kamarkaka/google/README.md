@@ -229,6 +229,48 @@
 - find 4 smallest numbers
 - remove 1 number in two arrays at a time, try to minimize diff
 
+[1293. Shortest Path in a Grid with Obstacles Elimination](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
+- bfs the matrix while keeping track of the number of eliminations left
+
+[1554. Strings Differ by One Character](https://leetcode.com/problems/strings-differ-by-one-character/)
+- for each word, replace one char to * and add to set
+- do this to every letter in a word
+- return true if a replaced word is already in set
+
+[767. Reorganize String](https://leetcode.com/problems/reorganize-string/)
+- sort letters by freq
+- start fill string by using letters with most freq
+
+[2034. Stock Price Fluctuation](https://leetcode.com/problems/stock-price-fluctuation/)
+- two heaps
+- don't try to delete updated records
+- poll from heap if the record is updated
+
+[1477. Find Two Non-overlapping Sub-arrays Each With Target Sum](https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum/)
+- two pointers, increment left and right pointer to find a subarray with sum target
+- keep track of minimum length of the subarray
+- mins[r] tracks minimum length of qualifying subarray ends at index r
+- whenever a qualifying subarray (l, r) is found, check mins[l-1] and update combined length
+
+[103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
+- bfs
+- remember traversal direction, change after traversing one level
+
+[2092. Find All People With Secret](https://leetcode.com/problems/find-all-people-with-secret/)
+- sort by timestamp asc
+- union find all meetings on each timestamp
+
+[489. Robot Room Cleaner](https://leetcode.com/problems/robot-room-cleaner/)
+- use a stack to keep track of moving path
+- keep track of cleaned spaces
+- keep track of walls
+
+
+
+
+
+
+
 
 
 
@@ -256,8 +298,6 @@
 - pop that element, push until seeing the next element in pop
 - repeat until reaching end of pop, see if stack is empty
 
-(1293) Shortest Path in a Grid with Obstacles Elimination
-- bfs the matrix while keeping track of the number of eliminations left
 
 (1438) Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
 - have a min queue storing smallest numbers

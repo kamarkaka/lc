@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.LC1525;
+import com.kamarkaka.LC0767;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC1525.run();
+      LC0767.run();
    }
 }
