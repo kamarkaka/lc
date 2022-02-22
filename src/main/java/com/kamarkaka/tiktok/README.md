@@ -24,11 +24,6 @@
 - only output the courses with 0 prerequisite
 - bfs, when visiting a node, decrease number of prerequisites for all its neighbors
 
-[227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)
-- if +/-, always calculate previous first
-- if *//, calculate previous if pre-op is *// as well
-- otherwise, push to stack
-
 [337. House Robber III](https://leetcode.com/problems/house-robber-iii/)
 - if current node is robbed, can only start robbing grand children
 - if current node is not robbed, can start robbing children

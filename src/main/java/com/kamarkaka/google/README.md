@@ -327,10 +327,37 @@
 - all elements larger than nums[hi] in min needs to be removed
 - all elements smaller than nums[hi] in max needs to be removed
 
+[278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
+- binary search
+- have two pointers lo and hi
+- if mid is bad, set hi to mid, repeat
+- if mid is good, set lo to mid+1
+- repeat until two pointers meet, return
 
+[227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)
+- if +/-, always calculate previous first
+- if *//, calculate previous if pre-op is *// as well
+- otherwise, push to stack
 
+[150. Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
+- push numbers into stack
+- for ops, pop 2 numbers from stack, calculate result, push back into stack
+- there should be only one number in stack, which is the result
 
+[827. Making A Large Island](https://leetcode.com/problems/making-a-large-island/)
+- calculate areas for all islands, mark each island with an index
+- for each cell with value 0, see how many islands it can connect
+- calculate combined area, update max if needed
 
+[1305. All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
+- in order traversal to get ordered list out of bst
+- sort two ordered lists
+
+[729. My Calendar I](https://leetcode.com/problems/my-calendar-i/)
+- sorted set (TreeSet) order by start time
+- use set.floor() to find the task before currnet
+- use set.ceiling() to find the task after current
+- check if there is overlap
 
 
 
