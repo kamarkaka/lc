@@ -265,7 +265,67 @@
 - keep track of cleaned spaces
 - keep track of walls
 
+[1376. Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/)
+- dfs
+- dfs returns the time it needs to inform this employee, from boss
+- if this guy is manager, return the time it takes to inform all subs
+- if not, return the time plus his manager's time to get informed, then set him to boss
 
+[772. Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/)
+- a valStack for all values
+- a opStack for all ops and '('
+- if digit, keep appending
+- if '(' push to opStack
+- if ')', pop 2 vals and 1 op, do calculation and push result back to valStack
+- keep doing it until opStack top is not '(', then pop it
+- if '+-*/', maybe negative number, check for that
+- otherwise, calculate result from 2 vals and 1 op, push result to valStack
+- keep doing it until you hit '(' or pre is +/- and you're doing *//
+- push current op into opStack
+
+[366. Find Leaves of Binary Tree](https://leetcode.com/problems/find-leaves-of-binary-tree/)
+- recursion
+- removeLeaves(root) will remove leaves from tree at root and return a set of leaf nodes
+- if root is null return empty set
+- if root is leaf return itself
+- recursively call removeLeaves on left and right nodes
+- remove left/right nodes if necessary
+- return union of left and right leaves
+- call removeLeaves on root until root is in the result set
+
+[1278. Palindrome Partitioning III](https://leetcode.com/problems/palindrome-partitioning-iii/)
+- dp
+- break the string into 2, check the cost of 1st by replacing letters to palindrome
+- and add min cost of 2nd string breaking into k-1 parts
+- run it recursively
+
+[1931. Painting a Grid With Three Different Colors](https://leetcode.com/problems/painting-a-grid-with-three-different-colors/)
+- dfs to get all permutations of color in a row, say there are n permutation
+- create a n*n matrix arr to pre calculate if a row is compatible with another
+- arr[i][j] = 1 means permutation i is compatible with permutation j, otherwise is 0
+- create array dp with length n, initially, all values are set to 1
+- for each newdp[i], all arr[i][j] = 1 can add dp[j] to newdp[i]
+- keep iterating col times
+- add all dp[i] to get final answer
+
+[129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)
+- dfs and keep track of the num you get so far
+- when reaching a leaf node, add to sum
+- otherwise, update the num to 10*num+node.val and pass to its child nodes
+
+[369. Plus One Linked List](https://leetcode.com/problems/plus-one-linked-list/)
+- reverse list, add one, and reverse again
+- or
+- find last node that is not 9
+- add 1 to it, update all nodes after it to 0
+
+[1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/)
+- have a min queue storing smallest numbers
+- have a max queue storing largest numbers
+- increment hi pointer when diff <= limit
+- increment lo pointer otherwise
+- all elements larger than nums[hi] in min needs to be removed
+- all elements smaller than nums[hi] in max needs to be removed
 
 
 
@@ -298,12 +358,4 @@
 - pop that element, push until seeing the next element in pop
 - repeat until reaching end of pop, see if stack is empty
 
-
-(1438) Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-- have a min queue storing smallest numbers
-- have a max queue storing largest numbers
-- increment hi pointer when diff <= limit
-- increment lo pointer otherwise
-- all elements larger than nums[hi] in min needs to be removed
-- all elements smaller than nums[hi] in max needs to be removed
 
