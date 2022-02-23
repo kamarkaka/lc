@@ -14,6 +14,10 @@
 - get one digit at a time, calculate integer
 - make sure overflow is handled
 
+[12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
+- keep a mapping between integer and roman, including 4,9s
+- keep adding the biggest available numbers
+
 [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 1. solution 1 (2 pass less space)
    - go to tail of list
@@ -22,6 +26,20 @@
    - keep track of the index of each node
    - save pointer to node in hash map
    - get node with index (size - 1 - n) and cut next node
+
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- push to stack for open paren
+- pop stack for matching close paren
+- return if stack is empty
+
+[23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+- have a separate method to merge 2 lists into 1
+- merge 2 list at a time
+- do this for (0,1), (2,3), ...
+- so you have merged lists in index 0, 2, 4,...
+- then merge (0,2), (4,6),...
+- keep merging until there is 1 left
+- return list at index 0
 
 [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 - recursive binary search
@@ -36,6 +54,9 @@
 [79. Word Search](https://leetcode.com/problems/word-search/)
 - dfs
 
+[91. Decode Ways](https://leetcode.com/problems/decode-ways/)
+- dp with just 2 variables to store results
+
 [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 - recursive call
 - left/right child is valid
@@ -44,6 +65,10 @@
 
 [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
 - bfs
+
+[134. Gas Station](https://leetcode.com/problems/gas-station/)
+- total tank (sum (gas - cost)) should be >= 0, otherwise cannot complete
+- curr tank sum (gas[i] - cost[i]) should be >= 0, otherwise set i = i+1;
 
 [140. Word Break II](https://leetcode.com/problems/word-break-ii/)
 - put dictionary in a set
@@ -55,6 +80,10 @@
 - maintain a linked list, keep track of head and tail
 - for gets, move the node to tail
 - for puts, evict head if reaches capacity, then insert to tail
+
+[199. Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+- bfs
+- at each level, output last node
 
 [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 - go through all nodes in matrix
