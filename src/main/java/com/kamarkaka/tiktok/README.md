@@ -20,7 +20,7 @@
 
 [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
 - topological sort
-- keep track of the number of prerequisies a course has
+- keep track of the number of prerequisites a course has
 - only output the courses with 0 prerequisite
 - bfs, when visiting a node, decrease number of prerequisites for all its neighbors
 

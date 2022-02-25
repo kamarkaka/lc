@@ -359,6 +359,10 @@
 - use set.ceiling() to find the task after current
 - check if there is overlap
 
+[726. Number of Atoms](https://leetcode.com/problems/number-of-atoms/)
+- use stack to memorize map of element and counts
+
+[631. Design Excel Sum Formula](https://leetcode.com/problems/design-excel-sum-formula/)
 
 
 
