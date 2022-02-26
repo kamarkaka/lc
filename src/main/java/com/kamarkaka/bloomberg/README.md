@@ -47,6 +47,13 @@
 - if starting number less than ending number, the range is increasing, do normal binary search
 - otherwise recursively search lower half and higher half, see if result is found
 
+[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+- sort intervals by start time asc
+- put first into result
+- if next interval overlaps with last interval in result, update end time of last interval in result
+- otherwise, add this interval to result
+- repeat for all intervals
+
 [62. Unique Paths](https://leetcode.com/problems/unique-paths/)
 - dp
 - result of current square is the sum of the square to the top and to the left
@@ -90,8 +97,16 @@
 - bfs or dfs all adjacent nodes, mark them
 - skip marked nodes
 
+[212. Word Search II](https://leetcode.com/problems/word-search-ii/)
+- store words in trie
+- dfs
+
 [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 - recursively call it on right and left child nodes
+
+[230. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+- in order traversal will give you values in order
+- output kth number
 
 [238. Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
 1. brute force
@@ -100,6 +115,64 @@
     - one stores products of all elements to the left of curr idx
     - product of idx is left * right
 
+[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+- sort intervals by start time
+- pick earliest interval to put into priority queue
+- for every interval (by start time)
+- check if it overlaps with the interval at the top of pq
+- if not, pop the top
+- regardless, push the interval into pq
+- count the size of pq
+
+[263. Ugly Number](https://leetcode.com/problems/ugly-number/)
+- keep dividing by 5,3,2 until you can
+- see if result is 1
+
+[269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)
+- topological sort
+- bfs
+- add char relationship in adjacency list
+- keep counts for each char so parent char should have count 0
+- add chars with 0 count to queue
+- get a char from queue, add to output 
+- then decrease its children's count by 1
+- if any children's count drop to 0, add to queue
+
+[278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
+- binary search
+- have two pointers lo and hi
+- if mid is bad, set hi to mid, repeat
+- if mid is good, set lo to mid+1
+- repeat until two pointers meet, return
+
+[283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+- 2 pointers, writep and readp
+- if readp is non zero, copy value to writep and increment both
+- if readp is zero, only increment readp
+- fill the rest of writep to 0
+
+[314. Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)
+- assign each node with a column number
+- output from min col to max col
+
+[366. Find Leaves of Binary Tree](https://leetcode.com/problems/find-leaves-of-binary-tree/)
+- recursion
+- removeLeaves(root) will remove leaves from tree at root and return a set of leaf nodes
+- if root is null return empty set
+- if root is leaf return itself
+- recursively call removeLeaves on left and right nodes
+- remove left/right nodes if necessary
+- return union of left and right leaves
+- call removeLeaves on root until root is in the result set
+
+[378. Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+- 1.use min heap to store all column
+- each time pick top of heap and increment col on that node
+- 2.binary search
+- lo is smallest num, hi is largest num, mid is imaginary mid num
+- observation is if matrix[i][j] < val, this entire col up to i is smaller than val
+- check column by column to count how many numbers are smaller than mid
+- adjust hi and lo accordingly
 
 [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
 - hash map with <value, index to list>
@@ -107,6 +180,10 @@
 - current size
 - when add, put into hashmap and append to tail
 - when remove, remove from hashmap and swap index with tail value, then remove
+
+[384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array/)
+- keep a copy as original
+- randomly pick one from i to last, swap with i
 
 [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 - first loop to count freq

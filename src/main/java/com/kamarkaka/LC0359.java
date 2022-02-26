@@ -30,7 +30,7 @@ import java.util.Map;
  *   0 <= timestamp <= 10^9
  *   Every timestamp will be passed in non-decreasing order (chronological order).
  *   1 <= message.length <= 30
- *   At most 104 calls will be made to shouldPrintMessage.
+ *   At most 10^4 calls will be made to shouldPrintMessage.
  */
 public class LC0359 {
    class Logger {
