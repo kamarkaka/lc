@@ -47,6 +47,12 @@
 - if starting number less than ending number, the range is increasing, do normal binary search
 - otherwise recursively search lower half and higher half, see if result is found
 
+[42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+- 2 pointer, initially at two ends of array
+- if maxHeight < left < right, update maxHeight to left, increment water by left-maxHeight, left++
+- if maxHeight < right < left, update maxHeight to right, increment water by right-maxHeight, right--
+- observation here is memorize previous heights and see if the lower height of two points can trap water 
+
 [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - sort intervals by start time asc
 - put first into result
@@ -248,6 +254,11 @@
 - dp[i] = true if dp[j] = true and substring(i, j) is in set
 - return dp[word.length()]
 
+[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+- calculate total weight and sum of previous weight to a number
+- randomly generate number in range of total weight
+- binary search in previous weight array to find the number
+
 [532. K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
 - two pointers 0 and 1 idx
 - if diff > k, p0++
@@ -258,10 +269,19 @@
 - if two pointers meet p1++
 - until p1 over range
 
+[572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/)
+- if root nodes equal, check if trees equal
+- otherwise, check if children has subtree
+
 [641. Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
 - doubly linked list
 - keep track of head and tail
 - keep track of current size
+
+[652. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
+- pre-order traversal
+- keep track of all subtree strings in a map
+- if found in map, there are duplicates
 
 [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
 - go through all strings for freq, keep a hashmap (string, freq)
@@ -302,12 +322,23 @@
 - recursively call node's children with updated row/col numbers
 - print from min column number to max
 
+[994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
+- go through matrix to count fresh and rotten oranges, put rotten ones in queue
+- if there are no fresh ones already, return
+- if there are no rotten ones, return
+- bfs on rotten ones, making neighbors rotten, increment timer after each step
+- update fresh counter
+- check fresh counter after bfs
+
 [1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)
-- let everyone fly to the city with lowest cost
-- meanwhile remember the price difference to change
+- let everyone fly to the city with the lowest cost
+- meanwhile, remember the price difference to change
 - store price diff in priority queue, from least to most
 - if evenly split, return
 - for every re-distribution, add difference to cost
+
+[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
+- bfs
 
 [1169. Invalid Transactions](https://leetcode.com/problems/invalid-transactions/)
 - list of all transactions
