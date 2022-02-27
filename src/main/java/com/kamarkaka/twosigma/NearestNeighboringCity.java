@@ -38,6 +38,9 @@ import java.util.*;
  *
  */
 public class NearestNeighboringCity {
+   private int minDistance = Integer.MAX_VALUE;
+   private Point minPoint = null;
+
    String[] findNearestNeighbor(int numOfPoints, String[] names, int[] xCoordinates, int[] yCoordinates, int numOfQueriedPoints, String[] queriedName) {
       String[] res = new String[numOfQueriedPoints];
 
@@ -84,41 +87,12 @@ public class NearestNeighboringCity {
          int xIndex = Collections.binarySearch(sameXs, point, Comparator.comparingInt(p -> p.y));
          int yIndex = Collections.binarySearch(sameYs, point, Comparator.comparingInt(p -> p.x));
 
-         int minDiff = Integer.MAX_VALUE;
-         Point minPoint = null;
-         if (xIndex > 0) {
-            Point point1 = sameXs.get(xIndex - 1);
-            int diff = Math.abs(point1.y - point.y);
-            if (diff < minDiff) {
-               minDiff = diff;
-               minPoint = point1;
-            }
-         }
-         if (xIndex < sameXs.size() - 1) {
-            Point point1 = sameXs.get(xIndex + 1);
-            int diff = Math.abs(point1.y - point.y);
-            if (diff < minDiff) {
-               minDiff = diff;
-               minPoint = point1;
-            }
-         }
-
-         if (yIndex > 0) {
-            Point point1 = sameYs.get(yIndex - 1);
-            int diff = Math.abs(point1.x - point.x);
-            if (diff < minDiff) {
-               minDiff = diff;
-               minPoint = point1;
-            }
-         }
-         if (yIndex < sameYs.size() - 1) {
-            Point point1 = sameYs.get(yIndex + 1);
-            int diff = Math.abs(point1.x - point.x);
-            if (diff < minDiff) {
-               minDiff = diff;
-               minPoint = point1;
-            }
-         }
+         minDistance = Integer.MAX_VALUE;
+         minPoint = null;
+         updateMinDistance(point, sameXs, xIndex - 1);
+         updateMinDistance(point, sameXs, xIndex + 1);
+         updateMinDistance(point, sameYs, yIndex - 1);
+         updateMinDistance(point, sameYs, yIndex + 1);
 
          if (minPoint == null) {
             res[i] = null;
@@ -129,6 +103,21 @@ public class NearestNeighboringCity {
       }
 
       return res;
+   }
+
+   private void updateMinDistance(Point point, List<Point> list, int idx) {
+      if (idx < 0 || idx >= list.size()) return;
+
+      Point point1 = list.get(idx);
+      int distance = Math.abs(point1.x - point.x) + Math.abs(point1.y - point.y);
+
+      if (distance == minDistance && point1.name.compareTo(minPoint.name) < 0) {
+         minPoint = point1;
+      }
+
+      if (distance < minDistance) {
+         minDistance = distance;
+      }
    }
 
    private class Point {
