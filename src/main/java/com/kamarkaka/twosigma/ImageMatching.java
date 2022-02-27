@@ -55,9 +55,8 @@ public class ImageMatching {
             if (graph1[i][j] == 0 || graph2[i][j] == 0) continue;
             if (visited1[i][j] || visited2[i][j]) continue;
 
-            int region1Size = bfs(i, j, graph1, graph2, visited1);
-            int region2Size = bfs(i, j, graph2, graph1, visited2);
-            if (region1Size > 0 && region1Size == region2Size) count++;
+            int regionSize = bfs(i, j, graph1, graph2, visited1);
+            if (regionSize > 0) count++;
          }
       }
 
@@ -80,8 +79,8 @@ public class ImageMatching {
             int nc = p[1] + dir[1];
             if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;
             if (visited[nr][nc]) continue;
-            if (src[nr][nc] != 1) continue;
             if (src[nr][nc] != ref[nr][nc]) return -1;
+            if (src[nr][nc] != 1) continue;
 
             queue.add(new int[] {nr, nc});
          }
@@ -93,8 +92,8 @@ public class ImageMatching {
    public static void run() {
       ImageMatching sol = new ImageMatching();
       System.out.println(sol.countMatchingRegions(
-         new int[][] {{1,1,1},{1,0,0},{1,0,0}},
-         new int[][] {{1,1,1},{1,0,1},{1,0,0}}
+         new int[][] {{1,1,1},{1,0,1},{1,0,0}},
+         new int[][] {{1,1,1},{1,0,0},{1,0,1}}
       ));
    }
 }
