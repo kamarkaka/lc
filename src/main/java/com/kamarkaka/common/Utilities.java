@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.twosigma.NearestNeighboringCity;
+import com.kamarkaka.twosigma.QuantityDiscount;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      NearestNeighboringCity.run();
+      QuantityDiscount.run();
    }
 }
