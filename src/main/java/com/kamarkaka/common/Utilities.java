@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.*;
+import com.kamarkaka.twosigma.HuffmanCodec;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC1091.run();
+      HuffmanCodec.run();
    }
 }

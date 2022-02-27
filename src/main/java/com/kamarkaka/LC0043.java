@@ -54,40 +54,38 @@ public class LC0043 {
 
       if (c == '0') return result;
 
-      int x = 0;
+      int carry = 0;
 
       for (int i = chars.length - 1; i >= 0; i--) {
-         int product = (chars[i] - 48) * (c - 48) + x;
+         int product = (chars[i] - '0') * (c - '0') + carry;
          if (product >= 10) {
-            x = product / 10;
+            carry = product / 10;
             product = product % 10;
          } else {
-            x = 0;
+            carry = 0;
          }
 
-         product = product + 48;
-         result[i + totalLength - chars.length - offset] = (char) product;
+         result[i + totalLength - chars.length - offset] = (char) (product + '0');
       }
 
-      if (x > 0) result[totalLength - chars.length - offset - 1] = (char) (x + 48);
+      if (carry > 0) result[totalLength - chars.length - offset - 1] = (char) (carry + '0');
       return result;
    }
 
    private char[] add(char[] chars1, char[] chars2) {
       char[] result = new char[chars1.length];
-      int x = 0;
+      int carry = 0;
 
       for (int i = chars1.length - 1; i >= 0; i--) {
-         int sum = (chars1[i] - 48) + (chars2[i] - 48) + x;
+         int sum = (chars1[i] - '0') + (chars2[i] - '0') + carry;
          if (sum >= 10) {
-            x = 1;
+            carry = 1;
             sum -= 10;
          } else {
-            x = 0;
+            carry = 0;
          }
 
-         sum = sum + 48;
-         result[i] = (char) sum;
+         result[i] = (char) (sum + '0');
       }
 
       return result;

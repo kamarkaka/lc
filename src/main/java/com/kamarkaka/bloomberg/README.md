@@ -79,6 +79,10 @@
 [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
 - bfs
 
+[124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+- user recursive function to find max path ending on current node
+- in the process keep updated max path
+
 [134. Gas Station](https://leetcode.com/problems/gas-station/)
 - total tank (sum (gas - cost)) should be >= 0, otherwise cannot complete
 - curr tank sum (gas[i] - cost[i]) should be >= 0, otherwise set i = i+1;
@@ -120,6 +124,10 @@
     - one stores products of all elements to the right of curr idx
     - one stores products of all elements to the left of curr idx
     - product of idx is left * right
+
+[252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
+- sort intervals by starting time asc
+- check curr and next interval, see if there is a overlap
 
 [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 - sort intervals by start time
