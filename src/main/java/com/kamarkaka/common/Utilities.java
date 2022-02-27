@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.twosigma.Monday;
+import com.kamarkaka.twosigma.CompileLibraries;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      Monday.run();
+      CompileLibraries.run();
    }
 }
