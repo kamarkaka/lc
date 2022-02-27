@@ -8,6 +8,7 @@ public class Connect6 {
    private final Map<Point, Integer> board;
    private final int N;
    private int currPlayer;
+   private final static int[][] dirs = new int[][] {{1,1},{0,1},{1,0}};
 
    public Connect6(int N) {
       this.board = new HashMap<>();
@@ -34,30 +35,20 @@ public class Connect6 {
    }
 
    public boolean win(Point p) {
-      int dCount = 0, vCount = 0, hCount = 0;
+      int[] counts = new int[3];
       for (int i = -(N-1); i < N; i++) {
-         Point dp = new Point(p.x + i, p.y + i);
-         Point vp = new Point(p.x, p.y + i);
-         Point hp = new Point(p.x + i, p.y);
-         if (board.containsKey(dp) && board.get(dp) == currPlayer) {
-            dCount++;
-         } else {
-            dCount = 0;
+         for (int j = 0; j < 3; j++) {
+            int[] dir = dirs[j];
+            Point np = new Point(p.x + i * dir[0], p.y + i * dir[1]);
+
+            if (board.containsKey(np) && board.get(np) == currPlayer) {
+               counts[j]++;
+            } else {
+               counts[j] = 0;
+            }
          }
 
-         if (board.containsKey(vp) && board.get(vp) == currPlayer) {
-            vCount++;
-         } else {
-            vCount = 0;
-         }
-
-         if (board.containsKey(hp) && board.get(hp) == currPlayer) {
-            hCount++;
-         } else {
-            hCount = 0;
-         }
-
-         if (dCount == N || vCount == N || hCount == N) return true;
+         if (counts[0] == N || counts[1] == N || counts[2] == N) return true;
       }
 
       return false;

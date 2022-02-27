@@ -117,6 +117,7 @@ public class NearestNeighboringCity {
 
       if (distance < minDistance) {
          minDistance = distance;
+         minPoint = point1;
       }
    }
 
