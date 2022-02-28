@@ -1,0 +1,64 @@
+https://www.1point3acres.com/bbs/thread-772113-1-1.html
+https://www.1point3acres.com/bbs/thread-819790-1-1.html
+- IPO
+- TreeSplit
+
+https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=777926&page=1
+*1048. https://leetcode.com/problems/longest-string-chain/
+* 547. https://leetcode.com/problems/number-of-provinces/
+* 528. https://leetcode.com/problems/random-pick-with-weight/
+* 710. https://leetcode.com/problems/random-pick-with-blacklist/
+* 606. https://leetcode.com/problems/construct-string-from-binary-tree/
+* 146. https://leetcode.com/problems/lru-cache/
+*1779. https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/
+* 981. https://leetcode.com/problems/time-based-key-value-store/
+*  43. https://leetcode.com/problems/multiply-strings/
+* 415. https://leetcode.com/problems/add-strings/
+*   4. https://leetcode.com/problems/median-of-two-sorted-arrays/
+* 289. https://leetcode.com/problems/game-of-life/
+* 443. https://leetcode.com/problems/string-compression/
+* 698. https://leetcode.com/problems/partition-to-k-equal-sum-subsets/
+* 207. https://leetcode.com/problems/course-schedule/
+* 123. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+
+https://www.1point3acres.com/bbs/thread-842393-1-1.html
+- https://www.lintcode.com/problem/280/
+- connect 6
+- huffman
+
+https://www.1point3acres.com/bbs/thread-787904-1-1.html
+- canMakeTriangle
+- sumOfFirsts
+- bubblesPopping2
+- arrayAssignmentAndSum
+
+VO
+* LC0043. Multiply Strings
+* LC0123. Best Time to Buy and Sell Stock III]
+* LC0146. LRU Cache
+* LC0289. Game of Life
+* LC0460. LFU Cache
+* LC1013. Partition Array Into Three Parts With Equal Sum
+* huffman encoding，需要implement encode 和 decode
+* getPreviousMonday(date), inpute can be int 20201212 , output 20201207
+* build task scheduler。要注意dependency graph存在环的情况，需要先判环。
+* 有一群代码库需要编译，提供编译所需时间和dependency。还要保证没有dependency的代码库并行编译。topological sort，用bfs就可以了,Topological sort + heap
+* the nearest points，注意要用binary search来优化，不然会超时
+* 汇率兑换，找到从货币a到货币b最好的汇率，每种货币只允许换一次，基本的dfs不能过性能测试，考的是 weighted无向图上的最短路径
+* image-image-matching leetcode
+* 很多线段 求多少种取法能取出两个段落彼此不overlap, sort完之后二分查找做掉了
+* 六子棋，followup变成n子棋怎么提高效率（connect6）place black/white, next turn https://en.wikipedia.org/wiki/Connect6
+* quantity discounts
+
+处理股票。当来一个sell order的时候找最高价的buy order match 然后处理。当来一个buy order的时候找最低价的sell order match并处理。用minheap + maxheap (LC0801?)
+给朋友关系，找最大的集合使得集合里的人两两不相互认识。返回这个最大集合的size。 我写了2^n的方法后面试官提示memoization
+mergeksortedstream，会有一些变化，但是总体逻辑不变还是用heap来存index
+数组模拟一个内存
+
+text editor
+ood，老鼠和奶闹，后来再加上狗和猫，老鼠追奶闹，猫追老鼠，狗追猫，问这个游戏大概怎么实现。
+设计一个分布式时间序列的KV store, 支持timestamp based range read and write. 加分项是讨论一些clean/compaction的东西。
+  key value store 支持get(key) put(key, value)还有 getN(key, n), key 可能不在store里，找出所有key排序后大于等于这个key的n个value.  设计单机实现和分布式设计。（当时卡在linked list ordered dict 上， 回头想想可能是BST）
+Design Elevator. 可以用webapp和screen panel控制，需要badge scan，怎么处理电梯运行中有其他人request等等
+design一个game,考OOP. 有一个grid, grid上有个target，有一些players. Players不知道自己在grid上哪里，player有自己的移动strategy，但是输入是告诉你上次的移动是接近target了还是远离target了。
+冰箱。(https://www.1point3acres.com/bbs/thread-580268-1-1.html)

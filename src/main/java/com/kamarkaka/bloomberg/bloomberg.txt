@@ -1,0 +1,135 @@
+*   3
+*   8
+*  19
+*  33
+*  56
+*  62
+*  98
+* 117
+* 146
+* 200
+* 226
+* 238
+* 253
+* 387
+* 394
+* 433
+* 445
+* 451
+* 460
+* 463
+* 472
+* 532
+* 641
+* 692
+* 694
+* 700
+* 713
+* 797
+*1249
+*1396
+*1656
+
+LRU
+external sort相关，找到两个很大的file不一样的entry，做法是先进行external sort，再一一比较两个文件的每一行
+le‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌vel order print a binary tree
+Add number to linked list, make sure the linkedin list is sorted
+blocking queue
+会议室2
+
+Connect 4. The game board is a standing (m x n) matrix. Two players drop in their specific chip (red vs yellow) in any of the non-full columns. If a players's chips line up 4 in a row either in horizontal, vertical, or diagonal sequence, they scroe a point.
+Fi‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌nd out who is the winner from the current board (m x n 2D array)
+- - - -
+R - - -
+R - - -
+R Y Y Y
+ourput is 'R'
+
+岛屿数量+验证括号
+ longest non repeating string
+一个多叉树，找出从root到leaf的值加起来最小的那个路径，返回那个值
+
+
+按照对角线打印字符以及按照递归方式完成上述打印过程
+
+
+VO
+- LC0012. Integer to Roman
+- LC0020. Valid Parentheses
+- LC0023. Merge k Sorted Lists
+- LC0042. Trapping Rain Water
+- LC0056. Merge Intervals
+- LC0091. Decode Ways
+- LC0098. Validate Binary Search Tree
+- LC0117. Populating Next Right Pointers in Each Node II
+- LC0124. Binary Tree Maximum Path Sum
+- LC0134. Gas Station
+- LC0140. Word Break II
+- LC0146. LRU Cache
+- LC0199. Binary Tree Right Side View
+- LC0200. Number of Islands
+- LC0212. Word Search II
+  input 一个string，例如  "pplaezznzzoope", 一个valid word list [apple, zoo, pen]
+  1. 问这里面的 字符组合一共有几个 unique valid单词： 最初解 hashmap, 大概是这样：{word: char counter}
+  2. followup，如果 有几百万个词库，inpu‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌t又很短，怎么optimize：用 trie来存字典，然后再dfs求解
+- LC0230. Kth Smallest Element in a BST
+- LC0252. Meeting Rooms
+- LC0253. Meeting Rooms II
+- LC0263. Ugly Number
+- LC0269. Alien Dictionary
+- LC0278. First Bad Version
+- LC0283. Move Zeroes
+- LC0308. Range Sum Query 2D - Mutable
+- LC0314. Binary Tree Vertical Order Traversal
+- LC0366. Find Leaves of Binary Tree
+- LC0378. Kth Smallest Element in a Sorted Matrix
+- LC0380. Insert Delete GetRandom O(1)
+- LC0384. Shuffle an Array 让设计如何random扑克牌，然后开始问如何把这个代码扩展到任意的卡牌游戏，相当于考Java继承，implement
+- LC0394. Decode String
+- LC0430. Flatten a Multilevel Doubly Linked List
+- LC0528. Random Pick with Weight
+- LC0572. Subtree of Another Tree
+- LC0652. Find Duplicate Subtrees
+- LC0723. Candy Crush (one dimensional)
+- LC0994. Rotting Oranges
+- LC1029. Two City Scheduling
+- LC1091. Shortest Path in Binary Matrix
+- LC1169. Invalid Transactions
+- LC1209. Remove All Adjacent Duplicates in String II
+- LC1244. Design A Leaderboard 这道题是变种，加了三个checkpoints，变成任何时间点无论多少人经过哪个checkpoints都能够return领先的K个人
+- LC1396. Design Underground System
+- LC1656. Design an Ordered Stream
+- LC1823
+
+- 你有两个api:
+  trade(stockname, qty): 相同的stockname可能会call多次
+  topk(k): 返回top k交易的股票 其中k < 100
+- ABC三个人玩游戏，每轮玩k次（假如k=4)，r1:ABCA（A淘汰）,r2:BCBC（C淘汰）； B为最终赢家，实现一下这个小游戏，不能用数学方法
+- 现有两种运算方式: 乘二或除三。输入一个target数，输出从1开始如何运用两种运算得到target。如target=10，则可以1*2*2*2*2/3*2 = 10，输出****/* 应该用bfs+减枝做。
+- 把tree的node按从leaf到root的level顺序print成一个nestlist，例如leave的level是0，放在第一个list里
+- preorder traversal recursive, iterative, delete node from binary search tree, 希望列出所有‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌edge case
+- 找到(d(c(an)))里面最深的string
+- 地里的买机票老题
+- tree level traverse，followup：不是binary，n叉树怎么改代码
+- collatz 要有多种方法求解 要把recursive和iterative的解都写出来才行
+- assign next pointer, given any binary tree.我用的带q的bfs。好像还有更直接的解法。。
+- Currency exchange (https://leetcode.com/discuss/interview-question/483660/google-phone-currency-conversion)
+
+- 设计题，一个track上有很多runner，还有很多sensor，sensor可以检测到那个runner跑过了这个sensor
+- 设计停车场
+- 设计一个股票价格显示系统，不要求支持股票交易
+- 设计一个search system, 每天处理来自不同data source的新闻，保存到metadata storage里面，然后有一个search service处理前端的search请求，要考虑related words，比如Space X发射火箭的新闻，通篇没提马斯‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌克，但是用户搜索马斯克，也得返回
+- 活动 booking system 有点像design calendar
+- 设计一个用户上载视频，用AI模型转换成文字的系统
+- 给一堆莎士比亚的文章，文本文件形式，给定一个单词找出它在各文章中出现的总次数以及出现的行号列表
+- 设计instagram
+- 设计个log系统说了半天才知道是让我弄个singleton出来并考虑多线程
+- 随机删除访问
+- 热门股票然后根据热度调整顺序
+
+- Java基础，primitive type，和object有啥区别
+- 多线程基础
+- Java基础，继承，多态，interface和abstract区别。然后多线程编程，写一个thread safe的producer - comsumer model, 而且可以处理不同priority的task
+- 让写了个thread safe的Queue
+
+
