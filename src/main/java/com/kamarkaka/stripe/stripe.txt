@@ -1,3 +1,80 @@
+http header en-US,fr-CA,en-CA match (https://www.1point3acres.com/bbs/thread-838392-1-1.html,
+https://www.1point3acres.com/bbs/thread-758732-1-1.html,https://www.1point3acres.com/bbs/thread-792266-1-1.html)
+system design: Identity and Access Management
+system design: rate limiter
+system design: metrics system
+server remote penalty??? (https://www.1point3acres.com/bbs/thread-771600-1-1.html,https://www.1point3acres.com/bbs/thread-791237-1-1.html)
+
+今天收到拒信 更新一下地里挺难找的stripe的phone screen。
+面到的并不是http的题目 而是一道判断server的remove时间与对应的penalty的题。
+1.a是给你一个由0与1组成的string 然后让输入一个时间去remove这个server，让你计算这个情况下penalty的大小。 penalty的计算规则为：
+在一个string中， 0意味着这时候德server应该正常运行，1意味着这时候的server会down掉。你选定一个时间remove，在remove之前，每一个1都算一个penalty,在remove之后，每一个0都算一个penalty，写一个函数，给定string和remove hour，return这个remove hour带来的penalty。 eg： “0 1 0 1”， 2 =＞ 2。
+1.b 给定一个string，由0 1组成 给出最合适的remove hour使得penalty最小，要求重复使用1.a的函数。简单来说遍历一下就好，但是要注意输入是空字符串的corner case，还有其实可以存在不去remove的情况。
+2.a 还是建立在之前的那道题的基础上，不过这一次给一个server log，里面有\n， BEGIN（理解为( ）和END(理解为)），还有0 1。解析这个log然后把合法的0 1字符串通过1.b里的函数算出结果。 比较tricky的是你需要去排除nest的情况。比如（11（0011）11），你只需要输出0011的结果即可。 对应解决方式是只存一个bool来判断每次遇到END的时候前面是不是有open的BEGIN,有的话那中间的content就可以用1.b算出结果，然后再把bool复位到false即可。
+
+
+WishList??? (https://www.1point3acres.com/bbs/thread-806739-1-1.html)
+mutual rank??? (https://www.1point3acres.com/bbs/thread-793699-1-1.html,https://www.1point3acres.com/bbs/thread-756692-1-1.html)
+split (https://www.1point3acres.com/bbs/thread-825821-1-1.html)
+
+
+https://www.1point3acres.com/bbs/thread-808445-1-1.html
+/*
+Backend Software Engineering
+You can use any language and frameworks you choose.
+Background
+Our users have points in their accounts. Users only see a single balance in their accounts.
+But for reporting purposes we actually track their points per payer/partner.
+In our system, each transaction record contains: payer (string), points (integer), timestamp (date).
+For earning points it is easy to assign a payer, we know which actions earned the points.
+And thus which partner should be paying for the points.
+When a user spends points, they don't know or care which payer the points come from.
+But, our accounting team does care how the points are spent.
+There are two rules for determining what points to "spend" first:
+● We want the oldest points to be spent first (oldest based on transaction timestamp, not the order they’re received)
+● We want no payer's points to go negative.
+you need to do:
+● Add transactions for a specific payer and date.
+● Spend points using the rules above and return a list of { "payer": <string>, "points": <integer> } for each call.
+● Return all payer point balances.
+
+Example
+Suppose you call your add transaction route with the following sequence of calls:
+● { "payer": "DANNON", "points": 1000, "timestamp": "2020-11-02T14:00:00Z" }
+● { "payer": "UNILEVER", "points": 200, "timestamp": "2020-10-31T11:00:00Z" }
+● { "payer": "DANNON", "points": -200, "timestamp": "2020-10-31T15:00:00Z" }
+● { "payer": "MILLER COORS", "points": 10000, "timestamp": "2020-11-01T14:00:00Z" }
+● { "payer": "DANNON", "points": 300, "timestamp": "2020-10-31T10:00:00Z" }
+
+Then you call your spend points route with the following request:
+{ "points": 5000 }
+The expected response from the spend call would be:
+[
+  { "payer": "DANNON", "points": -100 },
+  { "payer": "UNILEVER", "points": -200 },
+  { "payer": "MILLER COORS", "points": -4,700 }
+]
+A subsequent call to the points balance route, after the spend, should returns the following results:
+{ "DANNON": 1000, "UNILEVER": 0, "MILLER COORS": 5300 }
+
+FAQ
+For any requirements not specified via an example, use your best judgement to determine the expected result.
+*/
+
+https://www.1point3acres.com/bbs/thread-808688-1-1.html
+
+
+
+
+
+
+
+code
+code on existing code based on specs/docs
+hiring manager chat, non technical
+design
+debug
+
 code
 账户转账的问题：给你几百个账户，你能随意从账户间转账，目标是让每个账户里都有至少一百刀，怎么转？具体不需要太注重复杂度，能运行就成 followup LC0465 直接排序然后two pointers从两边朝中间跑完事儿
 route requests to different servers. 每个request有一个weight，要求每次把request发给load最小的server。followup是每个request还有一个ttl，这时怎样把request发给load最小的server。用priority queue解的。
