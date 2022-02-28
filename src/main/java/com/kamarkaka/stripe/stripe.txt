@@ -1,0 +1,73 @@
+code
+账户转账的问题：给你几百个账户，你能随意从账户间转账，目标是让每个账户里都有至少一百刀，怎么转？具体不需要太注重复杂度，能运行就成 followup LC0465 直接排序然后two pointers从两边朝中间跑完事儿
+route requests to different servers. 每个request有一个weight，要求每次把request发给load最小的server。followup是每个request还有一个ttl，这时怎样把request发给load最小的server。用priority queue解的。
+* mutual like list
+* server log
+* http header parser
+写一个task scheduler的class。要给每个task assign当前workload最少的server。follow up是每个task加上一个ttl。
+Invoicer，给定一些 send_schedule 事件，还有用户的invoice记录 customer_invoices，需要按照时间顺序给用户发邮件提醒 (https://www.1point3acres.com/bbs/thread-819815-1-1.html)
+Rate Limiter 题目很短 和之前面经一样 实现一个rate limiter要求2s内的request不超过5个。建议大家表演时间长一点，我装模作样表演了一下但是被面试官问是不是写过类似的题 :)
+load balancing。 give a list of server name, e.g.["a", "b", "c"]。 然后要求route requests， request有自己的weight, e.g. route(1) -> "a", route(1) -> "b"。 requests 要route 到load 最轻的server， 如果多个server的load 相同，按照accending order
+follow up：
+request 增加需要process的时间，process 完server的load 要减去processed req's weight. e.g. route(2, 0.1) -> "a", route(1, 0.3) -> "b", sleep(0.1), route(2, 0.1) -> "a"
+followup是加入cost怎么考虑，大数据上怎么处理
+1. 每个task有ttl，ttl是持续的duration time range，不是expiration timestamp
+2. 每个server有max weights threshold，不能超过这个max thres，这时input是一个map类似{server_id: max thres}
+第一轮 Rate Limiter. Follow up 是如何创建抽象类 然后继承， 如果有一些API limit跟别的不一样 怎么办 就是override 。
+email notification for invoice events, 定义一些event的时间点，然后根据invoice time来排各个event的顺序。
+
+
+
+
+integration
+request-replay: 给了一个json文件包括request和response 需要replay request 之后验证response status code一致
+哦哦想起来了，把input里的id存到map里，用动态获取的id来替代。
+key=old_id, value=new_id
+在后面的request凡是能在map里找到的就直接replace。
+定义好哪些字段需要这样替换就行了
+
+
+bikemap：1. 把json读进来，打印几个数据，2. 按要求发request给指定url，把结果存到本地，json已经给了；3. 在json里面加一些信息，格式已经给了，存图；4. 在json里面加另外一些信息，格式给了，存图，5. 还是加点信息
+https://github.com/Luzifer/staticmap
+java：jsoniter, OkHttp
+POJO
+直接用Gson  read from file and parse就行
+
+
+design
+payment webhook。internal service会告诉我们一个payment_done event（paymentId, merchantId），我们要把这个payment event通知给商家。
+design counter logging system. 就是要支持一个长得像 metrics.increase('some-label') 的API，让你设计backend system，支持一些根据时间范围查询的操作
+
+Stripe is a payments platform that provides the ability for online businesses to charge money from customers and then get paid out periodically.
+For example a Stripe merchant called ShirtyPuff runs a website that sells t-shirts. Every time one of ShirtyPuff’s customers buys a t-shirt we collect money on behalf of the merchant. Periodically we pay the merchant an amount which is calculated by aggregating all the transactions.
+There are other teams that take care of building software for actually sending and receiving money.
+Your aim is to build a bookkeeping service (called Ledger) that keeps track of money sent and money received on behalf of a merchant. The purpose of this service is to record all financial activity and allow getting the account balance for a given merchant.
+The Ledger should support the following operations:
+- Record money sent or received on behalf of a merchant
+- Get account balance for a given merchant
+What APIs would you build for a system like this?
+How would you go about building this system?
+设计IAM系统的问题。需求其实比较简单，就要求三个API methods：（1）SetPolicy；（2）GetPolicy；（3）CheckPolicy。Policy本身只考虑三个dimension：principal，service，role，所以整个其实就是个简单的RBAC系统，不用考虑hierachical evaluation，当然这玩意儿对于面试的system design来说确实没啥必要。CheckPolicy的使用场景就是内部员工在call某个service的时候，这个service需要调用CheckPolicy来检查这个内部员工有没有需要的role（所以policy本身里面有service这个dimension）。没有这方面背景的同学们可以去看看AWS和GCP的IAM系统是怎么个使用体验，楼主因为在某大厂内部跟IAM组的人合作了3年项目，所以基本就对着内部IAM系统的架构给说了一下。这个题有个潜在的assumption是CheckPolicy的流量会远大于SetPolicy和GetPolicy，所以架构上大概率需要读写分离来实现performance和reliability的要求。最后面试官还问了怎么monitoring/alerting整个系统。
+
+
+设计一个ledger API 用来记录transactions，will be called by other stripe API's。 需要提供两个api：
+1. add transactions
+2. get account balance
+我的设计是 增加一个message queue 让其他services push transactions， db 使用分布式db, e.g. Cassandra.
+message schema： {transaction_id, timestamp, account_id, amount}
+add transactions 并不需要aggregate current balance。 当有get_account_balance的时候再aggregate‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌ transactions 并储存当时的account balance with timestamp。并增加一个periodic schedule job aggregate transactions 来防止get_account_balance太慢
+设计一个balance ledger，如何做到单一商户高throughput，没有performance bottleneck，感觉讨论得有些不是特别流畅。
+
+设计metric system可以一个一个增加counter - api ：Track.increment("some-metric")
+感觉batch process/batch aggregation要想好
+
+
+debug
+Jackson-Core. Bug挺好找的， 要Keep talking
+Moshi
+
+bq
+Your role in your team
+Technical challenge
+non-technical challenges
+Lessons learned in your project
