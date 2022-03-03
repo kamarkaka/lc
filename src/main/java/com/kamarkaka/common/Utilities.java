@@ -1,5 +1,6 @@
 package com.kamarkaka.common;
 
+import com.kamarkaka.stripe.*;
 import com.kamarkaka.twosigma.QuantityDiscount;
 
 import java.util.Arrays;
@@ -42,6 +43,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      QuantityDiscount.run();
+      Invoicer.run();
    }
 }

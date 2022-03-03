@@ -1,0 +1,17 @@
+[
+  {
+    "name": "country name1",
+    "population": 123,
+    "listOfStates": ["country1", "country2", "country3"]
+  },
+  {
+    "name": "country name2",
+    "population": 456,
+    "listOfStates": ["country4", "country5", "country6"]
+  },
+  {
+    "name": "country name3",
+    "population": 789,
+    "listOfStates": ["country7", "country8", "country9"]
+  }
+]

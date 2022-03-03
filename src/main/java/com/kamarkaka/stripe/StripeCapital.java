@@ -104,7 +104,7 @@ import java.util.*;
  *    Result: acct_barfoo owes $20.00, acct_foobar owes $39.99.
  *
  */
-public class Capital {
+public class StripeCapital {
    private final static String CREATE_LOAN = "CREATE_LOAN";
    private final static String PAY_LOAN = "PAY_LOAN";
    private final static String INCREASE_LOAN = "INCREASE_LOAN";
@@ -112,7 +112,7 @@ public class Capital {
 
    private Map<String, Map<String, Integer>> map;
 
-   public Capital() {
+   public StripeCapital() {
       this.map = new HashMap<>();
    }
 
@@ -176,19 +176,19 @@ public class Capital {
    }
 
    public static void run() {
-      Capital cap0 = new Capital();
+      StripeCapital cap0 = new StripeCapital();
       cap0.evaluateLine("CREATE_LOAN: acct_foobar,loan1,5000");
       cap0.evaluateLine("PAY_LOAN: acct_foobar,loan1,1000");
       cap0.printBalances();
 
-      Capital cap1 = new Capital();
+      StripeCapital cap1 = new StripeCapital();
       cap1.evaluateLine("CREATE_LOAN: acct_foobar,loan1,5000");
       cap1.evaluateLine("CREATE_LOAN: acct_foobar,loan2,5000");
       cap1.evaluateLine("TRANSACTION_PROCESSED: acct_foobar,loan1,500,10");
       cap1.evaluateLine("TRANSACTION_PROCESSED: acct_foobar,loan2,500,1");
       cap1.printBalances();
 
-      Capital cap2 = new Capital();
+      StripeCapital cap2 = new StripeCapital();
       cap2.evaluateLine("CREATE_LOAN: acct_foobar,loan1,1000");
       cap2.evaluateLine("CREATE_LOAN: acct_foobar,loan2,2000");
       cap2.evaluateLine("CREATE_LOAN: acct_barfoo,loan1,3000");
