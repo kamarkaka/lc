@@ -54,6 +54,14 @@ ourput is 'R'
 
 
 VO
+coding
+system design
+manager round: bq + technical deep dive
+    - why bloomberg
+    - why this team
+    - what i can bring to the team
+hr
+
 - LC0012. Integer to Roman
 - LC0020. Valid Parentheses
 - LC0023. Merge k Sorted Lists
@@ -69,9 +77,9 @@ VO
 - LC0199. Binary Tree Right Side View
 - LC0200. Number of Islands
 - LC0212. Word Search II
-  input 一个string，例如  "pplaezznzzoope", 一个valid word list [apple, zoo, pen]
-  1. 问这里面的 字符组合一共有几个 unique valid单词： 最初解 hashmap, 大概是这样：{word: char counter}
-  2. followup，如果 有几百万个词库，inpu‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌t又很短，怎么optimize：用 trie来存字典，然后再dfs求解
+  input 一个string，例如"pplaezznzzoope", 一个valid word list [apple, zoo, pen]
+  1. 问这里面的 字符组合一共有几个unique valid单词： 最初解 hashmap, 大概是这样：{word: char counter}
+  2. followup，如果 有几百万个词库，input又很短，怎么optimize：用 trie来存字典，然后再dfs求解
 - LC0230. Kth Smallest Element in a BST
 - LC0252. Meeting Rooms
 - LC0253. Meeting Rooms II
@@ -102,12 +110,12 @@ VO
 - LC1823
 
 - 你有两个api:
-  trade(stockname, qty): 相同的stockname可能会call多次
+  trade(stockname, qty): 相同的stockname可能会call多次
   topk(k): 返回top k交易的股票 其中k < 100
 - ABC三个人玩游戏，每轮玩k次（假如k=4)，r1:ABCA（A淘汰）,r2:BCBC（C淘汰）； B为最终赢家，实现一下这个小游戏，不能用数学方法
 - 现有两种运算方式: 乘二或除三。输入一个target数，输出从1开始如何运用两种运算得到target。如target=10，则可以1*2*2*2*2/3*2 = 10，输出****/* 应该用bfs+减枝做。
 - 把tree的node按从leaf到root的level顺序print成一个nestlist，例如leave的level是0，放在第一个list里
-- preorder traversal recursive, iterative, delete node from binary search tree, 希望列出所有‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌edge case
+- preorder traversal recursive, iterative, delete node from binary search tree, 希望列出所有edge case
 - 找到(d(c(an)))里面最深的string
 - 地里的买机票老题
 - tree level traverse，followup：不是binary，n叉树怎么改代码
@@ -118,7 +126,7 @@ VO
 - 设计题，一个track上有很多runner，还有很多sensor，sensor可以检测到那个runner跑过了这个sensor
 - 设计停车场
 - 设计一个股票价格显示系统，不要求支持股票交易
-- 设计一个search system, 每天处理来自不同data source的新闻，保存到metadata storage里面，然后有一个search service处理前端的search请求，要考虑related words，比如Space X发射火箭的新闻，通篇没提马斯‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌克，但是用户搜索马斯克，也得返回
+- 设计一个search system, 每天处理来自不同data source的新闻，保存到metadata storage里面，然后有一个search service处理前端的search请求，要考虑related words，比如Space X发射火箭的新闻，通篇没提马斯‌克，但是用户搜索马斯克，也得返回
 - 活动 booking system 有点像design calendar
 - 设计一个用户上载视频，用AI模型转换成文字的系统
 - 给一堆莎士比亚的文章，文本文件形式，给定一个单词找出它在各文章中出现的总次数以及出现的行号列表
@@ -129,7 +137,7 @@ VO
 
 - Java基础，primitive type，和object有啥区别
 - 多线程基础
-- Java基础，继承，多态，interface和abstract区别。然后多线程编程，写一个thread safe的producer - comsumer model, 而且可以处理不同priority的task
+- Java基础，继承，多态，interface和abstract区别。然后多线程编程，写一个thread safe的producer - consumer model, 而且可以处理不同priority的task
 - 让写了个thread safe的Queue
 
 

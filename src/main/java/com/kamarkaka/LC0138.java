@@ -33,10 +33,7 @@
 
 package com.kamarkaka;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class LC0138 {
     private static class Node {
@@ -51,38 +48,48 @@ public class LC0138 {
         }
     }
 
-    public Node copyRandomList(Node head) {
-        if (head == null) return null;
+    // Visited dictionary to hold old node reference as "key" and new node reference as the "value"
+    HashMap<Node, Node> visited = new HashMap<Node, Node>();
 
-        Node headCopy = new Node(head.val);
-        Node curr = headCopy, poin = head;
-        Map<Node, Integer> map = new HashMap<>();
-        List<Node> list = new ArrayList<>();
-
-        int index = 0;
-        while (poin.next != null) {
-            map.put(poin, index);
-            list.add(curr);
-            curr.next = new Node(poin.next.val);
-            curr = curr.next;
-            poin = poin.next;
-            index++;
-        }
-        map.put(poin, index);
-        list.add(curr);
-
-        curr = headCopy;
-        poin = head;
-        while (poin != null) {
-            if (poin.random != null) {
-                index = map.get(poin.random);
-                curr.random = list.get(index);
+    public Node getClonedNode(Node node) {
+        // If the node exists then
+        if (node != null) {
+            // Check if the node is in the visited dictionary
+            if (this.visited.containsKey(node)) {
+                // If its in the visited dictionary then return the new node reference from the dictionary
+                return this.visited.get(node);
+            } else {
+                // Otherwise create a new node, add to the dictionary and return it
+                this.visited.put(node, new Node(node.val));
+                return this.visited.get(node);
             }
-            curr = curr.next;
-            poin = poin.next;
+        }
+        return null;
+    }
+
+    public Node copyRandomList(Node head) {
+
+        if (head == null) {
+            return null;
         }
 
-        return headCopy;
+        Node oldNode = head;
+
+        // Creating the new head node.
+        Node newNode = new Node(oldNode.val);
+        this.visited.put(oldNode, newNode);
+
+        // Iterate on the linked list until all nodes are cloned.
+        while (oldNode != null) {
+            // Get the clones of the nodes referenced by random and next pointers.
+            newNode.random = this.getClonedNode(oldNode.random);
+            newNode.next = this.getClonedNode(oldNode.next);
+
+            // Move one step ahead in the linked list.
+            oldNode = oldNode.next;
+            newNode = newNode.next;
+        }
+        return this.visited.get(head);
     }
 
     public static void run() {

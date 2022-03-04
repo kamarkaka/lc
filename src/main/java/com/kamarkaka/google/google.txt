@@ -1,29 +1,125 @@
 VO
 
 Coding
-* maximum value in path, from root to leaf
-* LC0984. String Without AAA or BBB
+* LC0057. Insert Interval
+* LC0064. Minimum Path Sum
+* LC0068. Text Justification
+* LC0102. Binary Tree Level Order Traversal
+* LC0133. Clone Graph
+* LC0138. Copy List with Random Pointer
+* LC0207. Course Schedule
+* LC0227. Basic Calculator II
+* LC0274. H-Index
+* LC0547. Number of Provinces
+* LC0652. Find Duplicate Subtrees
+* LC0690. Employee Importance
+* LC0726. Number of Atoms
+* LC0777. Swap Adjacent in LR String
 * LC0792. Number of Matching Subsequences
+* LC0804. Unique Morse Code Words
+* LC0984. String Without AAA or BBB
+- LC1027
+- LC1084
+* LC1293. Shortest Path in a Grid with Obstacles Elimination
+- LC2096
+- LC2128
+* LC2132. Stamping the Grid
+* maximum value in path, from root to leaf
 - the longest arithmetic sequence in binary tree
 * convert email folders into gmail labels
 * topological sort
-* LC1293. Shortest Path in a Grid with Obstacles Elimination
 * rate limiter
-* LC0068. Text Justification
-- LC0064. Minimum Path Sum
 - 设计browser history. 有三个函数，browserHistory(). visit(), back(). forward()
 - 给了一个file system. 设计file system 里的delete(String path)
 - 设计 cord tree. https://leetcode.com/discuss/interview-question/435536/Google-or-onsite-or-design-a-cord
 - simplify expression
-- LC2132. Stamping the Grid
-
+- airplane route: given list of (departureCity, arrivalCity, departureTime, arrivalTime), startCity, endCity, get the earliest arrival time
+- 给一个长宽的木板，和一个list of price eg: {1x1: 0; 1x2: 2; 1x3: 3}，问你怎么切的profit最大
+- 第一道是string，就是找连着的相同的字母，最长能多长，开始是两个指针
+- 第二道也是string，一个list的单词，问有没有可能每个单词里有一个我们的target字符串里的某一个
+- 给几个没有排序的interval，确定一个interval 是否被cover，follow up 如果每个interval是固定length，比如10，怎么优化
+- 求两点之间有多少条路径，follow up，如果有几个点，路径必须经过所有点，求有多少条路径
+- 机器人打扫房间的题 lc上有
+- 找图上的集合，用union find可解
+- 给定m * n matrix, a robot can move to next right position, upper right, and lower right （就是[(x+1, y), (x+1, y-1), (x+1, y+1)]）. Find the number of all paths starting from (0,0) to (m-1, n-1).
+- 给两个line of text, 判断new是old的insert/delete/replace
+- 提供一个isBadCommit(first, second)的api， 让找出一组commits中所有bad commits
+- matrix搜路径，followup是最短路径和cost最小的路径
+- 给一个unsorted timestamp list，返回任意两个timestamp的最小时间差
+- isBadVersion，二分搜索。然后再写一个多分搜索
+- meeting rooms，返回被最多访问的meeting room
+- random music player
+    input: list of songs, each song has a minimum waiting time after being played
+    method: play next song
+    example: {song1 : 0, song2 : 3, song3 : 1} randomly play 1 of the songs, if song1 was played, no wait time and it could be played again. If song2 was played, the next 3 turns cannot be song2
+- implement a Treemap class using existing data structure
+- asynchronized timer: implement a timer running on another thread with a callback when time is up (provided hints: do not set exact time, use the current time to compare if the set time is expired.)
+- correct mistake typing with 1 error allowed (initial: wrong letter. follow up: miss 1 or extra 1).
+    input: String word, List<String> dict
+    method: return if the input word is a mistake typing
+    initial example1: aaac, {ccc, sdf, wert, aaav}, return true (aaac, aaav)
+    follow up example2: aaac, {ccc, sdf, wert, aaa, aaacc}, return true (aaac, aaa) or (aaac, aaacc)
+    provided hints: precomputed set of candidates
+- 按时间打印 logger，同一logger超过10s不打印。hashmap
+- 一个int[],然后input是多个【i, j】返回i到j的最小数 (RMQ)
+- Huffman tree to decode & encode
+- 给一个array like tree，每个node包含value和parent_idx，比如
+               1
+            /      \
+        2            3
+     /      \
+  4         5
+  给的array应该是[(1, -1), (2, 0), (3, 0), (4, 1), (5, 1)]，给的array保证node_idx < childnode_idx
+  要求实现给定node_idx，remove node，更新array。node如果没有children就直接删除，如果有children直接把children的new parent赋值成要删除的node的parent。
+  follow up是删除node然后把node下的children全部删除。
+- 实现餐馆waitlist，根据不同的partysize需要存不同的队列，根据partysize来call，要求实现以下功能：
+  1. join(partyId)
+  2. remove(partyId)
+  3. poplast(partySize)
+  全部要求O(1)，也同样是面试官提醒了好一阵才想起来LRU可解
+- LC0253 LC 尔无伞变形，给定一串intervals以及annotation，例如：
+         [‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌
+             [0, 30, "A"],
+             [5, 10, "B"],
+             [15, 20, "C"]
+         ]
+         要求输出所有提及的intervals，以及当时包含的annotations，输出应该为：
+         [
+             [0, 5, ["A"]], [5, 10, ["A", "B"], [10, 15, ["A"]], [15, 20, ["A", "C"]], [20, 30, ["A"]]]
+         ]
+         输出的时间顺序重要，annotations的顺序不重要
+- 1. coding. 1~n n个数 和 一个prime p，求n个数中除去所有的p的multiplers的剩下的数之和。脱口而出暴力解，被要求优化；然后用了求和公式，不知道这样算不算过；follow-up: 求有两个prime number的情况下的和.  需要考虑两个prime的倍数有相同的情况。 也是先暴力解，然后优化
+- 4. coding.  input：一个relation list，每个entry代表两个id的关系 friend or enemy 类似 [0, 1, "F"]的结构； 一个relation chain，比如 “FEF” ； start: id1； end: id2  output: 需要求从id1开始，根据relation chain的关系，能否得到一个list的id符合chain的关系且最后一个id是id2. 求这个list。 i.e. “FEF”， 先找到id1的friend idx，然后找idx的enemy idy, 最后找idy的friend idz, 如果idz == id2, 那么找到一个解，返回这个解。 花了很多时间clarify, 用了DFS做，但最后脑子一热 time complexity说错了。。。
+- 有很多记录RPC的streaming log [id, timestamp, action]. action is start/end. 还有一个timeout。 在一个log analyzer class里面设计一个 violate function 找出是否有violate timeout的log，如果有 返回true，没有返回false ，每个function call只处理一个log。
+- 给你一个path，path下有很多log files，log file里的每一行是某个时间某个用户发的消息，格式如下：
+    [2021/02/01 11:11:11] <John> Hello! World?
+    求top K的talkative user。talkative的定义是：count of words the user said。 不是distinct的word 只用管个数. 和面试官clarify了之后确定input还会给一串delimiter，word的定义就是句子里被delimiters隔开的那些
+- 设计一个class，用来generate unique identifier，会被call multiple times。
+    对所产生的unique identifier的要求是：长度为N，不允许里面的字符重复出现K次或K次以上，可以用到的字符“0”->”1”, “a”->”z”
+- 给你一个墙的宽度W，各种bricks的长度，砖的数量无限，求可以砌的possible ways，时间空间复杂度，如何优化
+    followup：给你一个墙的宽度W，高度H，和各种bricks的长度，layer和layer之间的衔接点不能重合, 求一共有多少种可能砌成这个墙
+- 给一堆日志(每个log有type, message两个fields)，goal是从日志中sample从而使得不同type的日志数量尽可能相等。比如日志里有300条typeA，200条typeB，250条typeC，并且要sample 300条，那么久从A B C随机抽100条就可以（如果除不尽的话任意选余数条没选过的log就可以）。但是比如A有2条，B有200条，C有400条，sample 100条的话，由于A没有33条，A选两条，B C就不是再选33条了，要重新算。B C要均匀分布，所以B C各自49条。
+- N张牌只考虑数字，判断能不能赢，只判断3n+2的方式，不考虑四张和七对的情况，注意n=0也算赢。我是用的sort by count 然后 dfs + memo ( https://www.cnblogs.com/Ran-Chen/p/9385460.html)
+- 给一组排序过的string array，input是前缀，output是有几个有这个前缀的字
+- 给一个dictionary，用裡面的字组成一个path：o -> do -> dog -> ... ，这些字都要在dictionary存在的字，从一个letter开始，默认每个single letter都在dictionary，每下个字加一个letter，不用考虑letter之间的顺序，可以在字裡的任意位置，要回传能组成最长path的最终字
+- 做一个string checker，input是array of string，若裡面有任一组string是差一个letter其他letter都一样，例如["abc", "dab", "efg", "hij"]，"abc"＆"dab" 组成差一个letter，回传true
 
 Design
 - key value store
+- design load balancer
+- 用户抱怨使用网站比较慢，如何设计缓存，各种深入比如缓存怎么设计，怎么evict缓存，怎么和SOT DB sync等等
+- 设计google shopping的一个feature，假设有一个内部的ai平台来处理图像和文字信息，如何实现一个平台，让merchant上传他们要卖的商品，然后通过这个ai 平台把商品的信息提取出来，来实现better search and filtering experience
+- AB testing system, 重点是不希望有切实的用户interaction。而是想办法能replay requests in feature B and compare with feature A。
+- 3. design.  设计一个android tag 类似 airtag的功能。1. 通过bluetooth发送request 得到就近的tag的位置 2. 还有一个特殊功能是每个account可以看到别人的tag位置，可以帮助别人找丢的东西 (不能看到别人privacy related data， 不考虑security问题)。主要靠自己drive，focus在如果设计backend service process requests，如何sharding，用什么存data。
 
 BQ
 - 给一个你中途change direction的例子，怎么处理的
 - 给一个你评价别人 从negative feedback 变成 positive feedback的例子
 - 什么是你觉得好的跟manager的work style
 - 怎么处理cross team work
-
+- most complex project you worked;
+- any past works you took which are out of your scope, how you dealt with it
+- one teammate took all credits.
+- experience of when you have different idea with teammates
+- example of always try to improve
+- bad decision you made

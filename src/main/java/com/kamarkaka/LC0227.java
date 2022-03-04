@@ -1,7 +1,5 @@
 package com.kamarkaka;
 
-import java.util.Stack;
-
 /***
  * 227. Basic Calculator II
  * Given a string s which represents an expression, evaluate this expression and return its value.
@@ -30,74 +28,34 @@ import java.util.Stack;
  */
 public class LC0227 {
    public int calculate(String s) {
-      Stack<Part> stack = new Stack<>();
-      int num = 0, left = 0;
-      Character op = null;
-
-      for (int i = 0; i < s.length(); i++) {
-         char c = s.charAt(i);
-         if (c == ' ') continue;
-         if (Character.isDigit(c)) {
-            num = num * 10 + (c - '0');
-         } else if (c == '+' || c == '-') {
-            num = calc(left, num, op);
-            while (!stack.isEmpty()) {
-               Part part = stack.pop();
-               left = part.operand;
-               op = part.operator;
-               num = calc(left, num, op);
+      if (s == null || s.isEmpty()) return 0;
+      int length = s.length();
+      int currentNumber = 0, lastNumber = 0, result = 0;
+      char operation = '+';
+      for (int i = 0; i < length; i++) {
+         char currentChar = s.charAt(i);
+         if (Character.isDigit(currentChar)) {
+            currentNumber = (currentNumber * 10) + (currentChar - '0');
+         }
+         if (!Character.isDigit(currentChar) && !Character.isWhitespace(currentChar) || i == length - 1) {
+            if (operation == '+' || operation == '-') {
+               result += lastNumber;
+               lastNumber = (operation == '+') ? currentNumber : -currentNumber;
+            } else if (operation == '*') {
+               lastNumber = lastNumber * currentNumber;
+            } else if (operation == '/') {
+               lastNumber = lastNumber / currentNumber;
             }
-            left = num;
-            op = c;
-            num = 0;
-         } else if (c == '*' || c == '/') {
-            if (op == null || op == '*' || op == '/') {
-               left = calc(left, num, op);
-               op = c;
-               num = 0;
-            } else {
-               stack.push(new Part(left, op));
-               left = num;
-               op = c;
-               num = 0;
-            }
+            operation = currentChar;
+            currentNumber = 0;
          }
       }
-
-      num = calc(left, num, op);
-      while (!stack.isEmpty()) {
-         Part part = stack.pop();
-         left = part.operand;
-         op = part.operator;
-         num = calc(left, num, op);
-      }
-      return num;
-   }
-
-   private int calc(int left, int right, Character op) {
-      if (op == null) return right;
-
-      return switch (op) {
-         case '+' -> left + right;
-         case '-' -> left - right;
-         case '*' -> left * right;
-         case '/' -> left / right;
-         default -> right;
-      };
+      result += lastNumber;
+      return result;
    }
 
    public static void run() {
       LC0227 sol = new LC0227();
       System.out.println(sol.calculate("3+2*2"));
-   }
-}
-
-class Part {
-   int operand;
-   char operator;
-
-   public Part(int operand, char operator) {
-      this.operand = operand;
-      this.operator = operator;
    }
 }

@@ -40,6 +40,7 @@ public class LC0652 {
       getSerializationId(root, serialization, count, res);
       return res;
    }
+
    public int getSerializationId(TreeNode root,  Map<String, Integer> s, Map<Integer, Integer> count, List<TreeNode> res) {
       if (root == null) return 0;
 
