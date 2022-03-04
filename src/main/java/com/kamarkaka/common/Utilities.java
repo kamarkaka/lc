@@ -1,7 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.stripe.*;
-import com.kamarkaka.twosigma.QuantityDiscount;
+import com.kamarkaka.google.SimplifyExpression;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +42,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      Invoicer.run();
+      SimplifyExpression.run();
    }
 }

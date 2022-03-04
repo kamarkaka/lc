@@ -62,4 +62,9 @@ public class LC0792 {
          this.index = index;
       }
    }
+
+   public static void run() {
+      LC0792 sol = new LC0792();
+      System.out.println(sol.numMatchingSubseq("dsahjpjauf", new String[] {"ahjpjau","ja","ahbwzgqnuk","tnmlanowax"}));
+   }
 }

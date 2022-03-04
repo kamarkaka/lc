@@ -1,0 +1,29 @@
+VO
+
+Coding
+* maximum value in path, from root to leaf
+* LC0984. String Without AAA or BBB
+* LC0792. Number of Matching Subsequences
+- the longest arithmetic sequence in binary tree
+* convert email folders into gmail labels
+* topological sort
+* LC1293. Shortest Path in a Grid with Obstacles Elimination
+* rate limiter
+* LC0068. Text Justification
+- LC0064. Minimum Path Sum
+- 设计browser history. 有三个函数，browserHistory(). visit(), back(). forward()
+- 给了一个file system. 设计file system 里的delete(String path)
+- 设计 cord tree. https://leetcode.com/discuss/interview-question/435536/Google-or-onsite-or-design-a-cord
+- simplify expression
+- LC2132. Stamping the Grid
+
+
+Design
+- key value store
+
+BQ
+- 给一个你中途change direction的例子，怎么处理的
+- 给一个你评价别人 从negative feedback 变成 positive feedback的例子
+- 什么是你觉得好的跟manager的work style
+- 怎么处理cross team work
+
