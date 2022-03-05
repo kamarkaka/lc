@@ -9,7 +9,10 @@ Coding
 * LC0138. Copy List with Random Pointer
 * LC0207. Course Schedule
 * LC0227. Basic Calculator II
+* LC0253. Meeting Rooms II
 * LC0274. H-Index
+* LC0278. First Bad Version
+* LC0489. Robot Room Cleaner
 * LC0547. Number of Provinces
 * LC0652. Find Duplicate Subtrees
 * LC0690. Employee Importance
@@ -18,35 +21,33 @@ Coding
 * LC0792. Number of Matching Subsequences
 * LC0804. Unique Morse Code Words
 * LC0984. String Without AAA or BBB
-- LC1027
-- LC1084
+* LC1027. Longest Arithmetic Subsequence
+* LC1084. Sales Analysis III
 * LC1293. Shortest Path in a Grid with Obstacles Elimination
-- LC2096
-- LC2128
+* LC2096. Step-By-Step Directions From a Binary Tree Node to Another
+* LC2128. Remove All Ones With Row and Column Flips
 * LC2132. Stamping the Grid
 * maximum value in path, from root to leaf
-- the longest arithmetic sequence in binary tree
 * convert email folders into gmail labels
 * topological sort
 * rate limiter
+* 设计 cord tree. https://leetcode.com/discuss/interview-question/435536/Google-or-onsite-or-design-a-cord
 - 设计browser history. 有三个函数，browserHistory(). visit(), back(). forward()
 - 给了一个file system. 设计file system 里的delete(String path)
-- 设计 cord tree. https://leetcode.com/discuss/interview-question/435536/Google-or-onsite-or-design-a-cord
-- simplify expression
 - airplane route: given list of (departureCity, arrivalCity, departureTime, arrivalTime), startCity, endCity, get the earliest arrival time
+- simplify expression
+- the longest arithmetic sequence in binary tree
 - 给一个长宽的木板，和一个list of price eg: {1x1: 0; 1x2: 2; 1x3: 3}，问你怎么切的profit最大
 - 第一道是string，就是找连着的相同的字母，最长能多长，开始是两个指针
 - 第二道也是string，一个list的单词，问有没有可能每个单词里有一个我们的target字符串里的某一个
 - 给几个没有排序的interval，确定一个interval 是否被cover，follow up 如果每个interval是固定length，比如10，怎么优化
 - 求两点之间有多少条路径，follow up，如果有几个点，路径必须经过所有点，求有多少条路径
-- 机器人打扫房间的题 lc上有
 - 找图上的集合，用union find可解
 - 给定m * n matrix, a robot can move to next right position, upper right, and lower right （就是[(x+1, y), (x+1, y-1), (x+1, y+1)]）. Find the number of all paths starting from (0,0) to (m-1, n-1).
 - 给两个line of text, 判断new是old的insert/delete/replace
 - 提供一个isBadCommit(first, second)的api， 让找出一组commits中所有bad commits
 - matrix搜路径，followup是最短路径和cost最小的路径
 - 给一个unsorted timestamp list，返回任意两个timestamp的最小时间差
-- isBadVersion，二分搜索。然后再写一个多分搜索
 - meeting rooms，返回被最多访问的meeting room
 - random music player
     input: list of songs, each song has a minimum waiting time after being played
@@ -64,11 +65,11 @@ Coding
 - 一个int[],然后input是多个【i, j】返回i到j的最小数 (RMQ)
 - Huffman tree to decode & encode
 - 给一个array like tree，每个node包含value和parent_idx，比如
-               1
-            /      \
-        2            3
-     /      \
-  4         5
+        1
+       / \
+      2   3
+     / \
+    4   5
   给的array应该是[(1, -1), (2, 0), (3, 0), (4, 1), (5, 1)]，给的array保证node_idx < childnode_idx
   要求实现给定node_idx，remove node，更新array。node如果没有children就直接删除，如果有children直接把children的new parent赋值成要删除的node的parent。
   follow up是删除node然后把node下的children全部删除。
@@ -110,7 +111,7 @@ Design
 - 用户抱怨使用网站比较慢，如何设计缓存，各种深入比如缓存怎么设计，怎么evict缓存，怎么和SOT DB sync等等
 - 设计google shopping的一个feature，假设有一个内部的ai平台来处理图像和文字信息，如何实现一个平台，让merchant上传他们要卖的商品，然后通过这个ai 平台把商品的信息提取出来，来实现better search and filtering experience
 - AB testing system, 重点是不希望有切实的用户interaction。而是想办法能replay requests in feature B and compare with feature A。
-- 3. design.  设计一个android tag 类似 airtag的功能。1. 通过bluetooth发送request 得到就近的tag的位置 2. 还有一个特殊功能是每个account可以看到别人的tag位置，可以帮助别人找丢的东西 (不能看到别人privacy related data， 不考虑security问题)。主要靠自己drive，focus在如果设计backend service process requests，如何sharding，用什么存data。
+- 设计一个android tag 类似 airtag的功能。1. 通过bluetooth发送request 得到就近的tag的位置 2. 还有一个特殊功能是每个account可以看到别人的tag位置，可以帮助别人找丢的东西 (不能看到别人privacy related data， 不考虑security问题)。主要靠自己drive，focus在如果设计backend service process requests，如何sharding，用什么存data。
 
 BQ
 - 给一个你中途change direction的例子，怎么处理的
