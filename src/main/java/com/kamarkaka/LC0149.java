@@ -26,10 +26,10 @@ import java.util.HashMap;
 public class LC0149 {
    int[][] points;
    int n;
-   HashMap<Pair<Integer, Integer>, Integer> lines = new HashMap<Pair<Integer, Integer>, Integer>();
+   HashMap<Pair<Integer, Integer>, Integer> lines = new HashMap<>();
    int horizontalLines;
 
-   /**
+   /*
     * To avoid the precision issue with float/double numbers, using a pair of co-prime numbers to
     * represent the slope.
     */
@@ -44,7 +44,7 @@ public class LC0149 {
          deltaY = -deltaY;
       }
       Integer gcd = BigInteger.valueOf(deltaX).gcd(BigInteger.valueOf(deltaY)).intValue();
-      return new Pair<Integer, Integer>(deltaX / gcd, deltaY / gcd);
+      return new Pair<>(deltaX / gcd, deltaY / gcd);
    }
 
    /*
