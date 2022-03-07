@@ -1,6 +1,8 @@
 package com.kamarkaka.common;
 
 import com.kamarkaka.LC0850;
+import com.kamarkaka.google.BellmanFord;
+import com.kamarkaka.google.SegmentTreeNode;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +44,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC0850.run();
+      SegmentTreeNode.run();
    }
 }
