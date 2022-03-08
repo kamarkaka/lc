@@ -47,40 +47,34 @@ public class LC0850 {
 
       Integer[] X = xVals.toArray(new Integer[0]);
       Arrays.sort(X);
-      Map<Integer, Integer> Xi = new HashMap<>();
-      for (int i = 0; i < X.length; ++i) {
-         Xi.put(X[i], i);
-      }
 
-      Node active = new Node(0, X.length - 1, X);
-      long ans = 0;
-      long cur_x_sum = 0;
-      int cur_y = events[0][0];
+      Node active = new Node(X[0], X[X.length - 1]);
+      long res = 0;
+      long currXSum = 0;
+      int currY = events[0][0];
 
       for (int[] event: events) {
          if (event == null) break;
          int y = event[0], typ = event[1], x1 = event[2], x2 = event[3];
-         ans += cur_x_sum * (y - cur_y);
+         res += currXSum * (y - currY);
 
-         cur_x_sum = active.update(Xi.get(x1), Xi.get(x2), typ);
-         cur_y = y;
+         currXSum = active.update(x1, x2, typ);
+         currY = y;
       }
 
-      ans %= 1_000_000_007;
-      return (int) ans;
+      res %= 1_000_000_007;
+      return (int) res;
    }
 
    private class Node {
       int start, end;
-      Integer[] X;
       Node left, right;
       int count;
       long total;
 
-      public Node(int start, int end, Integer[] X) {
+      public Node(int start, int end) {
          this.start = start;
          this.end = end;
-         this.X = X;
          left = null;
          right = null;
          count = 0;
@@ -96,24 +90,24 @@ public class LC0850 {
             getRight().update(Math.max(getRangeMid(), i), j, val);
          }
 
-         if (count > 0) total = X[end] - X[start];
+         if (count > 0) total = end - start;
          else total = getLeft().total + getRight().total;
 
          return total;
       }
 
-      private int getRangeMid() {
-         return start + (end - start) / 2;
-      }
-
       private Node getLeft() {
-         if (left == null) left = new Node(start, getRangeMid(), X);
+         if (left == null) left = new Node(start, getRangeMid());
          return left;
       }
 
       private Node getRight() {
-         if (right == null) right = new Node(getRangeMid(), end, X);
+         if (right == null) right = new Node(getRangeMid(), end);
          return right;
+      }
+
+      private int getRangeMid() {
+         return start + (end - start) / 2;
       }
    }
 

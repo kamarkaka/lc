@@ -35,6 +35,8 @@ package com.kamarkaka;
  *    At most 10^4 calls will be made to sumRegion and update.
  */
 public class LC0308 {
+   // bit index tree
+   // BIT
    class NumMatrix {
       private int rows;
       private int cols;
