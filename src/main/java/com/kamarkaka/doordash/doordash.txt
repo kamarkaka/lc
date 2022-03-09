@@ -23,3 +23,6 @@ https://binarysearch.com/problems/Remove-Smallest-Peaks-in-Order
 https://www.1point3acres.com/bbs/thread-829249-1-1.html
 https://www.1point3acres.com/bbs/thread-825544-1-1.html
 https://leetcode.com/discuss/interview-question/1583430/Doordash-Questions-Consolidated
+
+
+https://chivagarg.medium.com/system-design-for-dummies-part-3-design-a-donation-app-c9f2720222ce

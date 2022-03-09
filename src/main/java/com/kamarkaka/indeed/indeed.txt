@@ -1,1 +1,6 @@
 https://github.com/interviewdiscussion/files/tree/master/Indeed%20Onsite%E8%AE%B0%E5%BD%95
+
+LC0243. Shortest Word Distance
+LC0244. Shortest Word Distance II
+LC0245. Shortest Word Distance III
+LC0380. Insert Delete GetRandom O(1)
