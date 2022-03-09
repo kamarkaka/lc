@@ -3,12 +3,20 @@ package com.kamarkaka.common;
 import com.kamarkaka.LC0850;
 import com.kamarkaka.google.BellmanFord;
 import com.kamarkaka.google.SegmentTreeNode;
+import com.kamarkaka.indeed.AutoComplete;
+import com.kamarkaka.indeed.CompressBST;
+import com.kamarkaka.indeed.DiceSum;
+import com.kamarkaka.indeed.MergeSortedLists;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Utilities {
    public static void print(int[] nums) {
+      System.out.println(Arrays.toString(nums));
+   }
+
+   public static void print(Integer[] nums) {
       System.out.println(Arrays.toString(nums));
    }
 
@@ -44,6 +52,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC0850.run();
+      DiceSum.run();
    }
 }
