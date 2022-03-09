@@ -125,6 +125,14 @@ BQ
 - 给一个你中途change direction的例子，怎么处理的
 - 什么是你觉得好的跟manager的work style
 
-team mission
-top line metrics
-projects, goal, metrics, TL, progress
+akamai
+team mission and how that aligns with the org/company's goal
+current projects
+future projects
+challenges
+technologies
+
+which team will i work on, what project (existing/new)
+expectations of me as a new hire, 3/6/12mo and mid/long term expectations
+mentorship
+any domain specific knowledge requirement

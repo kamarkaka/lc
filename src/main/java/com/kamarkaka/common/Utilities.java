@@ -4,7 +4,6 @@ import com.kamarkaka.LC0850;
 import com.kamarkaka.doordash.HighestPointsUnderTimeLimit;
 import com.kamarkaka.google.BellmanFord;
 import com.kamarkaka.google.SegmentTreeNode;
-import com.kamarkaka.indeed.AutoComplete;
 import com.kamarkaka.indeed.CompressBST;
 import com.kamarkaka.indeed.DiceSum;
 import com.kamarkaka.indeed.MergeSortedLists;
@@ -53,6 +52,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      HighestPointsUnderTimeLimit.run();
+      MergeSortedLists.run();
    }
 }
