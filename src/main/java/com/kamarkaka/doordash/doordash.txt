@@ -1,17 +1,16 @@
-124
-859
-1235
-36
-37
-1166
-857
-1347
-532
-1253
-31
-735
-524
-778
+LC0036. Valid Sudoku
+LC0037. Sudoku Solver
+LC0031. Next Permutation
+LC0524. Longest Word in Dictionary through Deleting
+LC0532. K-diff Pairs in an Array
+LC0735. Asteroid Collision
+LC0778. Swim in Rising Water
+LC0857. Minimum Cost to Hire K Workers
+LC0859. Buddy Strings
+LC1166. Design File System
+LC1235. Maximum Profit in Job Scheduling
+LC1253. Reconstruct a 2-Row Binary Matrix
+LC1347. Minimum Number of Steps to Make Two Strings Anagram
 
 OpenTime (https://www.1point3acres.com/bbs/thread-843137-1-1.html)
 MenuDiff (https://www.1point3acres.com/bbs/thread-779975-1-1.html)
@@ -26,3 +25,24 @@ https://leetcode.com/discuss/interview-question/1583430/Doordash-Questions-Conso
 
 
 https://chivagarg.medium.com/system-design-for-dummies-part-3-design-a-donation-app-c9f2720222ce
+
+VO
+
+coding
+- LC1472. Design Browser History
+- LC1779. Find Nearest Point That Has the Same X or Y Coordinate
+- LC0124. Binary Tree Maximum Path Sum
+- LC0560. Subarray Sum Equals K
+- LC0289. Game of Life
+- LC0207. Course Schedule
+- LC0210. Course Schedule II
+- menu diff
+- show all deliveries for a given dasher: all dashers can see current day deliveries any time. high tier dasher is able to see all next day deliveries after 17:00; low tier dasher is able to see all next day deliveries after 18:00
+- highest points under time limit
+- 输入： 1 List of deliver ， 每个deliver 有时间，id，等，2. dasher 里面有 tier, (high/low) 3, 当前时间 返回： 根据各种条件返回dasher能看到的deliver 比如 晚上7点后第二天的deliver， 当天的Deliver,根据不同tier返回不同结果
+- LC0286. Walls and Gates
+
+
+design
+- comment/review + reward
+- donation
