@@ -41,8 +41,10 @@ coding
 - highest points under time limit
 - 输入： 1 List of deliver ， 每个deliver 有时间，id，等，2. dasher 里面有 tier, (high/low) 3, 当前时间 返回： 根据各种条件返回dasher能看到的deliver 比如 晚上7点后第二天的deliver， 当天的Deliver,根据不同tier返回不同结果
 - LC0286. Walls and Gates
-
+- serialize binary tree => N-ary tree
+- coding是file system 实现了这些create， get， set， delete， monitor 和callback
 
 design
 - comment/review + reward
 - donation
+- distributed job scheduler

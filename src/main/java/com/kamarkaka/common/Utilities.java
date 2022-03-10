@@ -1,6 +1,7 @@
 package com.kamarkaka.common;
 
 import com.kamarkaka.LC0850;
+import com.kamarkaka.LC1004;
 import com.kamarkaka.doordash.HighestPointsUnderTimeLimit;
 import com.kamarkaka.google.BellmanFord;
 import com.kamarkaka.google.SegmentTreeNode;
@@ -52,6 +53,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      MergeSortedLists.run();
+      LC1004.run();
    }
 }
