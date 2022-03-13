@@ -5,40 +5,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-class HuffmanNode {
-   Character c;
-   int freq;
-   HuffmanNode left;
-   HuffmanNode right;
-
-   HuffmanNode(Character c, int freq) {
-      this.c = c;
-      this.freq = freq;
-   }
-
-   HuffmanNode(Character c, int freq, HuffmanNode left, HuffmanNode right) {
-      this.c = c;
-      this.freq = freq;
-      this.left = left;
-      this.right = right;
-   }
-}
-
 public class HuffmanCodec {
    private HuffmanNode root;
    private Map<Character, String> huffmanCode;
 
    public HuffmanCodec() {
       this.root = null;
-      this.huffmanCode = null;
+      this.huffmanCode = new HashMap<>();
    }
 
    public String encode(String text) {
       buildHuffmanTree(text);
-
-      // Traverse the Huffman tree and store the Huffman codes in a map
-      huffmanCode = new HashMap<>();
-      encode(root, "");
 
       // Print encoded string
       StringBuilder sb = new StringBuilder();
@@ -71,7 +48,7 @@ public class HuffmanCodec {
          }
       } else {
          // Traverse the Huffman Tree again and this time, decode the encoded string
-         int index = -1;
+         int index = 0;
          while (index < input.length() - 1) {
             index = decode(root, index, input, output);
          }
@@ -89,11 +66,8 @@ public class HuffmanCodec {
          return index;
       }
 
-      index++;
-
       node = (input.charAt(index) == '0') ? node.left : node.right;
-      index = decode(node, index, input, output);
-      return index;
+      return decode(node, index + 1, input, output);
    }
 
    private boolean isLeaf(HuffmanNode root) {
@@ -131,11 +105,34 @@ public class HuffmanCodec {
 
       // `root` stores pointer to the root of Huffman Tree
       root = pq.peek();
+
+      // Traverse the Huffman tree and store the Huffman codes in a map
+      huffmanCode.clear();
+      encode(root, "");
+   }
+
+   class HuffmanNode {
+      Character c;
+      int freq;
+      HuffmanNode left;
+      HuffmanNode right;
+
+      HuffmanNode(Character c, int freq) {
+         this.c = c;
+         this.freq = freq;
+      }
+
+      HuffmanNode(Character c, int freq, HuffmanNode left, HuffmanNode right) {
+         this.c = c;
+         this.freq = freq;
+         this.left = left;
+         this.right = right;
+      }
    }
 
    public static void run() {
       HuffmanCodec codec = new HuffmanCodec();
-      String text = "Huffman coding is a data compression algorithm.";
+      String text = "Huffman coding is a data compression algorithm."; //"safdsafd","","a","aa"
 
       String encoded = codec.encode(text);
 
@@ -148,3 +145,4 @@ public class HuffmanCodec {
       System.out.println("decoded string is: " + decoded);
    }
 }
+

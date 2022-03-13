@@ -24,4 +24,84 @@ package com.kamarkaka.twosigma;
  *
  */
 public class MemoryAllocator {
+   private final int[] memorySpace;
+   private final int ALLOCATED = 1;
+   private final int FREE = 0;
+
+   public MemoryAllocator(int initialCapacity) {
+      this.memorySpace = new int[initialCapacity];
+      this.memorySpace[0] = initialCapacity;
+      this.memorySpace[1] = FREE;
+      this.memorySpace[2] = -1;
+   }
+
+   public int malloc(int size) {
+      if (size < 1 || size > memorySpace.length) return -1;
+
+      int ptr = 0;
+      while (ptr < memorySpace.length) {
+         int currSize = memorySpace[ptr];
+         int currStatus = memorySpace[ptr+1];
+
+         if (currStatus == ALLOCATED || currSize < size + 3) {
+            ptr += currSize;
+            continue;
+         }
+
+         if (currSize < size + 6) {
+            memorySpace[ptr+1] = ALLOCATED;
+            return ptr;
+         }
+
+         memorySpace[ptr] = size + 3;
+         memorySpace[ptr+1] = ALLOCATED;
+
+         int newPtr = ptr + memorySpace[ptr];
+         memorySpace[newPtr] = currSize - memorySpace[ptr];
+         memorySpace[newPtr+1] = FREE;
+         memorySpace[newPtr+2] = ptr;
+
+         int nextPtr = ptr + currSize;
+         if (nextPtr < memorySpace.length) memorySpace[nextPtr+2] = newPtr;
+         return ptr;
+      }
+
+      return -1;
+   }
+
+   public void free(int ptr) {
+      memorySpace[ptr + 1] = FREE;
+
+      int mergedPtr = merge(memorySpace[ptr + 2], ptr);
+      merge(mergedPtr, ptr + memorySpace[ptr]);
+   }
+
+   private int merge(int ptr1, int ptr2) {
+      if (ptr1 < 0) return ptr2;
+      if (ptr2 >= memorySpace.length) return ptr1;
+
+      if (memorySpace[ptr1+1] == ALLOCATED) return ptr2;
+      if (memorySpace[ptr2+1] == ALLOCATED) return ptr1;
+
+      memorySpace[ptr1] += memorySpace[ptr2];
+      int nextPtr = ptr1 + memorySpace[ptr1];
+      if (nextPtr < memorySpace.length) {
+         memorySpace[nextPtr+2] = ptr1;
+      }
+      return ptr1;
+   }
+
+   public static void run() {
+      MemoryAllocator sol = new MemoryAllocator(100);
+      int p1 = sol.malloc(1);
+      int p2 = sol.malloc(2);
+      int p3 = sol.malloc(3);
+      int p4 = sol.malloc(80);
+      System.out.println(p1+" "+p2+" "+p3+" "+p4);
+
+      sol.free(p2);
+      sol.free(p4);
+      sol.free(p3);
+      sol.free(p1);
+   }
 }

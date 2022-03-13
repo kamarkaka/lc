@@ -25,20 +25,18 @@ import java.util.*;
  *    1, E
  */
 public class CompileLibraries {
-   private DirectedGraph graph = new DirectedGraph();
+   private final DirectedGraph graph = new DirectedGraph();
 
    List<String> compileTime(Map<String, Integer> codebase2time, Map<String, List<String>> dependency) {
       List<String> res = new ArrayList<>();
 
-      buildGraph(dependency);
+      graph.build(dependency);
 
-      if (graph.isCyclic()) {
+      Map<String, Integer> vertexIdMap = graph.topologicalSort();
+      if (vertexIdMap == null) {
          System.out.println("cycle detected");
          return res;
       }
-
-      System.out.println("no cycle detected");
-      Map<String, Integer> vertexIdMap = graph.topologicalSort();
       System.out.println("topological order: " + vertexIdMap);
 
       PriorityQueue<CodebaseTime> pq = new PriorityQueue<>(Comparator.comparingInt(t -> t.time));
@@ -58,9 +56,8 @@ public class CompileLibraries {
          while (!pq.isEmpty()) {
             CodebaseTime codebaseTime = pq.poll();
             sb.append(", ").append(codebaseTime.name);
-            codebase2time.put(codebaseTime.name, codebaseTime.time - minTime);
 
-            if (codebase2time.get(codebaseTime.name) == 0) {
+            if (codebaseTime.time - minTime == 0) {
                if (graph.edges.containsKey(codebaseTime.name)) {
                   for (String neighbor : graph.edges.get(codebaseTime.name)) {
                      vertexIdMap.put(neighbor, vertexIdMap.get(neighbor) - 1);
@@ -70,7 +67,7 @@ public class CompileLibraries {
                   }
                }
             } else {
-               nextpq.add(new CodebaseTime(codebaseTime.name, codebase2time.get(codebaseTime.name)));
+               nextpq.add(new CodebaseTime(codebaseTime.name, codebaseTime.time - minTime));
             }
          }
 
@@ -80,21 +77,6 @@ public class CompileLibraries {
       }
 
       return res;
-   }
-
-   private void buildGraph(Map<String, List<String>> dependency) {
-      for (Map.Entry<String, List<String>> entry : dependency.entrySet()) {
-         String from = entry.getKey();
-         List<String> tos = entry.getValue();
-
-         graph.vertices.add(from);
-
-         for (String to : tos) {
-            graph.vertices.add(to);
-            graph.edges.putIfAbsent(to, new ArrayList<>());
-            graph.edges.get(to).add(from);
-         }
-      }
    }
 
    private class DirectedGraph {
@@ -108,31 +90,19 @@ public class CompileLibraries {
          this.startingVertices = new HashSet<>();
       }
 
-      public boolean isCyclic() {
-         Set<String> visited = new HashSet<>();
-         Set<String> recStack = new HashSet<>();
+      public void build(Map<String, List<String>> dependency) {
+         for (Map.Entry<String, List<String>> entry : dependency.entrySet()) {
+            String from = entry.getKey();
+            List<String> tos = entry.getValue();
 
-         for (String vertice : vertices) {
-            if (isCyclic(vertice, visited, recStack)) return true;
-         }
-         return false;
-      }
+            graph.vertices.add(from);
 
-      private boolean isCyclic(String vertice, Set<String> visited, Set<String> recStack) {
-         if (recStack.contains(vertice)) return true;
-         if (visited.contains(vertice)) return false;
-
-         visited.add(vertice);
-         recStack.add(vertice);
-
-         if (edges.containsKey(vertice)) {
-            for (String neighbor : edges.get(vertice)) {
-               if (isCyclic(neighbor, visited, recStack)) return true;
+            for (String to : tos) {
+               graph.vertices.add(to);
+               graph.edges.putIfAbsent(to, new ArrayList<>());
+               graph.edges.get(to).add(from);
             }
          }
-
-         recStack.remove(vertice);
-         return false;
       }
 
       public Map<String, Integer> topologicalSort() {
@@ -141,6 +111,8 @@ public class CompileLibraries {
          for (List<String> vertices : edges.values()) {
             startingVertices.removeAll(vertices);
          }
+
+         if (startingVertices.isEmpty()) return null;
 
          Queue<String> queue = new LinkedList<>(startingVertices);
          Queue<String> nextQueue = new LinkedList<>();

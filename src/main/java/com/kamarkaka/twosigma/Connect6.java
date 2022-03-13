@@ -30,7 +30,7 @@ public class Connect6 {
       board.put(p, currPlayer);
       if (win(p)) return 1;
 
-      currPlayer = (currPlayer + 1) % 2;
+      currPlayer = 1 - currPlayer;
       return 0;
    }
 

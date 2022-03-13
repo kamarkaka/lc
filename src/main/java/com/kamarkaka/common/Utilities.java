@@ -1,13 +1,8 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.LC0850;
-import com.kamarkaka.LC1004;
-import com.kamarkaka.doordash.HighestPointsUnderTimeLimit;
-import com.kamarkaka.google.BellmanFord;
-import com.kamarkaka.google.SegmentTreeNode;
-import com.kamarkaka.indeed.CompressBST;
-import com.kamarkaka.indeed.DiceSum;
-import com.kamarkaka.indeed.MergeSortedLists;
+import com.kamarkaka.*;
+import com.kamarkaka.bloomberg.*;
+import com.kamarkaka.twosigma.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +48,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC1004.run();
+      DistinctCount.run();
    }
 }

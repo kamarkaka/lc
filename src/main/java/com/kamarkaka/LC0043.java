@@ -24,12 +24,11 @@ public class LC0043 {
 
       int totalLength = num1.length() + num2.length();
       char[] result = new char[totalLength];
-      int offset = 0;
-
       for (int i = 0; i < totalLength; i++) {
          result[i] = '0';
       }
 
+      int offset = 0;
       for (int i = num2.length() - 1; i >= 0; i--) {
          char c = num2.charAt(i);
          result = add(result, multiply(num1.toCharArray(), c, totalLength, offset));
@@ -89,5 +88,10 @@ public class LC0043 {
       }
 
       return result;
+   }
+
+   public static void run() {
+      LC0043 sol = new LC0043();
+      System.out.println(sol.multiply("123", "111"));
    }
 }
