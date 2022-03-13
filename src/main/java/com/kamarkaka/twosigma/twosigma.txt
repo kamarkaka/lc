@@ -38,7 +38,8 @@ VO
 * LC0146. LRU Cache
 * LC0289. Game of Life
 * LC0460. LFU Cache
-- LC0710. Random Pick with Blacklist
+* LC0710. Random Pick with Blacklist
+*
 * LC1013. Partition Array Into Three Parts With Equal Sum
 
 * huffman encoding，需要implement encode 和 decode
