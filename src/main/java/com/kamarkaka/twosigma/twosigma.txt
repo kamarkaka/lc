@@ -1,23 +1,6 @@
-https://www.1point3acres.com/bbs/thread-772113-1-1.html
-https://www.1point3acres.com/bbs/thread-819790-1-1.html
-- IPO
-- TreeSplit
-
-https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=777926&page=1
-
-
-
-
-
-
-https://www.1point3acres.com/bbs/thread-842393-1-1.html
-- https://www.lintcode.com/problem/280/
-
-https://www.1point3acres.com/bbs/thread-787904-1-1.html
-- canMakeTriangle
-- sumOfFirsts
-- bubblesPopping2
-- arrayAssignmentAndSum
+OA
+* IPO
+* TreeSplit
 
 VO
 * LC0004. Median of Two Sorted Arrays
@@ -51,8 +34,8 @@ VO
 * Line Segments 求多少种取法能取出两个段落彼此不overlap, sort完之后二分查找做掉了
 * Memory Allocator
 * Merge K Sorted Stream，会有一些变化，但是总体逻辑不变还是用heap来存index
-* Monday getPreviousMonday(date), inpute can be int 20201212 , output 20201207
-* Neares Neighboring City 注意要用binary search来优化，不然会超时
+* Monday getPreviousMonday(date), input can be int 20201212 , output 20201207
+* Nearest Neighboring City 注意要用binary search来优化，不然会超时
 * Quantity Discounts
 * Reverse Polish Notation
 
@@ -62,6 +45,6 @@ ood，老鼠和奶闹，后来再加上狗和猫，老鼠追奶闹，猫追老�
 design一个game,考OOP. 有一个grid, grid上有个target，有一些players. Players不知道自己在grid上哪里，player有自己的移动strategy，但是输入是告诉你上次的移动是接近target了还是远离target了。
 冰箱。(https://www.1point3acres.com/bbs/thread-580268-1-1.html)
 设计一个分布式时间序列的KV store, 支持timestamp based range read and write. 加分项是讨论一些clean/compaction的东西。
-  key value store 支持get(key) put(key, value)还有 getN(key, n), key 可能不在store里，找出所有key排序后大于等于这个key的n个value.  设计单机实现和分布式设计。（当时卡在linked list ordered dict 上， 回头想想可能是BST）
+  key value store 支持get(key) put(key, value)还有 getN(key, n), key 可能不在store里，找出所有key排序后大于等于这个key的n个value.设计单机实现和分布式设计。（当时卡在linked list ordered dict 上， 回头想想可能是BST）
 Design Elevator. 可以用webapp和screen panel控制，需要badge scan，怎么处理电梯运行中有其他人request等等
 text editor
