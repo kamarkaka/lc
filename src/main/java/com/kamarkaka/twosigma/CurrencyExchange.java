@@ -14,70 +14,87 @@ public class CurrencyExchange {
    }
 
    public double convert(String source, String destination, double amount) {
-      double rate = wdg.dijkstra(source, destination);
+      double rate = wdg.bellmanFord(source, destination);
       if (rate < 0) return rate;
       return amount * rate;
    }
 
    private class WeightedDirectedGraph {
       private final Set<String> vertices;
-      private final Map<String, Map<String, Double>> weightedEdges;
+      private final List<Edge> edges;
 
       WeightedDirectedGraph() {
          this.vertices = new HashSet<>();
-         this.weightedEdges = new HashMap<>();
+         this.edges = new LinkedList<>();
       }
 
       void addEdge(String src, String dst, double weight) {
          vertices.add(src);
          vertices.add(dst);
-
-         weightedEdges.putIfAbsent(src, new HashMap<>());
-         Map<String, Double> dstMap = weightedEdges.get(src);
-         dstMap.put(dst, weight);
-         weightedEdges.put(src, dstMap);
+         edges.add(new Edge(src, dst, weight));
       }
 
-      double dijkstra(String src, String dst) {
+      double bellmanFord(String src, String dst) {
          if (!vertices.contains(src) || !vertices.contains(dst)) return -1;
          if (src.equals(dst)) return 1;
 
-         Set<String> visited = new HashSet<>();
-         Map<String, Double> pathMap = new HashMap<>();
+         Map<String, Double> distMap = new HashMap<>();
+         Map<String, String> predecessorMap = new HashMap<>();
          for (String vertex : vertices) {
             if (vertex.equals(src)) {
-               pathMap.put(vertex, 1.0);
+               distMap.put(vertex, 1.0);
             } else {
-               pathMap.put(vertex, Double.MAX_VALUE);
+               distMap.put(vertex, -1.0);
             }
          }
 
-         Queue<String> pq = new LinkedList<>();
-         pq.add(src);
+         for (int i = 1; i < vertices.size(); i++) {
+            for (Edge edge : edges) {
+               String u = edge.src;
+               String v = edge.dst;
+               double w = edge.weight;
 
-         while (!pq.isEmpty()) {
-            String vertex = pq.poll();
-            visited.add(vertex);
-            if (vertex.equals(dst)) continue;
-
-            Map<String, Double> edges = weightedEdges.get(vertex);
-            for (String neighbor : edges.keySet()) {
-               if (visited.contains(neighbor)) continue;
-
-               double weight = edges.get(neighbor) * pathMap.get(vertex);
-               if (weight < pathMap.get(neighbor)) {
-                  pathMap.put(neighbor, weight);
-                  pq.add(neighbor);
-               }
+               if (distMap.get(u) < 0) continue;
+               distMap.put(v, Math.max(distMap.get(v), distMap.get(u) * w));
+               predecessorMap.put(v, u);
             }
          }
 
-         return pathMap.get(dst);
+         for (Edge edge : edges) {
+            String u = edge.src;
+            String v = edge.dst;
+            double w = edge.weight;
+
+            if (distMap.get(u) * w > distMap.get(v)) {
+               return -1;
+            }
+         }
+
+         return distMap.get(dst);
+      }
+
+      private class Edge {
+         String src;
+         String dst;
+         double weight;
+
+         public Edge(String src, String dst, double weight) {
+            this.src = src;
+            this.dst = dst;
+            this.weight = weight;
+         }
       }
    }
 
    public static void run() {
       CurrencyExchange sol = new CurrencyExchange();
+//      sol.addExchangeRate("EUR", "GBP", 0.8);
+//      sol.addExchangeRate("EUR", "USD", 1.1);
+//      sol.addExchangeRate("GBP", "USD", 1.3);
+//      sol.addExchangeRate("USD", "GBP", 0.8);
+//      sol.addExchangeRate("GBP", "INR", 100);
+//      sol.addExchangeRate("USD", "INR", 77);
+
       sol.addExchangeRate("EUR", "USD", 1.2);
       sol.addExchangeRate("USD", "GBP", 0.75);
       sol.addExchangeRate("GBP", "AUD", 1.7);

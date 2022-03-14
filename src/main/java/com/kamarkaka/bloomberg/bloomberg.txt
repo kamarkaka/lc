@@ -62,15 +62,15 @@ manager round: bq + technical deep dive
     - what i can bring to the team
 hr
 
-- LC0012. Integer to Roman
-- LC0020. Valid Parentheses
-- LC0023. Merge k Sorted Lists
-- LC0042. Trapping Rain Water
-- LC0056. Merge Intervals
-- LC0091. Decode Ways
-- LC0098. Validate Binary Search Tree
-- LC0117. Populating Next Right Pointers in Each Node II
-- LC0124. Binary Tree Maximum Path Sum
+* LC0012. Integer to Roman
+* LC0020. Valid Parentheses
+* LC0023. Merge k Sorted Lists
+* LC0042. Trapping Rain Water
+* LC0056. Merge Intervals
+* LC0091. Decode Ways
+* LC0098. Validate Binary Search Tree
+* LC0117. Populating Next Right Pointers in Each Node II
+* LC0124. Binary Tree Maximum Path Sum
 - LC0134. Gas Station
 - LC0140. Word Break II
 - LC0146. LRU Cache
@@ -108,6 +108,7 @@ hr
 - LC1396. Design Underground System
 - LC1656. Design an Ordered Stream
 - LC1823
+* collatz 要有多种方法求解 要把recursive和iterative的解都写出来才行
 
 - 你有两个api:
   trade(stockname, qty): 相同的stockname可能会call多次
@@ -119,7 +120,7 @@ hr
 - 找到(d(c(an)))里面最深的string
 - 地里的买机票老题
 - tree level traverse，followup：不是binary，n叉树怎么改代码
-- collatz 要有多种方法求解 要把recursive和iterative的解都写出来才行
+
 - assign next pointer, given any binary tree.我用的带q的bfs。好像还有更直接的解法。。
 - Currency exchange (https://leetcode.com/discuss/interview-question/483660/google-phone-currency-conversion)
 
@@ -132,12 +133,10 @@ hr
 - 给一堆莎士比亚的文章，文本文件形式，给定一个单词找出它在各文章中出现的总次数以及出现的行号列表
 - 设计instagram
 - 设计个log系统说了半天才知道是让我弄个singleton出来并考虑多线程
-- 随机删除访问
+
 - 热门股票然后根据热度调整顺序
 
 - Java基础，primitive type，和object有啥区别
 - 多线程基础
 - Java基础，继承，多态，interface和abstract区别。然后多线程编程，写一个thread safe的producer - consumer model, 而且可以处理不同priority的task
 - 让写了个thread safe的Queue
-
-

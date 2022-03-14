@@ -48,6 +48,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      DistinctCount.run();
+      CurrencyExchange.run();
    }
 }
