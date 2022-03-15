@@ -4,3 +4,21 @@ LC0243. Shortest Word Distance
 LC0244. Shortest Word Distance II
 LC0245. Shortest Word Distance III
 LC0380. Insert Delete GetRandom O(1)
+
+enterprise ads
+  ads serving
+    user: job index segment
+	serving control to filter ads
+	top k
+	ranking
+	ml to score ads
+	target ads
+	bidding platform
+	- redis cache tuning
+	8 ppl
+	2 staff 3 senior
+	backend docker java
+	offline spark java
+	kafka
+	mangodb mysql
+	aws

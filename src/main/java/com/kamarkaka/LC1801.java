@@ -2,7 +2,6 @@ package com.kamarkaka;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /***
  * 1801. Number of Orders in the Backlog
@@ -92,7 +91,6 @@ public class LC1801 {
             }
          }
       }
-
 
 //      for(int[] order : buyBacklog) {
 //         backLogOrdersAmount += order[1];
