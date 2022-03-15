@@ -77,26 +77,26 @@ hr
 * LC0199. Binary Tree Right Side View
 * LC0200. Number of Islands
 * LC0212. Word Search II
-- LC0230. Kth Smallest Element in a BST
+* LC0230. Kth Smallest Element in a BST
 * LC0252. Meeting Rooms
 * LC0253. Meeting Rooms II
 * LC0263. Ugly Number
-- LC0269. Alien Dictionary
-- LC0278. First Bad Version
-- LC0283. Move Zeroes
-- LC0308. Range Sum Query 2D - Mutable
-- LC0314. Binary Tree Vertical Order Traversal
-- LC0366. Find Leaves of Binary Tree
-- LC0378. Kth Smallest Element in a Sorted Matrix
-- LC0380. Insert Delete GetRandom O(1)
-- LC0384. Shuffle an Array 让设计如何random扑克牌，然后开始问如何把这个代码扩展到任意的卡牌游戏，相当于考Java继承，implement
-- LC0394. Decode String
+* LC0269. Alien Dictionary
+* LC0278. First Bad Version
+* LC0283. Move Zeroes
+* LC0308. Range Sum Query 2D - Mutable
+* LC0314. Binary Tree Vertical Order Traversal
+* LC0366. Find Leaves of Binary Tree
+* LC0378. Kth Smallest Element in a Sorted Matrix
+* LC0380. Insert Delete GetRandom O(1)
+* LC0384. Shuffle an Array 让设计如何random扑克牌，然后开始问如何把这个代码扩展到任意的卡牌游戏，相当于考Java继承，implement
+* LC0394. Decode String
 - LC0430. Flatten a Multilevel Doubly Linked List
-- LC0528. Random Pick with Weight
+* LC0528. Random Pick with Weight
 - LC0572. Subtree of Another Tree
-- LC0652. Find Duplicate Subtrees
-- LC0723. Candy Crush (one dimensional)
-- LC0994. Rotting Oranges
+* LC0652. Find Duplicate Subtrees
+* LC0723. Candy Crush (one dimensional)
+* LC0994. Rotting Oranges
 - LC1029. Two City Scheduling
 - LC1091. Shortest Path in Binary Matrix
 - LC1169. Invalid Transactions
