@@ -97,7 +97,7 @@ hr
 * LC0652. Find Duplicate Subtrees
 * LC0723. Candy Crush (one dimensional)
 * LC0994. Rotting Oranges
-- LC1029. Two City Scheduling
+* LC1029. Two City Scheduling
 - LC1091. Shortest Path in Binary Matrix
 - LC1169. Invalid Transactions
 - LC1209. Remove All Adjacent Duplicates in String II
