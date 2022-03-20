@@ -1,8 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.*;
-import com.kamarkaka.bloomberg.*;
-import com.kamarkaka.twosigma.*;
+import com.kamarkaka.LC1950;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +19,14 @@ public class Utilities {
    }
 
    public static void print(int[][] matrix) {
+      String[] prints = new String[matrix.length];
+      for (int i = 0; i < matrix.length; i++) {
+         prints[i] = Arrays.toString(matrix[i]);
+      }
+      System.out.println(Arrays.toString(prints));
+   }
+
+   public static void print(char[][] matrix) {
       String[] prints = new String[matrix.length];
       for (int i = 0; i < matrix.length; i++) {
          prints[i] = Arrays.toString(matrix[i]);
@@ -48,6 +54,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      DeepestString.run();
+      LC1950.run();
    }
 }
