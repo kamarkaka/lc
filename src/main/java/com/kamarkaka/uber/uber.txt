@@ -1,59 +1,59 @@
-4
-20
-34
-36
-56
-57
-68
-71
-76
-98
-101
-126
-127
-146
-153
-154
-192
-207
-212
-224
-238
-239
-246
-247
-252
-253
-295
-297
-315
-332
-340
-347
-388
-398
-399
-415
-427
-465
-470
-528
-529
-542
-547
-636
-694
-729
-773
-815
-824
-855
-895
-953
-986
-1182
-1200
-1515
+4. Median of Two Sorted Arrays
+20. Valid Parentheses
+34. Find First and Last Position of Element in Sorted Array
+36. Valid Sudoku
+56. Merge Intervals
+57. Insert Interval
+68. Text Justification
+71. Simplify Path
+76. Minimum Window Substring
+98. Validate Binary Search Tree
+101. Symmetric Tree
+126. Word Ladder II
+127. Word Ladder
+146. LRU Cache
+153. Find Minimum in Rotated Sorted Array
+154. Find Minimum in Rotated Sorted Array II
+192. Word Frequency
+207. Course Schedule
+212. Word Search II
+224. Basic Calculator
+238. Product of Array Except Self
+239. Sliding Window Maximum
+246. Strobogrammatic Number
+247. Strobogrammatic Number II
+252. Meeting Rooms
+253. Meeting Rooms II
+295. Find Median from Data Stream
+297. Serialize and Deserialize Binary Tree
+315. Count of Smaller Numbers After Self
+332. Reconstruct Itinerary
+340. Longest Substring with At Most K Distinct Characters
+347. Top K Frequent Elements
+388. Longest Absolute File Path
+398. Random Pick Index
+399. Evaluate Division
+415. Add Strings
+427. Construct Quad Tree
+465. Optimal Account Balancing
+470. Implement Rand10() Using Rand7()
+528. Random Pick with Weight
+529. Minesweeper
+542. 01 Matrix
+547. Number of Provinces
+636. Exclusive Time of Functions
+694. Number of Distinct Islands
+729. My Calendar I
+773. Sliding Puzzle
+815. Bus Routes
+824. Goat Latin
+855. Exam Room
+895. Maximum Frequency Stack
+953. Verifying an Alien Dictionary
+986. Interval List Intersections
+1182. Shortest Distance to Target Color
+1200. Minimum Absolute Difference
+1515. Best Position for a Service Centre
 
 [[4,14],[6,17],[7,14],[14,21],[4,7]]
 
@@ -78,3 +78,25 @@ hiring manager
 	citizenship (contribute to the team)
 
 decision in 3 days
+
+LC0200. Number of Islands
+LC0305. Number of Islands II
+LC0384. Shuffle an Array
+LC0529. Minesweeper
+LC0694. Number of Distinct Islands
+LC0815. Bus Routes
+LC0834. Sum of Distances in Tree
+
+给你一个input string和order string，check这个input string 里面character的顺序是不是按照order string 里面的。
+  例如input： “ABCDEA”, order： “ABC”，返回 false
+
+verison compatibility 要求Time O(1)
+  1->2->3->4->5->6
+  T  T  F  T  T  T
+  写两个函数
+    1. addVersion(int version, boolean compatible) // compatible 代表和前一个verion是不是compatible,
+    2. isCompatible(int sourceVersion, int targetVersion)，判断任意两个version是不是compatible
+
+design twitter
+design uber heatmap
+design rider can see 5 drivers nearby
