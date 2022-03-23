@@ -80,6 +80,7 @@ hiring manager
 decision in 3 days
 
 LC0200. Number of Islands
+LC0239. Sliding Window Maximum
 LC0305. Number of Islands II
 LC0384. Shuffle an Array
 LC0529. Minesweeper
@@ -92,7 +93,7 @@ LC0834. Sum of Distances in Tree
 
 verison compatibility 要求Time O(1)
   1->2->3->4->5->6
-  T  T  F  T  T  T
+     T  F  T  T  T
   写两个函数
     1. addVersion(int version, boolean compatible) // compatible 代表和前一个verion是不是compatible,
     2. isCompatible(int sourceVersion, int targetVersion)，判断任意两个version是不是compatible

@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.LC1391;
+import com.kamarkaka.uber.CharOrder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -54,6 +54,6 @@ public class Utilities {
    }
 
    public static void main(String[] args) {
-      LC1391.run();
+      CharOrder.run();
    }
 }
