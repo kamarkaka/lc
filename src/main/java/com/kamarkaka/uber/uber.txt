@@ -80,11 +80,17 @@ hiring manager
 decision in 3 days
 
 LC0200. Number of Islands
+    bfs
 LC0239. Sliding Window Maximum
+    deque to maintain order on each slide
 LC0305. Number of Islands II
+    union find
 LC0384. Shuffle an Array
+    random pick, put to end/start, decrease range and random pick again
 LC0529. Minesweeper
+    bfs
 LC0694. Number of Distinct Islands
+    dfs, add found islands into a set
 LC0815. Bus Routes
 LC0834. Sum of Distances in Tree
 
@@ -101,3 +107,4 @@ verison compatibility 要求Time O(1)
 design twitter
 design uber heatmap
 design rider can see 5 drivers nearby
+
