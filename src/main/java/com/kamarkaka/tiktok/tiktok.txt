@@ -1,29 +1,38 @@
-33
-76
-98
-146
-200
-210
-227
-337
-341
-490
-560
-528
-567
-642
-670
-702
-773
-855
-1375
-1833
-1996
+33. Search in Rotated Sorted Array
+76. Minimum Window Substring
+98. Validate Binary Search Tree
+131. Palindrome Partitioning
+146. LRU Cache
+200. Number of Islands
+210. Course Schedule II
+227. Basic Calculator II
+337. House Robber III
+341. Flatten Nested List Iterator
+394. Decode String
+490. The Maze
+528. Random Pick with Weight
+560. Subarray Sum Equals K
+567. Permutation in String
+642. Design Search Autocomplete System
+670. Maximum Swap
+694. Number of Distinct Islands
+702. Search in a Sorted Array of Unknown Size
+773. Sliding Puzzle
+855. Exam Room
+886. Possible Bipartition
+1375. Number of Times Binary String Is Prefix-Aligned
+1833. Maximum Ice Cream Bars
+1996. The Number of Weak Characters in the Game
+
 quicksort
 https://www.1point3acres.com/bbs/thread-848936-1-1.html
 count prime
 union find，给一个图和n个点，输出相连的group
-找到  0 到 n，每个digit都相差1的所有数字。 e.g. 12, 123, 121.
+找到0 到 n，每个digit都相差1的所有数字。 e.g. 12, 123, 121.
 给3n个数字，每次抽3个，取n次。对抽出的三个数字里第二大的数字求和。问如何取使得这个和最大。
-n个灯泡。给一个长度为n的array存开灯顺序，里面第i个element 代表第i轮打开的灯的序号。当一个灯左边的所有灯都已经点亮时，他们会变成蓝色。求按照这个开灯顺序开灯时，出‍‍‍‌‌‍‌‌‍‍‍‌‍‌‍‍‌‌现几次所有亮着的灯都是蓝色的情况。
+n个灯泡。给一个长度为n的array存开灯顺序，里面第i个element 代表第i轮打开的灯的序号。当一个灯左边的所有灯都已经点亮时，他们会变成蓝色。求按照这个开灯顺序开灯时，出‌现几次所有亮着的灯都是蓝色的情况。
 binary search
+top k most frequent elements. 先说了heap 解法， 然后用quick select
+trie
+Serialize and Deserialize binary tree
+Jump game
