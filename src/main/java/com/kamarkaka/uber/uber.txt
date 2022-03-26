@@ -92,6 +92,7 @@ LC0529. Minesweeper
 LC0694. Number of Distinct Islands
     dfs, add found islands into a set
 LC0815. Bus Routes
+    union find
 LC0834. Sum of Distances in Tree
 
 给你一个input string和order string，check这个input string 里面character的顺序是不是按照order string 里面的。

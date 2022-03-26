@@ -41,8 +41,7 @@ public class LC1249 {
          if (c == '(') {
             stack.push(i);
             i++;
-         }
-         else if (c == ')') {
+         } else if (c == ')') {
             if (!stack.empty()) {
                stack.pop();
                i++;
