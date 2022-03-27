@@ -1,3 +1,7 @@
+package com.kamarkaka;
+
+import com.kamarkaka.common.TreeNode;
+
 /***
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
@@ -21,21 +25,16 @@
  *   p != q
  *   p and q will exist in the tree.
  */
-
-package com.kamarkaka;
-
-import com.kamarkaka.common.TreeNode;
-
 public class LC0236 {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) return null;
-        if (root.val == p.val || root.val == q.val) return root;
+   public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+      if (root == null) return null;
+      if (root.val == p.val || root.val == q.val) return root;
 
-        TreeNode l = lowestCommonAncestor(root.left, p, q);
-        TreeNode r = lowestCommonAncestor(root.right, p, q);
+      TreeNode l = lowestCommonAncestor(root.left, p, q);
+      TreeNode r = lowestCommonAncestor(root.right, p, q);
 
-        if (l == null && r == null) return null;
-        if (l != null && r != null) return root;
-        return l == null ? r : l;
-    }
+      if (l == null && r == null) return null;
+      if (l != null && r != null) return root;
+      return l == null ? r : l;
+   }
 }

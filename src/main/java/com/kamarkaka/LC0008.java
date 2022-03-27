@@ -1,3 +1,5 @@
+package com.kamarkaka;
+
 /***
  * Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
  * The algorithm for myAtoi(string s) is as follows:
@@ -81,61 +83,58 @@
  *  0 <= s.length <= 200
  *  s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
  */
-
-package com.kamarkaka;
-
 public class LC0008 {
-    public int myAtoi(String s) {
-        if (s == null || s.length() == 0) return 0;
+   public int myAtoi(String s) {
+      if (s == null || s.length() == 0) return 0;
 
-        int res = 0;
-        boolean isPositive = true, isSignSet = false;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+      int res = 0;
+      boolean isPositive = true, isSignSet = false;
+      for (int i = 0; i < s.length(); i++) {
+         char c = s.charAt(i);
 
-            if (!isSignSet) {
-                if (c == '-') {
-                    isPositive = false;
-                    isSignSet = true;
-                    continue;
-                } else if (c == '+') {
-                    isPositive = true;
-                    isSignSet = true;
-                    continue;
-                } else if (c == ' ') {
-                    continue;
-                } else if ('0' <= c && c <= '9') {
-                    isPositive = true;
-                    isSignSet = true;
-                } else {
-                    return 0;
-                }
-            }
-
-            if (isSignSet && '0' <= c && c <= '9') {
-                int digit = c - '0';
-                if (isPositive) {
-                    if ((res > 0 && Integer.MAX_VALUE / res < 10) || Integer.MAX_VALUE - res * 10 <= digit) return Integer.MAX_VALUE;
-                    else res = res * 10 + digit;
-                } else {
-                    if ((res < 0 && (Integer.MIN_VALUE + 1) / res < 10) || Integer.MAX_VALUE + res * 10 <= digit - 1) return Integer.MIN_VALUE;
-                    else res = res * 10 - digit;
-                }
+         if (!isSignSet) {
+            if (c == '-') {
+               isPositive = false;
+               isSignSet = true;
+               continue;
+            } else if (c == '+') {
+               isPositive = true;
+               isSignSet = true;
+               continue;
+            } else if (c == ' ') {
+               continue;
+            } else if ('0' <= c && c <= '9') {
+               isPositive = true;
+               isSignSet = true;
             } else {
-                return res;
+               return 0;
             }
-        }
+         }
 
-        return res;
-    }
+         if (isSignSet && '0' <= c && c <= '9') {
+            int digit = c - '0';
+            if (isPositive) {
+               if ((res > 0 && Integer.MAX_VALUE / res < 10) || Integer.MAX_VALUE - res * 10 <= digit) return Integer.MAX_VALUE;
+               else res = res * 10 + digit;
+            } else {
+               if ((res < 0 && (Integer.MIN_VALUE + 1) / res < 10) || Integer.MAX_VALUE + res * 10 <= digit - 1) return Integer.MIN_VALUE;
+               else res = res * 10 - digit;
+            }
+         } else {
+            return res;
+         }
+      }
 
-    public static void run() {
-        LC0008 solution = new LC0008();
-        System.out.println(solution.myAtoi("42"));
-        System.out.println(solution.myAtoi("   -42"));
-        System.out.println(solution.myAtoi("4193 with words"));
-        System.out.println(solution.myAtoi("words and 987"));
-        System.out.println(solution.myAtoi("-91283472332"));
-        System.out.println(solution.myAtoi("-123"));
-    }
+      return res;
+   }
+
+   public static void run() {
+      LC0008 solution = new LC0008();
+      System.out.println(solution.myAtoi("42"));
+      System.out.println(solution.myAtoi("   -42"));
+      System.out.println(solution.myAtoi("4193 with words"));
+      System.out.println(solution.myAtoi("words and 987"));
+      System.out.println(solution.myAtoi("-91283472332"));
+      System.out.println(solution.myAtoi("-123"));
+   }
 }

@@ -1,3 +1,5 @@
+package com.kamarkaka;
+
 /***
  * Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
  *
@@ -29,25 +31,23 @@
  *
  * Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
  */
-package com.kamarkaka;
-
 public class LC0268 {
-    public int missingNumber(int[] nums) {
-        int len = nums.length;
-        int sum = len * (len + 1) / 2;
+   public int missingNumber(int[] nums) {
+      int len = nums.length;
+      int sum = len * (len + 1) / 2;
 
-        for (int num : nums) {
-            sum -= num;
-        }
+      for (int num : nums) {
+         sum -= num;
+      }
 
-        return sum;
-    }
+      return sum;
+   }
 
-    public static void run() {
-        LC0268 solution = new LC0268();
-        System.out.println(solution.missingNumber(new int[]{3,0,1}));
-        System.out.println(solution.missingNumber(new int[]{0,1}));
-        System.out.println(solution.missingNumber(new int[]{9,6,4,2,3,5,7,0,1}));
-        System.out.println(solution.missingNumber(new int[]{0}));
-    }
+   public static void run() {
+      LC0268 solution = new LC0268();
+      System.out.println(solution.missingNumber(new int[]{3,0,1}));
+      System.out.println(solution.missingNumber(new int[]{0,1}));
+      System.out.println(solution.missingNumber(new int[]{9,6,4,2,3,5,7,0,1}));
+      System.out.println(solution.missingNumber(new int[]{0}));
+   }
 }

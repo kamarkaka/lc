@@ -1,3 +1,7 @@
+package com.kamarkaka;
+
+import java.util.Arrays;
+
 /***
  * Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
  * Return the sum of the three integers.
@@ -17,42 +21,37 @@
  *   -1000 <= nums[i] <= 1000
  *   -10^4 <= target <= 10^4
  */
-
-package com.kamarkaka;
-
-import java.util.Arrays;
-
 public class LC0016 {
-    public int threeSumClosest(int[] nums, int target) {
-        if (nums == null || nums.length < 3) return 0;
+   public int threeSumClosest(int[] nums, int target) {
+      if (nums == null || nums.length < 3) return 0;
 
-        Arrays.sort(nums);
-        int res = nums[0] + nums[1] + nums[2];
+      Arrays.sort(nums);
+      int res = nums[0] + nums[1] + nums[2];
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            int lo = i + 1, hi = nums.length - 1;
-            while (lo < hi) {
-                int sum = nums[i] + nums[lo] + nums[hi];
-                if (sum == target) return target;
+      for (int i = 0; i < nums.length - 2; i++) {
+         int lo = i + 1, hi = nums.length - 1;
+         while (lo < hi) {
+            int sum = nums[i] + nums[lo] + nums[hi];
+            if (sum == target) return target;
 
-                if (sum > target) {
-                    hi--;
-                } else {
-                    lo++;
-                }
-
-                if (Math.abs(target - sum) < Math.abs(target - res)) {
-                    res = sum;
-                }
+            if (sum > target) {
+               hi--;
+            } else {
+               lo++;
             }
-        }
 
-        return res;
-    }
+            if (Math.abs(target - sum) < Math.abs(target - res)) {
+               res = sum;
+            }
+         }
+      }
 
-    public static void run() {
-        LC0016 solution = new LC0016();
-        System.out.println(solution.threeSumClosest(new int[]{-1,2,1,-4}, 1));
-        System.out.println(solution.threeSumClosest(new int[]{0,0,0}, 1));
-    }
+      return res;
+   }
+
+   public static void run() {
+      LC0016 solution = new LC0016();
+      System.out.println(solution.threeSumClosest(new int[]{-1,2,1,-4}, 1));
+      System.out.println(solution.threeSumClosest(new int[]{0,0,0}, 1));
+   }
 }

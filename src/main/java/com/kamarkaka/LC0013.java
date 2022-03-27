@@ -1,3 +1,5 @@
+package com.kamarkaka;
+
 /***
  * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
  * Symbol       Value
@@ -42,48 +44,45 @@
  *   s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
  *   It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  */
-
-package com.kamarkaka;
-
 public class LC0013 {
-    public int romanToInt(String s) {
-        int res = 0;
+   public int romanToInt(String s) {
+      int res = 0;
 
-        for (int index = 0; index < s.length(); index++) {
-            char c = s.charAt(index);
+      for (int index = 0; index < s.length(); index++) {
+         char c = s.charAt(index);
 
-            switch (c) {
-                case 'I' -> res += 1;
-                case 'V' -> res += 5;
-                case 'X' -> res += 10;
-                case 'L' -> res += 50;
-                case 'C' -> res += 100;
-                case 'D' -> res += 500;
-                case 'M' -> res += 1000;
-            }
+         switch (c) {
+            case 'I' -> res += 1;
+            case 'V' -> res += 5;
+            case 'X' -> res += 10;
+            case 'L' -> res += 50;
+            case 'C' -> res += 100;
+            case 'D' -> res += 500;
+            case 'M' -> res += 1000;
+         }
 
-            if (index < 1) continue;
+         if (index < 1) continue;
 
-            char pc = s.charAt(index - 1);
+         char pc = s.charAt(index - 1);
 
-            if (pc == 'I' && (c == 'V' || c == 'X')) {
-                res -= 2;
-            } else if (pc == 'X' && (c == 'L' || c == 'C')) {
-                res -= 20;
-            } else if (pc == 'C' && (c == 'D' || c == 'M')) {
-                res -= 200;
-            }
-        }
+         if (pc == 'I' && (c == 'V' || c == 'X')) {
+            res -= 2;
+         } else if (pc == 'X' && (c == 'L' || c == 'C')) {
+            res -= 20;
+         } else if (pc == 'C' && (c == 'D' || c == 'M')) {
+            res -= 200;
+         }
+      }
 
-        return res;
-    }
+      return res;
+   }
 
-    public static void run() {
-        LC0013 solution = new LC0013();
-        System.out.println(solution.romanToInt("III"));
-        System.out.println(solution.romanToInt("IV"));
-        System.out.println(solution.romanToInt("IX"));
-        System.out.println(solution.romanToInt("LVIII"));
-        System.out.println(solution.romanToInt("MCMXCIV"));
-    }
+   public static void run() {
+      LC0013 solution = new LC0013();
+      System.out.println(solution.romanToInt("III"));
+      System.out.println(solution.romanToInt("IV"));
+      System.out.println(solution.romanToInt("IX"));
+      System.out.println(solution.romanToInt("LVIII"));
+      System.out.println(solution.romanToInt("MCMXCIV"));
+   }
 }

@@ -1,3 +1,7 @@
+package com.kamarkaka;
+
+import java.util.HashSet;
+
 /***
  * Given a string s, find the length of the longest substring without repeating characters.
  *
@@ -25,52 +29,48 @@
  *   0 <= s.length <= 5 * 10^4
  *   s consists of English letters, digits, symbols and spaces.
  */
-package com.kamarkaka;
-
-import java.util.HashSet;
-
 public class LC0003 {
-    public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.length() == 0) return 0;
+   public int lengthOfLongestSubstring(String s) {
+      if (s == null || s.length() == 0) return 0;
 
-        int startIndex = 0;
-        int endIndex = 0;
-        int len = 0;
-        HashSet<Character> hashSet = new HashSet<>();
+      int startIndex = 0;
+      int endIndex = 0;
+      int len = 0;
+      HashSet<Character> hashSet = new HashSet<>();
 
-        while (endIndex < s.length()) {
-            char c = s.charAt(endIndex);
-            if (hashSet.contains(c)) {
-                int currLen = endIndex - startIndex;
-                len = Math.max(currLen, len);
+      while (endIndex < s.length()) {
+         char c = s.charAt(endIndex);
+         if (hashSet.contains(c)) {
+            int currLen = endIndex - startIndex;
+            len = Math.max(currLen, len);
 
-                while (startIndex < endIndex) {
-                    char c1 = s.charAt(startIndex);
-                    startIndex++;
+            while (startIndex < endIndex) {
+               char c1 = s.charAt(startIndex);
+               startIndex++;
 
-                    if (c1 == c) {
-                        break;
-                    } else {
-                        hashSet.remove(c1);
-                    }
-                }
-            } else {
-                hashSet.add(c);
+               if (c1 == c) {
+                  break;
+               } else {
+                  hashSet.remove(c1);
+               }
             }
+         } else {
+            hashSet.add(c);
+         }
 
-            endIndex++;
-        }
+         endIndex++;
+      }
 
-        return Math.max(len, endIndex - startIndex);
-    }
+      return Math.max(len, endIndex - startIndex);
+   }
 
-    public static void run() {
-        LC0003 solution = new LC0003();
-        System.out.println(solution.lengthOfLongestSubstring("abcabcbb"));
-        System.out.println(solution.lengthOfLongestSubstring("bbbbb"));
-        System.out.println(solution.lengthOfLongestSubstring("pwwkew"));
-        System.out.println(solution.lengthOfLongestSubstring(""));
-        System.out.println(solution.lengthOfLongestSubstring("abcde"));
-        System.out.println(solution.lengthOfLongestSubstring("abbbcdea"));
-    }
+   public static void run() {
+      LC0003 solution = new LC0003();
+      System.out.println(solution.lengthOfLongestSubstring("abcabcbb"));
+      System.out.println(solution.lengthOfLongestSubstring("bbbbb"));
+      System.out.println(solution.lengthOfLongestSubstring("pwwkew"));
+      System.out.println(solution.lengthOfLongestSubstring(""));
+      System.out.println(solution.lengthOfLongestSubstring("abcde"));
+      System.out.println(solution.lengthOfLongestSubstring("abbbcdea"));
+   }
 }

@@ -1,3 +1,5 @@
+package com.kamarkaka;
+
 /***
  * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
  * Notice that you may not slant the container.
@@ -24,33 +26,31 @@
  *   2 <= n <= 10^5
  *   0 <= height[i] <= 10^4
  */
-package com.kamarkaka;
-
 public class LC0011 {
-    public int maxArea(int[] height) {
-        if (height == null || height.length == 1) return 0;
+   public int maxArea(int[] height) {
+      if (height == null || height.length == 1) return 0;
 
-        int startIndex = 0, endIndex = height.length - 1;
-        int res = Math.min(height[startIndex], height[endIndex]) * (endIndex - startIndex);
+      int startIndex = 0, endIndex = height.length - 1;
+      int res = Math.min(height[startIndex], height[endIndex]) * (endIndex - startIndex);
 
-        while (startIndex < endIndex) {
-            if (height[startIndex] <= height[endIndex]) {
-                startIndex++;
-            } else {
-                endIndex--;
-            }
+      while (startIndex < endIndex) {
+         if (height[startIndex] <= height[endIndex]) {
+            startIndex++;
+         } else {
+            endIndex--;
+         }
 
-            res = Math.max(res, Math.min(height[startIndex], height[endIndex]) * (endIndex - startIndex));
-        }
+         res = Math.max(res, Math.min(height[startIndex], height[endIndex]) * (endIndex - startIndex));
+      }
 
-        return res;
-    }
+      return res;
+   }
 
-    public static void run() {
-        LC0011 solution = new LC0011();
-        System.out.println(solution.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
-        System.out.println(solution.maxArea(new int[]{1,1}));
-        System.out.println(solution.maxArea(new int[]{4,3,2,1,4}));
-        System.out.println(solution.maxArea(new int[]{1,2,1}));
-    }
+   public static void run() {
+      LC0011 solution = new LC0011();
+      System.out.println(solution.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
+      System.out.println(solution.maxArea(new int[]{1,1}));
+      System.out.println(solution.maxArea(new int[]{4,3,2,1,4}));
+      System.out.println(solution.maxArea(new int[]{1,2,1}));
+   }
 }

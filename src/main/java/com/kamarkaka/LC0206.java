@@ -1,3 +1,8 @@
+package com.kamarkaka;
+
+import com.kamarkaka.common.ListNode;
+import com.kamarkaka.common.Utilities;
+
 /***
  * Given the head of a singly linked list, reverse the list, and return the reversed list.
  *
@@ -19,34 +24,29 @@
  *
  * Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
  */
-package com.kamarkaka;
-
-import com.kamarkaka.common.ListNode;
-import com.kamarkaka.common.Utilities;
-
 public class LC0206 {
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) return head;
+   public ListNode reverseList(ListNode head) {
+      if (head == null || head.next == null) return head;
 
-        ListNode pre = new ListNode(0, head);
-        ListNode curr = head;
-        while (curr.next != null) {
-            ListNode next = curr.next;
-            curr.next = next.next;
+      ListNode pre = new ListNode(0, head);
+      ListNode curr = head;
+      while (curr.next != null) {
+         ListNode next = curr.next;
+         curr.next = next.next;
 
-            head = pre.next;
-            next.next = head;
-            pre.next = next;
-        }
+         head = pre.next;
+         next.next = head;
+         pre.next = next;
+      }
 
-        return pre.next;
-    }
+      return pre.next;
+   }
 
-    public static void run() {
-        LC0206 solution = new LC0206();
+   public static void run() {
+      LC0206 solution = new LC0206();
 
-        Utilities.print(solution.reverseList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))))));
-        Utilities.print(solution.reverseList(new ListNode(1, new ListNode(2))));
-        Utilities.print(solution.reverseList(null));
-    }
+      Utilities.print(solution.reverseList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))))));
+      Utilities.print(solution.reverseList(new ListNode(1, new ListNode(2))));
+      Utilities.print(solution.reverseList(null));
+   }
 }
