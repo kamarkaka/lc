@@ -49,8 +49,8 @@ public class LC0702 {
 
       return -1;
    }
-}
 
-interface ArrayReader {
-   public int get(int index);
+   interface ArrayReader {
+      public int get(int index);
+   }
 }

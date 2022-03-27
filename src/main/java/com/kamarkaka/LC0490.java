@@ -80,27 +80,27 @@ public class LC0490 {
 
       return set;
    }
-}
 
-class Position {
-   int y;
-   int x;
+   private class Position {
+      int y;
+      int x;
 
-   public Position(int y, int x) {
-      this.y = y;
-      this.x = x;
-   }
+      public Position(int y, int x) {
+         this.y = y;
+         this.x = x;
+      }
 
-   @Override
-   public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
-      Position that = (Position) o;
-      return this.y == that.y && this.x == that.x;
-   }
+      @Override
+      public boolean equals(Object o) {
+         if (this == o) return true;
+         if (o == null || getClass() != o.getClass()) return false;
+         Position that = (Position) o;
+         return this.y == that.y && this.x == that.x;
+      }
 
-   @Override
-   public int hashCode() {
-      return Objects.hash(y, x);
+      @Override
+      public int hashCode() {
+         return Objects.hash(y, x);
+      }
    }
 }

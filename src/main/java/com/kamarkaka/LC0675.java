@@ -1,4 +1,9 @@
+package com.kamarkaka;
+
+import java.util.*;
+
 /***
+ * 675. Cut Off Trees for Golf Event
  * You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an m x n matrix. In this matrix:
  *   0 means the cell cannot be walked through.
  *   1 represents an empty cell that can be walked through.
@@ -28,11 +33,6 @@
  *   1 <= m, n <= 50
  *   0 <= forest[i][j] <= 10^9
  */
-
-package com.kamarkaka;
-
-import java.util.*;
-
 public class LC0675 {
     private int[][] DIR = new int[][] {{1,0},{-1,0},{0,1},{0,-1}};
 

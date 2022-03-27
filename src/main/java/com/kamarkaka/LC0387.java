@@ -1,4 +1,7 @@
+package com.kamarkaka;
+
 /***
+ * 387. First Unique Character in a String
  * Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
  *
  * Example 1:
@@ -17,9 +20,6 @@
  *   1 <= s.length <= 10^5
  *   s consists of only lowercase English letters.
  */
-
-package com.kamarkaka;
-
 public class LC0387 {
     public int firstUniqChar(String s) {
         if (s == null || s.length() == 0) return -1;

@@ -28,8 +28,6 @@ import java.util.Map;
  *   1 <= s.length <= 150
  *   s consists of only lowercase English letters.
  */
-
-// 4[a] = aaaa
 public class LC0471 {
    private static final int MIN_LENGTH_TO_TRANSFORM = 5;
 

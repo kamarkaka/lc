@@ -42,52 +42,50 @@ import java.util.Map;
  *    1 <= value <= 10^9
  */
 public class LC1166 {
+   class FileSystem {
+      Node root;
+
+      public FileSystem() {
+         this.root = new Node("root", -1);
+      }
+
+      public boolean createPath(String path, int value) {
+         Node node = root;
+         String[] parts = path.split("/");
+         int i = 1;
+         for (; i < parts.length - 1; i++) {
+            String dir = parts[i];
+            if (!node.children.containsKey(dir)) return false;
+            node = node.children.get(dir);
+         }
+
+         if (node.children.containsKey(parts[i])) return false;
+         node.children.put(parts[i], new Node(parts[i], value));
+         return true;
+      }
+
+      public int get(String path) {
+         Node node = root;
+         String[] parts = path.split("/");
+         for (int i = 1; i < parts.length; i++) {
+            String dir = parts[i];
+            if (!node.children.containsKey(dir)) return -1;
+            node = node.children.get(dir);
+         }
+
+         return node.value;
+      }
+
+      private class Node {
+         String name;
+         int value;
+         Map<String, Node> children;
+
+         public Node(String name, int value) {
+            this.name = name;
+            this.value = value;
+            this.children = new HashMap<>();
+         }
+      }
+   }
 }
-
-class FileSystem {
-   Node root;
-
-   public FileSystem() {
-      this.root = new Node("root", -1);
-   }
-
-   public boolean createPath(String path, int value) {
-      Node node = root;
-      String[] parts = path.split("/");
-      int i = 1;
-      for (; i < parts.length - 1; i++) {
-         String dir = parts[i];
-         if (!node.children.containsKey(dir)) return false;
-         node = node.children.get(dir);
-      }
-
-      if (node.children.containsKey(parts[i])) return false;
-      node.children.put(parts[i], new Node(parts[i], value));
-      return true;
-   }
-
-   public int get(String path) {
-      Node node = root;
-      String[] parts = path.split("/");
-      for (int i = 1; i < parts.length; i++) {
-         String dir = parts[i];
-         if (!node.children.containsKey(dir)) return -1;
-         node = node.children.get(dir);
-      }
-
-      return node.value;
-   }
-
-   private class Node {
-      String name;
-      int value;
-      Map<String, Node> children;
-
-      public Node(String name, int value) {
-         this.name = name;
-         this.value = value;
-         this.children = new HashMap<>();
-      }
-   }
-}
-

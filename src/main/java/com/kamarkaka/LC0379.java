@@ -31,39 +31,37 @@ package com.kamarkaka;
  *    At most 2 * 10^4 calls will be made to get, check, and release.
  */
 public class LC0379 {
+   class PhoneDirectory {
+      int[] next;
+      int current;
 
-}
+      public PhoneDirectory(int maxNumbers) {
+         this.next = new int[maxNumbers];
+         this.current = 0;
 
-class PhoneDirectory {
-   int[] next;
-   int current;
-
-   public PhoneDirectory(int maxNumbers) {
-      this.next = new int[maxNumbers];
-      this.current = 0;
-
-      for (int i = 0; i < maxNumbers - 1; i++) {
-         this.next[i] = i + 1;
+         for (int i = 0; i < maxNumbers - 1; i++) {
+            this.next[i] = i + 1;
+         }
       }
-   }
 
-   public int get() {
-      if (next[current] == -1) return -1;
-      int number = current;
-      current = next[number];
-      next[number] = -1;
-      return number;
-   }
+      public int get() {
+         if (next[current] == -1) return -1;
+         int number = current;
+         current = next[number];
+         next[number] = -1;
+         return number;
+      }
 
-   public boolean check(int number) {
-      return next[number] != -1;
-   }
+      public boolean check(int number) {
+         return next[number] != -1;
+      }
 
-   public void release(int number) {
-      if (next[number]!=-1) return;
+      public void release(int number) {
+         if (next[number]!=-1) return;
 
-      int nextNumber = current;
-      current = number;
-      next[number] = nextNumber;
+         int nextNumber = current;
+         current = number;
+         next[number] = nextNumber;
+      }
    }
 }

@@ -29,13 +29,10 @@ import java.util.*;
  *    At most 104 calls will be made to pick.
  */
 public class LC0398 {
-}
-
-class Solution {
    private Map<Integer, List<Integer>> indices;
    private Random rand;
 
-   public Solution(int[] nums) {
+   public LC0398(int[] nums) {
       this.rand = new Random();
       this.indices = new HashMap<>();
 

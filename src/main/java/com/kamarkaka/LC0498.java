@@ -19,7 +19,7 @@ package com.kamarkaka;
  *    1 <= m * n <= 10^4
  *    -10^5 <= mat[i][j] <= 10^5
  */
-public class LC1174 {
+public class LC0498 {
    public int[] findDiagonalOrder(int[][] matrix) {
       if (matrix == null || matrix.length == 0) return new int[0];
 
