@@ -42,7 +42,9 @@ public class LC0071 {
          if (directory.equals(".") || directory.isEmpty()) {
             // A no-op for a "." or an empty string
             continue;
-         } else if (directory.equals("..")) {
+         }
+
+         if (directory.equals("..")) {
             if (!stack.isEmpty()) {
                stack.pop();
             }
@@ -51,7 +53,7 @@ public class LC0071 {
          }
       }
 
-      // Stich together all the directory names together
+      // Stitch together all the directory names together
       StringBuilder result = new StringBuilder();
       for (String dir : stack) {
          result.append("/");
