@@ -39,19 +39,12 @@ LC0721. Accounts Merge
 LC0827. Making A Large Island
 LC0863. All Nodes Distance K in Binary Tree
 LC0973. K Closest Points to Origin
+LC1004. Max Consecutive Ones III
 LC1249. Minimum Remove to Make Valid Parentheses
 LC1570. Dot Product of Two Sparse Vectors
 LC1644. Lowest Common Ancestor of a Binary Tree II
 LC1762. Buildings With an Ocean View
 LC1868. Product of Two Run-Length Encoded Arrays
-
-You are given a calendar year represented as a char array or string that contains either H or W, where: H = Holiday, W = Workday.
-You are also given the number of days that you can take off from work: Personal Time-Off, PTO.
-Find the length of the longest vacation you can take, that is, the maximum number of consecutive days you can be away from work.
-For simplicity, the calendar does not wrap around.
-Example:
-[W, H, H, W, W, H, W], PTO=2, -> 5
-这个用two pointer解
 
 做选择
 conflict
@@ -63,3 +56,7 @@ bad teammate
 top k songs
 ad click counts (realtime)
 distributed web crawler
+
+
+given an integer array, find all subarrays of length l, where l is the power of 2 (1,2,4,8,...)
+that the sum of the subarray is between [k, 2k]
