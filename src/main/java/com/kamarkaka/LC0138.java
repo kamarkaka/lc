@@ -49,7 +49,7 @@ public class LC0138 {
    }
 
    // Visited dictionary to hold old node reference as "key" and new node reference as the "value"
-   HashMap<Node, Node> visited = new HashMap<Node, Node>();
+   HashMap<Node, Node> visited = new HashMap<>();
 
    public Node getClonedNode(Node node) {
       // If the node exists then
