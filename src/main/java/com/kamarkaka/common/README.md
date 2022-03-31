@@ -1,0 +1,155 @@
+bloomberg port (300) - bihan jiang
+- team goal, visibility
+  - client data integration
+  - 30 services
+  - orchestration queuing, parallel
+  - ftp
+  - batch processing pipeline 10k files a day
+  - monitoring
+- team size, senority
+  - 5 ppl jay(10-15yr), benny(7-8yr), bihan(6-7yr), lucy(3yr), new hire(4mo)
+  - 10 ppl in plan
+- mentorship
+  - benny
+- projects
+  - maintenance
+  - new
+    - modernize existing project
+    - rest api to replace ftp
+    - queuing, throttling using kafka
+    - apache arrow
+- long-term roadmap
+- ramp-up
+  - docs
+- tech stack
+  - c++, python
+- challenges
+  - technical
+    - load, scale, modernize
+  - non-technical
+    - ownership, critical workflows
+- workstyle
+  - design, development, test, dev-ops
+    - design plan
+    - testing infra
+    - dev->beta->prod
+  - production issues
+    - oncall but not quite often, ops team
+  - ad-hoc requests
+  - customer facing?
+- collaboration
+- performance review metrics
+  - end of year annually
+  - feb perf review conversation, comp and bonus
+  - mid year (jun, jul), informal perf review
+  - weekly tl sync, monthly skip level sync
+  - difficulty, timeliness, quality
+- career progression
+  - tech track, manager track
+  - tech lead mentorship
+  - guilds
+
+bloomberg mars (140) - anand kannan, jake osselaer, jihua li
+- team goal, visibility
+- team size, senority
+  - application
+  - platform
+  - integration, api
+- mentorship
+- projects
+  - look through: fund index - calculation 10k - 1b/day
+  - monte carlo simulation
+  - workflow accounting platform
+  - batch scheduling system
+  - year end: web application - accounting library rules engine
+- tech stack
+  - c++/python
+- challenges
+  - technical
+    - scalability
+    - integration
+  - non-technical
+    - new feature
+- workstyle
+  - design, development, test, dev-ops
+    - agile
+  - production issues
+    - on call
+  - ad-hoc requests
+  - customer facing?
+- collaboration
+- performance review metrics
+- career progression
+
+gcp - kenneth tsung under identity
+- team goal, visibility
+- team size, senority
+  - 7 ppl -> 9ppl by end of year, 2 tls, 2 L4, 3 L3
+- mentorship
+- projects
+  - maintenance
+    - work identity in gcp - service account
+  - new
+    - identity pools (hybrid envs)
+  - long-term roadmap
+- ramp-up
+- tech stack
+  - c++/java
+- challenges
+  - technical
+  - non-technical
+- workstyle
+  - design, development, test, dev-ops
+  - production issues
+    - on call
+  - ad-hoc requests
+  - customer facing?
+- collaboration
+- performance review metrics
+- career progression
+
+2sigma foundational data engineering - ziad chammaa
+- team goal, visibility
+  - ingestion of financial data
+    - bloomberg, exchanges, agencies, etc
+    - data pipelines to local persistence
+    - automation
+    - feed, batch, events, rest api, websocket
+  - management
+    - highlight potential data quality issues
+    - users are all internal (trading engine)
+    - SLA
+  - build a new system
+    - 2 in houston, 2 in nyc
+    - instrument data model
+    - market entity and events
+- team size, seniority
+  - 4 ic 1 mgr (3 more, 6 open)
+  - 7 ic 1 mgr
+- mentorship
+- projects
+- tech stack
+  - java/python/shell
+  - ci/cd
+  - ms sql server / postgre
+  - grpc, rest api
+  - google pubsub, kafka
+  - orm
+  - redis
+  - k8s, containers
+  - data dog for logging 
+- challenges
+  - technical
+    - scalability
+    - maintain
+    - data modeling
+  - non-technical
+- workstyle
+  - design, development, test, dev-ops
+  - production issues
+  - ad-hoc requests
+  - customer facing?
+- collaboration
+- performance review metrics
+- career progression
+

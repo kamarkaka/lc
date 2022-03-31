@@ -1,0 +1,43 @@
+
+LC0020. Valid Parentheses
+LC0023. Merge k Sorted Lists
+LC0033. Search in Rotated Sorted Array
+LC0050. Pow(x, n)
+LC0053. Maximum Subarray
+LC0057. Insert Interval
+LC0061. Rotate List
+LC0065. Valid Number
+LC0101. Symmetric Tree
+LC0125. Valid Palindrome
+LC0146. LRU Cache
+LC0150. Evaluate Reverse Polish Notation
+LC0152. Maximum Product Subarray
+LC0215. Kth Largest Element in an Array
+LC0217. Contains Duplicate
+LC0235. Lowest Common Ancestor of a Binary Search Tree
+LC0236. Lowest Common Ancestor of a Binary Tree
+LC0243. Shortest Word Distance
+LC0244. Shortest Word Distance II
+LC0245. Shortest Word Distance III
+LC0256. Paint House
+LC0277. Find the Celebrity
+LC0339. Nested List Weight Sum
+LC0364. Nested List Weight Sum II
+LC0671. Second Minimum Node In a Binary Tree
+LC0716. Max Stack
+LC1256. Encode Number
+
+RetainBestCache
+Closest Binary Search Tree Value II
+
+2，什么是transaction。
+3，mutex 和semaphore的区别。
+CPU/GPU
+transaction是什么，java的exception
+virtual memory/paging, final/finally/finalize
+还有什么swap memory 之类的
+differences between link-list and array list
+differences between threads and process
+differences between virtual memory and physical memory
+differences between heap and stack
+differences between cache update mechanism: write back and write through
