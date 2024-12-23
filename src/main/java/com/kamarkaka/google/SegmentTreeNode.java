@@ -1,7 +1,5 @@
 package com.kamarkaka.google;
 
-import com.kamarkaka.LC0732;
-
 public class SegmentTreeNode {
    public int count;
    public int start;

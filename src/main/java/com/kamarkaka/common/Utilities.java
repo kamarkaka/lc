@@ -1,6 +1,6 @@
 package com.kamarkaka.common;
 
-import com.kamarkaka.facebook.SubArrays;
+import com.kamarkaka.meta.SubArrays;
 
 import java.util.Arrays;
 import java.util.List;
