@@ -7,19 +7,18 @@ import java.util.Set;
 
 /***
  * 547. Number of Provinces
- * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+ * There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and
+ * city b is connected directly with city c, then city a is connected indirectly with city c.
  * A province is a group of directly or indirectly connected cities and no other cities outside of the group.
- * You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+ * You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly
+ * connected, and isConnected[i][j] = 0 otherwise.
  * Return the total number of provinces.
- *
  * Example 1:
  *   Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
  *   Output: 2
- *
  * Example 2:
  *   Input: isConnected = [[1,0,0],[0,1,0],[0,0,1]]
  *   Output: 3
- *
  * Constraints:
  *   1 <= n <= 200
  *   n == isConnected.length
@@ -32,29 +31,24 @@ public class LC0547 {
    public int findCircleNum(int[][] isConnected) {
       int n = isConnected.length;
       boolean[] visited = new boolean[n];
-      Set<Integer> set = new HashSet<>();
 
+      int province = 0;
       for (int i = 0; i < n; i++) {
-         if (visited[i]) continue;
-
-         Queue<Integer> queue = new LinkedList<>();
-         queue.add(i);
-         visited[i] = true;
-
-         while (!queue.isEmpty()) {
-            int node = queue.poll();
-
-            for (int j = 0; j < n; j++) {
-               if (j != node && !visited[j] && isConnected[node][j] == 1) {
-                  queue.add(j);
-                  visited[j] = true;
-               }
-            }
+         if (!visited[i]) {
+            dfs(isConnected, visited, i);
+            province++;
          }
-
-         set.add(i);
       }
+      return province;
+   }
 
-      return set.size();
+   private void dfs(int[][] isConnected, boolean[] visited, int start) {
+      visited[start] = true;
+
+      for (int i = 0; i < isConnected[start].length; i++) {
+         if (isConnected[start][i] == 1 && !visited[i]) {
+            dfs(isConnected, visited, i);
+         }
+      }
    }
 }
