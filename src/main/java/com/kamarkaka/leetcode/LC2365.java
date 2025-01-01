@@ -1,5 +1,8 @@
 package com.kamarkaka.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /***
  * 2365. Task Scheduler II
  * You are given a 0-indexed array of positive integers tasks, representing tasks that need to be completed in order,
@@ -44,6 +47,25 @@ package com.kamarkaka.leetcode;
  */
 public class LC2365 {
     public long taskSchedulerII(int[] tasks, int space) {
+        Map<Integer, Long> hmap = new HashMap<>();
 
+        long days = 0;
+        for (int taskType : tasks) {
+            long lastExecutedDay = hmap.getOrDefault(taskType, -1L);
+            if (lastExecutedDay == -1 || lastExecutedDay + space <= days) {
+                days++;
+            } else {
+                days = lastExecutedDay + space + 1;
+            }
+
+            hmap.put(taskType, days);
+        }
+
+        return days;
+    }
+
+    public static void main(String[] args) {
+        LC2365 solution = new LC2365();
+        System.out.println(solution.taskSchedulerII(new int[] {1,2,1,2,3,1}, 3));
     }
 }
