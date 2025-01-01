@@ -59,7 +59,6 @@ public class LC0408 {
          }
       }
 
-      if (i == word.length() && j == abbr.length()) return true;
-      return false;
+      return i == word.length() && j == abbr.length();
    }
 }
