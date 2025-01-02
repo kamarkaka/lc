@@ -1,57 +1,154 @@
 package com.kamarkaka.datadog;
 
 import java.io.File;
+import java.util.List;
 
 /***
- * File System，input structure都提供好了，其实就是个N-ary Tree，每个tree node要么是directory with children nodes，
- * 要么是file with size value。需要输出total file sizes。
- * 解答很简单：DFS，遇到directory就继续recursion，否则就increase的total size。
- * follow up了一下：如果给一个inner directory的path string，如何输出total file sizes。
- * 其实也很简单：recursion method里面carry当前的path，和一个当前是否已经进入到了目标子树的flag。
- * 给一个文件夹路径 返回文件夹的大小
- * 求一个文件夹里所有file的size，有的文件是file，有的是folder，他们都是基于相同的base class。
- * 如果你用java的话，你可以像我一样，用instanceof来区分（面试官允许你google）。就是一个最简单的recursion
- * 给一个file system，要你统计文件大小。基本Tree traversal
+ * Calculate total file size
+ * Given a file system structure representing directories and files, return the total size of files in the structure.
  * home/
- * |--- me/
- * |. |--- foo.txt : 231
- * |. |--- abs.txt : 443
- * follow up:给你一个制定的dir，你去数一下里面文件的大小，比如 /home/me/
+ * ├── me/
+ * │   ├── foo.txt : 416
+ * │   ├── metrics.txt : 5892
+ * │   └── src/
+ * │       ├── site.html : 6051
+ * │       ├── site.css : 5892
+ * │       └── data.csv : 332789
+ * └── you/
+ *     └── dict.json : 4913364
+ * bin/
+ * ├── bash: 618416
+ * ├── cat: 23648
+ * └── ls: 38704
+ * var/
+ * └── log/
+ *     ├── dmesg : 1783894
+ *     ├── wifi.log : 924818
+ *     └── httpd/
+ *         ├── access.log : 17881
+ *         └── access.log.0.gz : 4012
+ * total_size(file_system) -> 8675777
+ *
+ * follow up: get total file size under a given path
+ * total_size(file_system, "/") // 8675777
+ * total_size(file_system, "/home") // 5264404
+ * total_size(file_system, "/bin") // 680768
+ * total_size(file_system, "/var/") // 2730605
+ * total_size(file_system, "/home/me/") // 351040
+ * total_size(file_system, "/var/log/wifi.log") // 924818
  */
 public class FileSize {
-    public long calculate(String dirPath) {
-        File dir = new File(dirPath);
+    public static abstract class FSEntry {
+        String name;
 
-        if (!dir.exists()) {
-            return -1;
+        private FSEntry(String name) {
+            this.name = name;
         }
-
-        if (!dir.isDirectory()) {
-            return dir.length();
-        }
-
-        return getTotalSize(dir);
     }
 
-    private long getTotalSize(File dir) {
-        long totalSize = 0;
+    public static class Directory extends FSEntry {
+        public List<FSEntry> content;
 
-        File[] files = dir.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isFile()) {
-                    totalSize += file.length();
-                } else if (file.isDirectory()) {
-                    totalSize += getTotalSize(file);
+        public Directory(String name, FSEntry... entries) {
+            super(name);
+            this.content = List.of(entries);
+        }
+    }
+
+    public static class File extends FSEntry {
+        public int size;
+
+        public File(String name, int size) {
+            super(name);
+            this.size = size;
+        }
+    }
+
+    public static int getTotalSize(FSEntry entry) {
+        if (entry == null) return 0;
+
+        int totalSize = 0;
+
+        if (entry instanceof Directory) {
+            List<FSEntry> content = ((Directory) entry).content;
+            for (FSEntry subEntry : content) {
+                totalSize += getTotalSize(subEntry);
+            }
+        } else if (entry instanceof File) {
+            totalSize = ((File) entry).size;
+        }
+        return totalSize;
+    }
+
+    public static int getTotalSize(FSEntry entry, String path) {
+        return dfsHelper(entry, path, "/");
+    }
+
+    private static int dfsHelper(FSEntry entry, String path, String currentPath) {
+        if (entry == null) return 0;
+        int totalSize = 0;
+        String xPath = currentPath.equals("/") ? "/" + entry.name : currentPath + "/" + entry.name;
+
+        if (entry instanceof Directory) {
+            if (xPath.equals(path) || xPath.startsWith(path)) {
+                List<FSEntry> content = ((Directory) entry).content;
+                for (FSEntry subEntry : content) {
+                    totalSize += getTotalSize(subEntry);
                 }
+            } else if (path.startsWith(xPath)) {
+                // parent of path
+                List<FSEntry> content = ((Directory) entry).content;
+                for (FSEntry subEntry : content) {
+                    totalSize += dfsHelper(subEntry, path, xPath);
+                }
+            } else {
+                return 0;
+            }
+        } else if (entry instanceof File) {
+            if (xPath.startsWith(path)) {
+                totalSize = ((File) entry).size;
             }
         }
-
         return totalSize;
     }
 
     public static void main(String[] args) {
+        Directory root = new Directory(
+                "",
+                new Directory(
+                        "home",
+                        new Directory(
+                                "me",
+                                new File("foo.txt", 416),
+                                new File("metrics.txt", 5892),
+                                new Directory(
+                                        "src",
+                                        new File("site.html", 6051),
+                                        new File("site.css", 5892),
+                                        new File("data.csv", 332789))),
+                        new Directory("you",
+                                new File("dict.json", 4913364))),
+                new Directory("bin",
+                        new File("bash", 618416),
+                        new File("cat", 23648),
+                        new File("ls", 38704)),
+                new Directory(
+                        "var",
+                        new Directory(
+                                "log",
+                                new File("dmesg", 1783894),
+                                new File("wifi.log", 924818),
+                                new Directory(
+                                        "httpd",
+                                        new File("access.log", 17881),
+                                        new File("access.log.0.gz", 4012)))));
         FileSize solution = new FileSize();
-        System.out.println(solution.calculate("C:\\\\Development\\lc\\"));
+        System.out.println(solution.getTotalSize(root));
+        System.out.println(solution.getTotalSize(root, "/"));
+        System.out.println(solution.getTotalSize(root, "/home"));
+        System.out.println(solution.getTotalSize(root, "/bin"));
+        System.out.println(solution.getTotalSize(root, "/var"));
+        System.out.println(solution.getTotalSize(root, "/home/me/"));
+        System.out.println(solution.getTotalSize(root, "/var/log/wifi.log"));
     }
 }
