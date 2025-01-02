@@ -9,19 +9,19 @@ import java.util.List;
 public class MaxPathSum {
     class NaryTreeNode {
         int value;
-        List<NaryTreeNode> chilren;
+        List<NaryTreeNode> children;
 
-        public NaryTreeNode(int value, List<NaryTreeNode> chilren) {
+        public NaryTreeNode(int value, List<NaryTreeNode> children) {
             this.value = value;
-            this.chilren = chilren;
+            this.children = children;
         }
     }
 
     public int maxSum(NaryTreeNode root) {
-        if (root.chilren == null || root.chilren.isEmpty()) return root.value;
+        if (root.children == null || root.children.isEmpty()) return root.value;
 
         int sum = Integer.MIN_VALUE;
-        for (NaryTreeNode node : root.chilren) {
+        for (NaryTreeNode node : root.children) {
             sum = Math.max(sum, maxSum(node));
         }
         return root.value + sum;

@@ -1,6 +1,7 @@
 package com.kamarkaka.datadog;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentMap;
 
 /***
  * Sliding windows evaluate sum of last k value, filtered by tag, sorted by timestamp in ascending order.

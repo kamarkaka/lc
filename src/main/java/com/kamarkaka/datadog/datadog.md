@@ -1,4 +1,19 @@
 coding
+- LC0211 Design Add and Search Words Data Structure (Trie)
+- LC0408 Valid Word Abbreviation
+- LC0518 Coin Change
+- LC0986 Interval List Intersections
+- 二维座标给间距插入missing点
+- File System 输出total file sizes
+- Tag filtering
+- 给一个bucket_size和bucket_width和一堆input数字。最后返回每个bucket里装了多少个
+- Buffered Writer
+- Matrix Max Path Sum
+- Tree Max Path Sum
+- Given a string, find its longest substring that contains only distinct characters
+- Query Log
+- Given a string, find the total number of repetitions
+- Sliding windows evaluate sum of last k value
 
 design
 - design an application which will collect and store purchases from credit and debit cards and provide the user with insight into their spending habits

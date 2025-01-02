@@ -16,8 +16,7 @@ public class RepeatedWords {
         String[] words = paragraph.split(" ");
         for (String word : words) {
             word = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
-            wordCount.putIfAbsent(word, 0);
-            wordCount.put(word, wordCount.get(word) + 1);
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
 
         int sum = 0;
