@@ -4,33 +4,29 @@ import java.util.*;
 
 /***
  * 253. Meeting Rooms II
- * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
- *
+ * Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of
+ * conference rooms required.
  * Example 1:
  *   Input: intervals = [[0,30],[5,10],[15,20]]
  *   Output: 2
- *
  * Example 2:
  *   Input: intervals = [[7,10],[2,4]]
  *   Output: 1
- *
  * Constraints:
  *   1 <= intervals.length <= 10^4
  *   0 <= starti < endi <= 10^6
  */
 public class LC0253 {
    public int minMeetingRooms(int[][] intervals) {
-      if (intervals.length == 0) {
-         return 0;
-      }
-
-      PriorityQueue<Integer> allocator = new PriorityQueue<>();
+      if (intervals.length == 0) return 0;
 
       Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+
+      PriorityQueue<Integer> allocator = new PriorityQueue<>();
       allocator.add(intervals[0][1]);
 
       for (int i = 1; i < intervals.length; i++) {
-         if (intervals[i][0] >= allocator.peek()) {
+         if (allocator.peek() <= intervals[i][0]) {
             allocator.poll();
          }
 

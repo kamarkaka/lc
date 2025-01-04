@@ -40,7 +40,6 @@ public class LC0346 {
     public double next(int val) {
         if (capacity == 0) return 0;
 
-
         if (queue.size() == capacity) {
             int num = queue.poll();
             sum -= num;

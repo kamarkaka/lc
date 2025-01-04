@@ -16,8 +16,8 @@ package com.kamarkaka.leetcode;
  *   0 <= s.length <= 100
  *   0 <= t.length <= 10^4
  *   s and t consist only of lowercase English letters.
- * Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 109, and you want to check one by one
- * to see if t has its subsequence. In this scenario, how would you change your code?
+ * Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 10^9, and you want to check one by
+ * one to see if t has its subsequence. In this scenario, how would you change your code?
  */
 
 public class LC0392 {
@@ -25,14 +25,10 @@ public class LC0392 {
         int ps = 0, pt = 0;
 
         while (ps < s.length() && pt < t.length()) {
-            char cs = s.charAt(ps);
-            char ct = t.charAt(pt);
-            if (cs == ct) {
+            if (s.charAt(ps) == t.charAt(pt)) {
                 ps++;
-                pt++;
-            } else {
-                pt++;
             }
+            pt++;
         }
 
         return ps == s.length();

@@ -28,7 +28,7 @@ import java.util.Queue;
  *   -100 <= Node.val <= 100
  */
 public class LC0199 {
-   public List<Integer> rightSideView(TreeNode root) {
+   public List<Integer> rightSideViewBFS(TreeNode root) {
       List<Integer> nums = new ArrayList<>();
       if (root == null) return nums;
 
@@ -43,12 +43,29 @@ public class LC0199 {
          }
          nums.add(layer.peek().val);
 
-         for (TreeNode node : layer) {
+         while (!layer.isEmpty()) {
+            TreeNode node = layer.poll();
             if (node.right != null) queue.add(node.right);
             if (node.left != null) queue.add(node.left);
          }
       }
 
       return nums;
+   }
+
+   public List<Integer> rightSideViewDFS(TreeNode root) {
+      List<Integer> res = new ArrayList<>();
+      traverse(root, 0, res);
+      return res;
+   }
+
+   private void traverse(TreeNode node, int depth, List<Integer> res) {
+      if (node == null) return;
+
+      if (res.size() <= depth) {
+         res.add(node.val);
+      }
+      traverse(node.right, depth + 1, res);
+      traverse(node.left, depth + 1, res);
    }
 }

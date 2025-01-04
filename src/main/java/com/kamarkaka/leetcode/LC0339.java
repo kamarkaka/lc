@@ -31,11 +31,10 @@ import java.util.Queue;
  */
 public class LC0339 {
    public int depthSum(List<NestedInteger> nestedList) {
-      Queue<NestedInteger> queue = new LinkedList<>();
-      queue.addAll(nestedList);
+      int total = 0;
 
       int depth = 1;
-      int total = 0;
+      Queue<NestedInteger> queue = new LinkedList<>(nestedList);
       while (!queue.isEmpty()) {
          int size = queue.size();
          for (int i = 0; i < size; i++) {

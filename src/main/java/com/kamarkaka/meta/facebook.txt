@@ -1,3 +1,162 @@
+Coding
+LC0015 3Sum
+LC0050 Pow(x, n) 追问了如果输入有零 都是零 程序能处理吗
+LC0056 Merge Intervals简化，没有e，如果两个list怎么改
+LC0062 Unique Paths
+LC0071 Simplify Path变形题，实现一个cd函数
+LC0076 Minimum Window Substring
+LC0162 Find Peak Element找小于等于
+LC0190 Reverse Bits追问了溢出如何处理
+LC0199 Binary Tree Right Side View用了广度搜索，被追问深度优先搜索如何做
+LC0227 Basic Calculator II只要+-
+LC0230 Kth Smallest Element in a BST
+LC0236 Lowest Common Ancestor of a Binary Tree
+LC0253 Meeting Rooms II
+LC0303 Range Sum Query - Immutable
+LC0339 Nested List Weight Sum
+LC0346 Moving Average from Data Stream
+LC0380 Insert Delete GetRandom O(1)
+LC0392 Is Subsequence
+LC0398 Random Pick Index
+LC0489 Robot Room Cleaner
+LC0528 Random Pick with Weight
+LC0543 Diameter of Binary Tree
+LC0560 Subarray Sum Equals K
+LC0680
+LC0695
+LC0721
+LC0730
+LC0748
+LC0792
+LC0799
+LC0814
+LC0938
+LC0986
+LC0987
+LC1004
+LC1091
+LC1249
+LC1294
+LC1373
+LC1570
+LC1644
+LC1650
+LC1762
+prefix sum
+lru cache
+Next Permutation
+Biggest Island
+二叉搜索树找中位数
+ipv4 验证
+unsorted array找top k largest
+3个array, non-decreasing order, 找common number. duplicate的number也需要算[10, 10], [10, 10], [10, 10] -> [10, 10]
+一个char[]，里面有'x', 'y'两种字符，找最长的window size 可以满足 <= k个'y'.
+一个二叉搜索树，然后给定一个区间求这个树上所有区间内的节点的和
+两个长整数求和
+给一个只有小写英文字母的字符串，返回所有出现最多次的字母，按照它们的出现顺序
+给你一个由0和1组成的数组，然后允许你把任意x个0变成1，然后问你最长能得到多少个连续的1
+123456789=100, backtracking，自己加(+-*/)
+Deepcopy linkedlist with random counter (i.e., every Node has Value, Next, and RandomNext)
+给你一个String包含(和），让你给括号配平。比如)() (-> ()。
+给你一个String，让你判断是否能扔掉<=1个字母形成回文。
+sort a string following a given dict order
+You have a huge array of integers containing only 0's and 1's. Write an algorithm that finds the number of 1's found in the array in a specific range. (303)
+
+There are 2 arrays which denote departing and returning flights with the respective indexes being time and the values of the array being the cost it takes for the flight. Return the minimum cost for a round trip provided the return flight can only be taken at a time post departing flight time (i.e if departing at time i, one can catch a returning flight only from time (i+1) onwards). For eg departing = [1,2,3,4] and returning = [4,3,2,1], the minimum cost for round trip will be 2 i.e departing[0] + returning[3]. Solve this is O(n) time
+
+Given a 2d matrix, each element in this matrix is unique, i.e. in a matrix of m*n, it contains integers from 1,2,3,..m*n. Find the longest consecutive path in it. You could go in the four directions: right, left, up and down, no other directions allowed. e.g. in this matrix:
+int[][] grid = new int[][]{
+				{1,  2, 13,  5},
+				{11, 10,  9,  6},
+				{3,  4,  8,  7},
+				{12, 14, 15, 16},
+		};
+The result should be this list: 5, 6, 7, 8, 9, 10, 11. Write your code in any language, and also analyze your time-complexity.
+
+
+in-place sort for two sorted array (the first sorted array has some spaces to the right, so that in-place can happend)
+便利答应一个矩阵，找一个加起来是某个数的subarray
+
+convert tree to circular doubly linkedlist(斯尔溜变种)follow up: thread safe
+
+
+
+
+
+
+
+
+
+Given an array of integers, determine how many monotonic sequences the array is built of. Examples :
+One monotonic sequence :
+1 3 5 10 ( ascending monotonic sequence)
+7 4 2 2 2 1 (descending monotonic sequence)
+Two monotonic sequences :
+5 3 1 5 6 7
+5 5 5 8 19 14 4 1
+
+
+
+斜着打印2d array
+1 2 3 4
+5 6 7 8
+-> 1 6
+   5
+   2 7
+   3 8
+   4
+
+
+
+
+
+
+
+
+
+
+BQ
+different working style, challenge，proud of/interesting project，bad feedback
+conflict
+how to handle constructive feedback
+have you given feedback to others
+mistake
+proud project
+negative feedback，
+conflict，
+ambiguity，
+cross functional合作，disagree怎么处理, 以及mentor别人去做一些决定.
+最自豪项目，conflict, risk
+tell me about yourself
+most proud of project
+what challenge
+feedback
+ambiguity
+
+Design
+alex xu
+写码竞赛平台
+订票系统，只focus在很多人抢一个event的票
+design image upload service, dive deep: share image through unique url + how to ensure unique url(我答得是hashing), handle unequal read/write ratio: 20:1, db 我用的是Postgres + blob
+最有成就感的项目，最建设型的领导给的建议（就是自己没做好，被领导批评了），还有如果领导做了错误决定，如何纠正的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
 VO
 7-9 days
 

@@ -27,15 +27,12 @@ public class LC0190 {
     // you need treat n as an unsigned value
     public int reverseBits(int n) {
         int result = 0;
+
         int i = 0;
-
-        while (i < Integer.SIZE) {
-            int lastbit = n & 0x01;
-
+        while (i++ < Integer.SIZE) {
             result = (result << 1) | (n & 1);
 
             n = n >> 1;
-            i++;
         }
 
         return result;
