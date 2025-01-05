@@ -33,24 +33,24 @@ package com.kamarkaka.leetcode;
  */
 public class LC0748 {
     public String shortestCompletingWord(String licensePlate, String[] words) {
-        int[] map = new int[26];
+        int[] charCount = new int[26];
         for (char c : licensePlate.toLowerCase().toCharArray()) {
             if ('a' <= c && c <= 'z') {
-                map[c - 'a']++;
+                charCount[c - 'a']++;
             }
         }
 
         String resultWord = "";
 
         for (String word : words) {
-            int[] mapClone = map.clone();
+            int[] charCountClone = charCount.clone();
 
             for (char c : word.toLowerCase().toCharArray()) {
-                mapClone[c - 'a']--;
+                charCountClone[c - 'a']--;
             }
 
             boolean found = true;
-            for (int i : mapClone) {
+            for (int i : charCountClone) {
                 if (i > 0) {
                     found = false;
                     break;

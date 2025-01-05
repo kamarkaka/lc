@@ -34,8 +34,7 @@ public class LC0695 {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == 0) continue;
-                int area = dfs(grid, i, j);
-                maxArea = Math.max(area, maxArea);
+                maxArea = Math.max(maxArea, dfs(grid, i, j));
             }
         }
         return maxArea;

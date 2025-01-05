@@ -22,9 +22,8 @@ package com.kamarkaka.leetcode;
 
 public class LC1004 {
    public int longestOnes(int[] nums, int k) {
-      int left = 0, right;
-      int maxLen = 0;
-      for (right = 0; right < nums.length; right++) {
+      int left = 0, maxLen = 0;
+      for (int right = 0; right < nums.length; right++) {
          if (nums[right] == 0) k--;
 
          if (k < 0) {

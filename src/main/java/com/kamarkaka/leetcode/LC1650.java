@@ -10,42 +10,41 @@ package com.kamarkaka.leetcode;
  *       public Node right;
  *       public Node parent;
  *    }
- * According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)."
- *
+ * According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a tree T is the
+ * lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)."
  * Example 1:
- *    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
- *    Output: 3
- *    Explanation: The LCA of nodes 5 and 1 is 3.
- *
+ *   Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+ *   Output: 3
+ *   Explanation: The LCA of nodes 5 and 1 is 3.
  * Example 2:
- *    Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
- *    Output: 5
- *    Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
- *
+ *   Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+ *   Output: 5
+ *   Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA
+ *   definition.
  * Example 3:
- *    Input: root = [1,2], p = 1, q = 2
- *    Output: 1
- *
+ *   Input: root = [1,2], p = 1, q = 2
+ *   Output: 1
  * Constraints:
- *    The number of nodes in the tree is in the range [2, 10^5].
- *    -10^9 <= Node.val <= 10^9
- *    All Node.val are unique.
- *    p != q
- *    p and q exist in the tree.
+ *   The number of nodes in the tree is in the range [2, 10^5].
+ *   -10^9 <= Node.val <= 10^9
+ *   All Node.val are unique.
+ *   p != q
+ *   p and q exist in the tree.
+ *
+ *   p: -----o-- -----o--|--o--
+ *   q:    --o-- --o--|-----o--
  */
 public class LC1650 {
    public Node lowestCommonAncestor(Node p, Node q) {
       Node node1 = p, node2 = q;
-
-      while(node1 != node2){
+      while(node1 != node2) {
          node1 = node1 == null ? q : node1.parent;
          node2 = node2 == null ? p : node2.parent;
       }
-
       return node1;
    }
 
-   private class Node {
+   public static class Node {
       public int val;
       public Node left;
       public Node right;

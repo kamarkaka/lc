@@ -3,23 +3,19 @@ package com.kamarkaka.leetcode;
 /***
  * 680. Valid Palindrome II
  * Given a string s, return true if the s can be palindrome after deleting at most one character from it.
- *
  * Example 1:
- *    Input: s = "aba"
- *    Output: true
- *
+ *   Input: s = "aba"
+ *   Output: true
  * Example 2:
- *    Input: s = "abca"
- *    Output: true
- *    Explanation: You could delete the character 'c'.
- *
+ *   Input: s = "abca"
+ *   Output: true
+ *   Explanation: You could delete the character 'c'.
  * Example 3:
- *    Input: s = "abc"
- *    Output: false
- *
+ *   Input: s = "abc"
+ *   Output: false
  * Constraints:
- *    1 <= s.length <= 10^5
- *    s consists of lowercase English letters.
+ *   1 <= s.length <= 10^5
+ *   s consists of lowercase English letters.
  */
 public class LC0680 {
    public boolean validPalindrome(String s) {
