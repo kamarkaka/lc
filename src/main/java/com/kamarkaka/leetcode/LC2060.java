@@ -56,47 +56,58 @@ import java.util.Objects;
  */
 public class LC2060 {
     private static final int THREE_DIGITS = 1000;
+    private char[] s1;
+    private char[] s2;
+    private boolean[][][] seen;
 
     public boolean possiblyEquals(String s1, String s2) {
-        var seen = new boolean[s1.length() + 1][s2.length() + 1][2 * THREE_DIGITS];
+        int l1 = s1.length() + 1;
+        int l2 = s2.length() + 1;
+        this.seen = new boolean[l1][l2][2 * THREE_DIGITS];
+
+        this.s1 = s1.toCharArray();
+        this.s2 = s2.toCharArray();
 
         // if a (partial) search has been recorded as seen, there was no match,
         // as the first successful match is returned immediately
-        return match(0, 0, 0, s1.toCharArray(), s2.toCharArray(), seen);
+        return match(0, 0, 0);
     }
 
-    private boolean match(int i, int j, int diff, char[] text1, char[] text2, boolean[][][] seen) {
-        int m = text1.length;
-        int n = text2.length;
-        if (i == m && j == n) return diff == 0;
-        if (seen[i][j][diff + THREE_DIGITS]) return false;
+    private boolean match(int i, int j, int diff) {
+        if (i == this.s1.length && j == this.s2.length) return diff == 0;
+        if (this.seen[i][j][diff + THREE_DIGITS]) return false;
 
-        if (i < m && text1[i] >= '0' && text1[i] <= '9') {
+        if (i < this.s1.length && Character.isDigit(this.s1[i])) {
             int num = 0;
             int idx = i;
 
             do {
-                num = num * 10 + text1[idx] - '0';
-                ++idx;
-                if (match(idx, j, diff - num, text1, text2, seen)) return true;
-            } while (idx < m && text1[idx] >= '0' && text1[idx] <= '9');
-        } else if (j < n && text2[j] >= '0' && text2[j] <= '9') {
+                num = num * 10 + (this.s1[idx] - '0');
+                idx++;
+                if (match(idx, j, diff - num)) return true;
+            } while (idx < this.s1.length && Character.isDigit(this.s1[idx]));
+        } else if (j < this.s2.length && Character.isDigit(this.s2[j])) {
             int num = 0;
             int idx = j;
             do {
-                num = num * 10 + text2[idx] - '0';
-                ++idx;
-                if (match(i, idx, diff + num, text1, text2, seen)) return true;
-            } while (idx < n && text2[idx] >= '0' && text2[idx] <= '9');
+                num = num * 10 + (this.s2[idx] - '0');
+                idx++;
+                if (match(i, idx, diff + num)) return true;
+            } while (idx < this.s2.length && Character.isDigit(this.s2[idx]));
         } else if (diff > 0) {
-            if (i < m) return match(i + 1, j, diff - 1, text1, text2, seen);
+            if (i < this.s1.length) return match(i + 1, j, diff - 1);
         } else if (diff < 0) {
-            if (j < n) return match(i, j + 1, diff + 1, text1, text2, seen);
+            if (j < this.s2.length) return match(i, j + 1, diff + 1);
         } else {
-            if (i < m && j < n && text1[i] == text2[j]) return match(i + 1, j + 1, 0, text1, text2, seen);
+            if (i < this.s1.length && j < this.s2.length && this.s1[i] == this.s2[j]) return match(i + 1, j + 1, 0);
         }
 
-        seen[i][j][diff + THREE_DIGITS] = true;
+        this.seen[i][j][diff + THREE_DIGITS] = true;
         return false;
+    }
+
+    public static void main(String[] args) {
+        LC2060 solution = new LC2060();
+        System.out.println(solution.possiblyEquals("a433a", "316a"));
     }
 }

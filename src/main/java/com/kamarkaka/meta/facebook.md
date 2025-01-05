@@ -125,6 +125,8 @@ LC0065. Valid Number
     - . has more than 1 or prefixed by exponent
     - any other characters
 LC0249. Group Shifted Strings
+    - for each string, calculate a hash value by calculating the relative distance between one letter to the next
+    - for example ab -> 1; ac -> 2; etc.
 LC0282. Expression Add Operators
 LC0498. Diagonal Traverse
 LC0415. Add Strings
@@ -138,9 +140,25 @@ LC1428. Leftmost Column with at Least a One
 LC0766. Toeplitz Matrix
 LC0301. Remove Invalid Parentheses
 LC0173. Binary Search Tree Iterator
+    - use inorder traversal to build a sorted list of nodes
+    - then next() and hasNext() will be O(1)
+    - or alternatively, only keep track of a stack used by tree traversal
+    - the next smallest node in a BST is the leftmost leaf of current node's right subtree.
+    - if the right subtree does not exist, pop stack to get its parent
 LC0270. Closest Binary Search Tree Value
+    - try root
+    - update closest
+    - if target < root, try root.left next, otherwise try root.right next
 LC2060. Check if an Original String Exists Given Two Encoded Strings
+    - dfs with memo
+    - keep track of i in s1, j in s2, and diff which is number diff between s1 and s2
+    - if s1.charAt(i) is digit, increment i and try i,j,diff-num
+    - if s2.charAt(i) is digit, increment j and try i,j,diff+num
+    - if c is letter, increment diff by +|- 1
+    - if c is equal, increment both i and j, keep diff
+    - return false otherwise
 LC1891. Cutting Ribbons
+    - binary search for max length with target cuts 
 
 
 LC0002 Add Two Numbers
