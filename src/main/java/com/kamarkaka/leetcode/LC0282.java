@@ -29,61 +29,73 @@ import java.util.List;
  *    -2^31 <= target <= 2^31 - 1
  */
 public class LC0282 {
-   public List<String> res;
+   public List<String> result;
    public String digits;
    public long target;
 
    public List<String> addOperators(String num, int target) {
-      if (num.length() == 0) return new ArrayList<>();
+      this.result = new ArrayList<>();
 
-      this.res = new ArrayList<>();
+      if (num == null || num.isEmpty()) return this.result;
+
       this.digits = num;
       this.target = target;
-      helper(0, 0, 0, 0, new ArrayList<String>());
-      return res;
+      helper(0, 0, 0, 0, new ArrayList<>());
+      return result;
    }
 
    private void helper(int index, long previousOperand, long currentOperand, long value, ArrayList<String> ops) {
-      String nums = digits;
+      String nums = this.digits;
 
       // Done processing all the digits in num
       if (index == nums.length()) {
          // If the final value == target expected AND  no operand is left unprocessed
          if (value == target && currentOperand == 0) {
             StringBuilder sb = new StringBuilder();
-            ops.subList(1, ops.size()).forEach(v -> sb.append(v));
-            res.add(sb.toString());
+            ops.subList(1, ops.size()).forEach(sb::append);
+            this.result.add(sb.toString());
          }
          return;
       }
 
       // Extending the current operand by one digit
       currentOperand = currentOperand * 10 + Character.getNumericValue(nums.charAt(index));
-      String current_val_rep = Long.toString(currentOperand);
-      int length = nums.length();
 
       if (currentOperand > 0) {
          helper(index + 1, previousOperand, currentOperand, value, ops);
       }
 
       ops.add("+");
-      ops.add(current_val_rep);
+      ops.add(Long.toString(currentOperand));
       helper(index + 1, currentOperand, 0, value + currentOperand, ops);
-      ops.remove(ops.size() - 1);
-      ops.remove(ops.size() - 1);
+      ops.removeLast();
+      ops.removeLast();
 
-      if (ops.size() > 0) {
+      if (!ops.isEmpty()) {
          ops.add("-");
-         ops.add(current_val_rep);
+         ops.add(Long.toString(currentOperand));
          helper(index + 1, -currentOperand, 0, value - currentOperand, ops);
-         ops.remove(ops.size() - 1);
-         ops.remove(ops.size() - 1);
+         ops.removeLast();
+         ops.removeLast();
 
          ops.add("*");
-         ops.add(current_val_rep);
-         helper(index + 1, currentOperand * previousOperand, 0, value - previousOperand + (currentOperand * previousOperand), ops);
-         ops.remove(ops.size() - 1);
-         ops.remove(ops.size() - 1);
+         ops.add(Long.toString(currentOperand));
+         helper(index + 1, previousOperand * currentOperand, 0, value - previousOperand + (previousOperand * currentOperand), ops);
+         ops.removeLast();
+         ops.removeLast();
+
+         if (currentOperand != 0) {
+            ops.add("/");
+            ops.add(Long.toString(currentOperand));
+            helper(index + 1, previousOperand / currentOperand, 0, value - previousOperand + (previousOperand / currentOperand), ops);
+            ops.removeLast();
+            ops.removeLast();
+         }
       }
+   }
+
+   public static void main(String[] args) {
+      LC0282 solution = new LC0282();
+      System.out.println(solution.addOperators("123456789", 100));
    }
 }
