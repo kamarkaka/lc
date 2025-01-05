@@ -18,9 +18,11 @@ public class LC0371 {
         if (b == 0) return a;
 
         while (b != 0) {
-            int carry = a & b;
-            a = a ^ b;
-            b = carry << 1;
+            int sum = a ^ b;
+            int carry = (a & b) << 1;
+
+            a = sum;
+            b = carry;
         }
 
         return a;

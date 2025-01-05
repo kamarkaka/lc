@@ -1,13 +1,18 @@
 Coding
+LC0002 Add Two Numbers
 LC0015 3Sum
+LC0031 Next Permutation
 LC0050 Pow(x, n) 追问了如果输入有零 都是零 程序能处理吗
 LC0056 Merge Intervals简化，没有e，如果两个list怎么改
 LC0062 Unique Paths
 LC0071 Simplify Path变形题，实现一个cd函数
 LC0076 Minimum Window Substring
+LC0138 Copy List with Random Pointer
+LC0146 LRU Cache
 LC0162 Find Peak Element找小于等于
 LC0190 Reverse Bits追问了溢出如何处理
 LC0199 Binary Tree Right Side View用了广度搜索，被追问深度优先搜索如何做
+LC0215 Kth Largest Element in an Array
 LC0227 Basic Calculator II只要+-
 LC0230 Kth Smallest Element in a BST
 LC0236 Lowest Common Ancestor of a Binary Tree
@@ -15,9 +20,11 @@ LC0253 Meeting Rooms II
 LC0303 Range Sum Query - Immutable
 LC0339 Nested List Weight Sum
 LC0346 Moving Average from Data Stream
+LC0371 Sum of Two Integers
 LC0380 Insert Delete GetRandom O(1)
 LC0392 Is Subsequence
 LC0398 Random Pick Index
+LC0468 Validate IP Address
 LC0489 Robot Room Cleaner
 LC0528 Random Pick with Weight
 LC0543 Diameter of Binary Tree
@@ -27,6 +34,7 @@ LC0695 Max Area of Island
 LC0721 Accounts Merge
 LC0730 Count Different Palindromic Subsequences (???)
 LC0748 Shortest Completing Word
+LC0791 Custom Sort String
 LC0792 Number of Matching Subsequences
 LC0799 Champagne Tower
 LC0814 Binary Tree Pruning
@@ -40,20 +48,14 @@ LC1373 Maximum Sum BST in Binary Tree
 LC1570 Dot Product of Two Sparse Vectors
 LC1644 Lowest Common Ancestor of a Binary Tree II
 LC1650 Lowest Common Ancestor of a Binary Tree III
-LC1762
+LC1762 Buildings With an Ocean View
 
-lru cache
-Next Permutation
-二叉搜索树找中位数
-ipv4 验证
-unsorted array找top k largest
-3个array, non-decreasing order, 找common number. duplicate的number也需要算[10, 10], [10, 10], [10, 10] -> [10, 10]
+MedianBST 二叉搜索树找中位数
+CommonElements 3个array, non-decreasing order, 找common number. duplicate的number也需要算[10, 10], [10, 10], [10, 10] -> [10, 10]
+
 一个char[]，里面有'x', 'y'两种字符，找最长的window size 可以满足 <= k个'y'.
-两个长整数求和
 给一个只有小写英文字母的字符串，返回所有出现最多次的字母，按照它们的出现顺序
 123456789=100, backtracking，自己加(+-*/)
-Deepcopy linkedlist with random counter (i.e., every Node has Value, Next, and RandomNext)
-sort a string following a given dict order
 You have a huge array of integers containing only 0's and 1's. Write an algorithm that finds the number of 1's found in the array in a specific range. (303)
 
 There are 2 arrays which denote departing and returning flights with the respective indexes being time and the values of the array being the cost it takes for the flight. Return the minimum cost for a round trip provided the return flight can only be taken at a time post departing flight time (i.e if departing at time i, one can catch a returning flight only from time (i+1) onwards). For eg departing = [1,2,3,4] and returning = [4,3,2,1], the minimum cost for round trip will be 2 i.e departing[0] + returning[3]. Solve this is O(n) time
