@@ -41,7 +41,7 @@ public class LC1762 {
       }
 
       int[] res = new int[list.size()];
-      for (int i = 0; i < list.size(); ++i) {
+      for (int i = 0; i < list.size(); i++) {
          res[i] = list.get(i);
       }
       return res;

@@ -45,11 +45,11 @@ import java.util.*;
  */
 public class LC0987 {
    //key: column, list<int[2]: {row, val}>
-   Map<Integer, ArrayList<int[]>> columnTable = new HashMap();
+   Map<Integer, ArrayList<int[]>> columnTable = new HashMap<>();
    int minColumn = 0, maxColumn = 0;
 
    public List<List<Integer>> verticalTraversal(TreeNode root) {
-      List<List<Integer>> result = new ArrayList();
+      List<List<Integer>> result = new ArrayList<>();
       if (root == null) return result;
 
       // step 1). DFS traversal
@@ -63,7 +63,7 @@ public class LC0987 {
             else return p1[0] - p2[0];
          });
 
-         List<Integer> sortedColumn = new ArrayList();
+         List<Integer> sortedColumn = new ArrayList<>();
          for (int[] p : columnTable.get(i)) {
             sortedColumn.add(p[1]);
          }

@@ -3,6 +3,8 @@ package com.kamarkaka.leetcode;
 import java.util.List;
 import java.util.Stack;
 
+import static com.kamarkaka.leetcode.LC0636.CpuLog.parse;
+
 /***
  * 636. Exclusive Time of Functions
  * On a single-threaded CPU, we execute a program containing n functions. Each function has a unique ID between 0 and n-1.
@@ -56,7 +58,7 @@ public class LC0636 {
       int[] res = new int[n];
       Stack<int[]> stack = new Stack<>();
       for (String log : logs) {
-         CpuLog cpu = parse(log);
+         CpuLog cpu = CpuLog.parse(log);
          if (cpu.event == 0) {
             stack.push(new int[] {cpu.timestamp, 0});
             continue;
@@ -74,15 +76,7 @@ public class LC0636 {
       return res;
    }
 
-   private CpuLog parse(String log) {
-      String[] parts = log.split(":");
-      return new CpuLog(
-         Integer.parseInt(parts[0]),
-         parts[1].equals("start") ? 0 : 1,
-         Integer.parseInt(parts[2]));
-   }
-
-   private class CpuLog {
+   private static class CpuLog {
       int id;
       int event; //0:start,1:finish
       int timestamp;
@@ -91,6 +85,14 @@ public class LC0636 {
          this.id = id;
          this.event = event;
          this.timestamp = timestamp;
+      }
+
+      static CpuLog parse(String log) {
+         String[] parts = log.split(":");
+         return new CpuLog(
+                 Integer.parseInt(parts[0]),
+                 parts[1].equals("start") ? 0 : 1,
+                 Integer.parseInt(parts[2]));
       }
    }
 }
