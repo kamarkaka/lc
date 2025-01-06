@@ -222,11 +222,11 @@ LC1644 Lowest Common Ancestor of a Binary Tree II
 MedianBST 二叉搜索树找中位数
 CommonElements 3个array, non-decreasing order, 找common number. duplicate的number也需要算[10, 10], [10, 10], [10, 10] -> [10, 10]
 MonotonicSequences
+CheapestFlight
+LongestWindow
 
-一个char[]，里面有'x', 'y'两种字符，找最长的window size 可以满足 <= k个'y'.
 给一个只有小写英文字母的字符串，返回所有出现最多次的字母，按照它们的出现顺序
 123456789=100, backtracking，自己加(+-*/)
-There are 2 arrays which denote departing and returning flights with the respective indexes being time and the values of the array being the cost it takes for the flight. Return the minimum cost for a round trip provided the return flight can only be taken at a time post departing flight time (i.e if departing at time i, one can catch a returning flight only from time (i+1) onwards). For eg departing = [1,2,3,4] and returning = [4,3,2,1], the minimum cost for round trip will be 2 i.e departing[0] + returning[3]. Solve this is O(n) time
 便利答应一个矩阵，找一个加起来是某个数的subarray
 convert tree to circular doubly linkedlist(斯尔溜变种)follow up: thread safe
 
