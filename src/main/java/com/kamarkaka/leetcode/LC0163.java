@@ -29,37 +29,24 @@ import java.util.List;
  *   All the values of nums are unique.
  */
 public class LC0163 {
-    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
-        List<String> result = new ArrayList<>();
+    public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
+        List<List<Integer>> result = new ArrayList<>();
         if (nums == null || nums.length == 0)  {
-            if (lower == upper) result.add(String.valueOf(lower));
-            else result.add(lower + "->" + upper);
+            result.add(List.of(lower, upper));
             return result;
         }
 
-        int i = 0, a = nums[i], b = lower;
-
-        while (i < nums.length) {
-            if (a > b) {
-                if (b == a - 1) {
-                    result.add(String.valueOf(b));
-                } else {
-                    result.add(b + "->" + (a - 1));
-                }
+        for (int num : nums) {
+            if (num > lower) {
+                result.add(List.of(lower, num - 1));
             }
 
-            if (a == upper) return result;
+            if (num >= upper) return result;
 
-            b = Math.max(a + 1, lower);
-            i++;
-            a = i == nums.length ? upper : nums[i];
+            lower = num + 1;
         }
 
-        if (b <= a) {
-            if (b == a) result.add(String.valueOf(b));
-            else result.add(b + "->" + a);
-        }
-
+        result.add(List.of(lower, upper));
         return result;
     }
 }

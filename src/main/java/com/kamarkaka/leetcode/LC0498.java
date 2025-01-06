@@ -3,21 +3,18 @@ package com.kamarkaka.leetcode;
 /***
  * 498. Diagonal Traverse
  * Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
- *
  * Example 1:
- *    Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
- *    Output: [1,2,4,7,5,3,6,8,9]
- *
+ *   Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+ *   Output: [1,2,4,7,5,3,6,8,9]
  * Example 2:
- *    Input: mat = [[1,2],[3,4]]
- *    Output: [1,2,3,4]
- *
+ *   Input: mat = [[1,2],[3,4]]
+ *   Output: [1,2,3,4]
  * Constraints:
- *    m == mat.length
- *    n == mat[i].length
- *    1 <= m, n <= 10^4
- *    1 <= m * n <= 10^4
- *    -10^5 <= mat[i][j] <= 10^5
+ *   m == mat.length
+ *   n == mat[i].length
+ *   1 <= m, n <= 10^4
+ *   1 <= m * n <= 10^4
+ *   -10^5 <= mat[i][j] <= 10^5
  */
 public class LC0498 {
    public int[] findDiagonalOrder(int[][] matrix) {
@@ -31,14 +28,13 @@ public class LC0498 {
 
       int[] result = new int[rows * cols];
 
-      int r = 0;
+      int i = 0;
       while (row < rows && col < cols) {
-         result[r] = matrix[row][col];
-         r++;
+         result[i++] = matrix[row][col];
 
-         int nr = row + (direction == 1 ? -1 : 1);
-         int nc = col + (direction == 1 ? 1 : -1);
-         if (nr < 0 || nr == rows || nc < 0 || nc == cols) {
+         int newr = row + (direction == 1 ? -1 : 1);
+         int newc = col + (direction == 1 ? 1 : -1);
+         if (newr < 0 || newr == rows || newc < 0 || newc == cols) {
             if (direction == 1) {
                row += (col == cols - 1 ? 1 : 0) ;
                col += (col < cols - 1 ? 1 : 0);
@@ -49,8 +45,8 @@ public class LC0498 {
 
             direction = 1 - direction;
          } else {
-            row = nr;
-            col = nc;
+            row = newr;
+            col = newc;
          }
       }
       return result;

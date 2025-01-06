@@ -128,17 +128,45 @@ LC0249. Group Shifted Strings
     - for each string, calculate a hash value by calculating the relative distance between one letter to the next
     - for example ab -> 1; ac -> 2; etc.
 LC0282. Expression Add Operators
+    - dfs
+    - similar to calculator, keep track of value, prevNum, currNum, op
 LC0498. Diagonal Traverse
+    - just be careful finding next point
 LC0415. Add Strings
+    - don't forget carry
 LC0317. Shortest Distance from All Buildings
+    - have a total[][] matrix to keep track of total distance to all buildings, find the min one in it
+    - for each house in the matrix, do a bfs that
+    - keep track of emptyLandValue so when bfs for house 0, its value is 0
+    - when iterating house i, its value should be -i
+    - the path should cross on grids with value -i, which indicates all prev houses can connect to here
 LC0163. Missing Ranges
+    - go through each number in array
+    - update lower bound after each iteration
 LC1216. Valid Palindrome III
+    - dp[i][j] means minimum deletes to make str[i, j] a palindrome
+    - if i, j has equal chars, dp[i][j] = dp[i+1][j-1]
+    - otherwise dp[i][j] = 1 + min(dp[i+1][j], dp[i][j-1]) (removing char at i or j)
 LC0489. Robot Room Cleaner
+    - backtracking
+    - keeping track of visited coordinates
 LC0398. Random Pick Index
+    - build a hash map where key is number, value is a list of indexes for that number
+    - randomly select an index from the list
 LC0523. Continuous Subarray Sum
+    - build prefix sum
+    - build a hash map where key is prefix sum % k, value is index
+    - if a previous index has the same prefix sum residual as current index, we find the subarray
 LC1428. Leftmost Column with at Least a One
+    - start from top right corner
+    - only move left and down
+    - or alternatively, do binary search on rows, but the upper bound is the current smallest index
 LC0766. Toeplitz Matrix
+    - go through every diagnal to see if they are all the same
 LC0301. Remove Invalid Parentheses
+    - bfs
+    - for each level, remove one parenthesis and check for validity
+    - if one valid is found, stop after the level is finished
 LC0173. Binary Search Tree Iterator
     - use inorder traversal to build a sorted list of nodes
     - then next() and hasNext() will be O(1)
