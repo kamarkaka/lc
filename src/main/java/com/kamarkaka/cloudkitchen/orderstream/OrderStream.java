@@ -1,4 +1,4 @@
-package com.kamarkaka.cloudkitchen;
+package com.kamarkaka.cloudkitchen.orderstream;
 
 public interface OrderStream {
     Order nextOrder();

@@ -1,5 +1,6 @@
 package com.kamarkaka.cloudkitchen;
 
+import com.kamarkaka.cloudkitchen.orderstream.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,13 +13,11 @@ import java.util.concurrent.ConcurrentMap;
 
 public class Shelf {
     private static final Logger LOGGER = LoggerFactory.getLogger(Shelf.class);
-    private final Temperature temp;
     private final int capacity;
     private final int shelfDecayModifier;
     private final ConcurrentMap<UUID, Order> orders;
 
-    public Shelf(Temperature temp, int capacity, int shelfDecayModifier) {
-        this.temp = temp;
+    public Shelf(int capacity, int shelfDecayModifier) {
         this.capacity = capacity;
         this.shelfDecayModifier = shelfDecayModifier;
         this.orders = new ConcurrentHashMap<>();
@@ -32,8 +31,8 @@ public class Shelf {
         return this.orders.size() >= this.capacity;
     }
 
-    public boolean hasOrder(Order order) {
-        return this.orders.containsKey(order.getId());
+    public boolean hasOrder(UUID orderId) {
+        return this.orders.containsKey(orderId);
     }
 
     public void addOrder(Order order) {
@@ -41,8 +40,8 @@ public class Shelf {
         order.setUpdated();
     }
 
-    public void removeOrder(Order order) {
-        this.orders.remove(order.getId());
+    public void removeOrder(UUID orderId) {
+        this.orders.remove(orderId);
     }
 
     public Collection<Order> getOrders() {

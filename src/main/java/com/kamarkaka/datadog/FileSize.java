@@ -1,6 +1,5 @@
 package com.kamarkaka.datadog;
 
-import java.io.File;
 import java.util.List;
 
 /***

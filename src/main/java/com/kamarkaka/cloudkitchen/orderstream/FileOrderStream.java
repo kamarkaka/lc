@@ -1,4 +1,4 @@
-package com.kamarkaka.cloudkitchen;
+package com.kamarkaka.cloudkitchen.orderstream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

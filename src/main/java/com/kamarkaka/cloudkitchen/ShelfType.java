@@ -1,6 +1,6 @@
 package com.kamarkaka.cloudkitchen;
 
-public enum Temperature {
+public enum ShelfType {
     HOT,
     COLD,
     FROZEN,

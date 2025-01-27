@@ -28,20 +28,58 @@ public class BufferedWriter {
         this.index = 0;
     }
 
-    public void write(byte[] bytes) {
+    public synchronized void write(byte[] bytes) {
         for (int i = 0; i < bytes.length; i++) {
+            this.buffer[this.index++] = bytes[i];
+
             if (this.index == this.buffer.length) {
                 this.flush();
             }
-
-            this.buffer[this.index++] = bytes[i];
         }
     }
 
-    public void flush() {
+    public synchronized void flush() {
         for (int i = 0; i < this.index; i++) {
             System.out.println(this.buffer[i]);
         }
         this.index = 0;
+    }
+
+    public boolean test() {
+        if (buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 0 && buffer[3] == 0 && buffer[4] == 1 && buffer[5] == 1 && buffer[6] == 1 && buffer[7] == 1) return true;
+        else if (buffer[0] == 1 && buffer[1] == 1 && buffer[2] == 1 && buffer[3] == 1 && buffer[4] == 0 && buffer[5] == 0 && buffer[6] == 0 && buffer[7] == 0) return true;
+        else return false;
+    }
+
+    public void print() {
+        for (int i = 0; i < this.buffer.length; i++) {
+            System.out.println(this.buffer[i]);
+        }
+        System.out.println("index: " + this.index);
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        int i = 0;
+        while (true) {
+            System.out.println("try " + i++);
+            BufferedWriter bw = new BufferedWriter(16);
+            Thread t1 = new Thread(() -> {
+                bw.write(new byte[] { 0,0,0,0 });
+            });
+            Thread t2 = new Thread(() -> {
+                bw.write(new byte[] { 1,1,1,1 });
+            });
+            t1.start();
+            t2.start();
+
+            t2.join();
+            t1.join();
+
+            if (!bw.test()) {
+                bw.print();
+                break;
+            }
+        }
     }
 }

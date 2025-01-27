@@ -47,6 +47,6 @@ public class HighPerformanceFilter {
         solution.addTag("banana, facebook");
         solution.addTag("facebook, google, tesla");
         solution.addTag("intuit, google, facebook");
-        System.out.println(solution.searchTags(Arrays.asList(new String[] {"facebook", "google"})));
+        System.out.println(solution.searchTags(Arrays.asList("facebook", "google")));
     }
 }

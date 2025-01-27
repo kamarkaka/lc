@@ -1,15 +1,17 @@
 package com.kamarkaka.cloudkitchen;
 
+import com.kamarkaka.cloudkitchen.orderstream.FileOrderStream;
+import com.kamarkaka.cloudkitchen.orderstream.OrderStream;
+import com.kamarkaka.cloudkitchen.orderstream.Order;
+import com.kamarkaka.cloudkitchen.runnables.OrderIngestor;
+import com.kamarkaka.cloudkitchen.runnables.Courier;
+import com.kamarkaka.cloudkitchen.runnables.Kitchen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
+import java.util.UUID;
+import java.util.concurrent.*;
 
 /**
  * Challenge Prompt
@@ -63,60 +65,57 @@ import java.util.concurrent.Semaphore;
  * Important: shelfDecayModifier is 1 for single-temperature shelves and 2 for the overflow shelf.
  */
 
+
+/***
+ * test cases:
+ * 1. orders can be parsed from json data (x)
+ * 2. orders can be added to orderQueue
+ * 3. kitchen can consume orders put into orderQueue
+ * 4.
+ */
+
 public class OrderFulfillment {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFulfillment.class);
     private final ConcurrentLinkedQueue<Order> orderQueue;
-    private final ConcurrentLinkedQueue<Order> pickupQueue;
-    private final Semaphore shelfSemaphore;
-    private final ConcurrentMap<Temperature, Shelf> shelves;
+    private final ConcurrentLinkedQueue<UUID> pickupQueue;
+    private final Shelves shelves;
 
     public OrderFulfillment() {
         this.orderQueue = new ConcurrentLinkedQueue<>();
         this.pickupQueue = new ConcurrentLinkedQueue<>();
-        this.shelfSemaphore = new Semaphore(1);
-        this.shelves = new ConcurrentHashMap<>();
-
-        this.shelves.put(Temperature.HOT, new Shelf(Temperature.HOT, 10, 1));
-        this.shelves.put(Temperature.COLD, new Shelf(Temperature.COLD, 10, 1));
-        this.shelves.put(Temperature.FROZEN, new Shelf(Temperature.FROZEN, 10, 1));
-        this.shelves.put(Temperature.OVERFLOW, new Shelf(Temperature.OVERFLOW, 15, 2));
+        this.shelves = new Shelves();
     }
 
-    public void start(OrderStream orderStream) {
+    public void start(OrderStream OrderStream) {
         try (ExecutorService orderPool = Executors.newFixedThreadPool(3);
              ExecutorService pickupPool = Executors.newCachedThreadPool()) {
-            OrderIngestor orderIngestor = new OrderIngestor(orderQueue, orderStream);
+            OrderIngestor orderIngestor = new OrderIngestor(orderQueue, OrderStream);
             orderPool.execute(orderIngestor);
 
-            Kitchen kitchen = new Kitchen(orderQueue, pickupQueue, shelves, shelfSemaphore);
+            Kitchen kitchen = new Kitchen(orderQueue, pickupQueue, shelves);
             orderPool.execute(kitchen);
 
-            Courier courier = new Courier(pickupQueue, pickupPool, shelves, shelfSemaphore);
+            Courier courier = new Courier(pickupQueue, pickupPool, shelves);
             orderPool.execute(courier);
 
             while (true) {
                 Thread.sleep(1000);
 
-                shelfSemaphore.acquire();
-                for (Shelf shelf : shelves.values()) {
-                    shelf.decay();
-                }
-                shelfSemaphore.release();
+                this.shelves.acquireLock();
+                this.shelves.decay();
+                this.shelves.releaseLock();
 
-                if (orderStream.isDrained() &&
+                if (OrderStream.isDrained() &&
                     orderQueue.isEmpty() &&
                     pickupQueue.isEmpty() &&
-                    shelves.get(Temperature.HOT).isEmpty() &&
-                    shelves.get(Temperature.COLD).isEmpty() &&
-                    shelves.get(Temperature.FROZEN).isEmpty() &&
-                    shelves.get(Temperature.OVERFLOW).isEmpty()) {
+                    shelves.isEmpty()) {
                     LOGGER.info("All orders are consumed!");
                     break;
                 }
             }
 
-            orderPool.shutdown();
-            pickupPool.shutdown();
+            kitchen.close();
+            courier.close();
             LOGGER.info("Threadpool shut down");
         } catch (Exception e) {
             LOGGER.error("Exception thrown", e);
@@ -129,6 +128,5 @@ public class OrderFulfillment {
         FileOrderStream fileOrderStream = new FileOrderStream("./data/orders.json");
         OrderFulfillment fulfillment = new OrderFulfillment();
         fulfillment.start(fileOrderStream);
-        System.exit(0);
     }
 }

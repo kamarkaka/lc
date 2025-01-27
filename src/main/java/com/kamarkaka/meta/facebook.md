@@ -241,45 +241,52 @@ convert tree to circular doubly linkedlist(斯尔溜变种)follow up: thread saf
    4
 
 
-
-
-
-
-
-
-
-
 BQ
 tell me about yourself
 different working style
+    - s: project involves 4 engineers
+    - t: ensure the timely delivery of the project
+    - a:
+        - initial meeting to understand working style of each other
+        - some may have other priorities
+        - be open-minded
+        - create standardized delivery framework (code style guide, unit test coverage, code reviews)
+        - design the project with independent components so ppl can work independently (minimize dependencies)
+    - r: project was a success
 challenge/conflict
 proud of/interesting project
 bad feedback/how to handle constructive feedback/negative feedback
+    - s: user complained about slow delivery of their requests
+    - t: earn users' trust
+    - a:
+        - was working on multiple projects at the same time, some had higher priorities
+        - communicate, over-communicate with users about their requests
+        - make sure they acknowledge of the current progress, and manage expectation of delivery date
+        - notify users if higher priority tasks come in
+    - r: users are happy
 have you given feedback to others
 mistake
 ambiguity
 cross functional合作，disagree怎么处理
 mentor别人去做一些决定
 risk
-最建设型的领导给的建议（就是自己没做好，被领导批评了），还有如果领导做了错误决定，如何纠正的
+如果领导做了错误决定，如何纠正的
+    - s: prioritize caos over tenet
+    - t: persuade manager to work on tenet first
+    - a:
+        - fact is tenet had more demand
+        - communicate to understand more context of the decision
+        - caos was thought to be an easy feature add on top of existing system
+        - worked out a high-level architecture to show it's more complicated than originally thought
+        - built a prototype to showcase potential risks on performance issue on the new feature, which takes time to optimize
+        - surveyed other teams about thoughts on migration, shows additional concerns about performance, correctness, easiness to use that all needed time to resolve 
+    - r: agreed to work on tenet first
 
 Design
 alex xu
 写码竞赛平台
 订票系统，只focus在很多人抢一个event的票
 design image upload service, dive deep: share image through unique url + how to ensure unique url(我答得是hashing), handle unequal read/write ratio: 20:1, db 我用的是Postgres + blob
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

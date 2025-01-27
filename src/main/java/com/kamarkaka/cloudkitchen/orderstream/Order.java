@@ -1,4 +1,6 @@
-package com.kamarkaka.cloudkitchen;
+package com.kamarkaka.cloudkitchen.orderstream;
+
+import com.kamarkaka.cloudkitchen.ShelfType;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -6,17 +8,17 @@ import java.util.UUID;
 public class Order {
     private final UUID id;
     private final String name;
-    private final Temperature temp;
+    private final ShelfType type;
     private final float shelfLife;
     private final float decayRate;
     private final LocalDateTime created;
     private LocalDateTime updated;
     private float remainingValue;
 
-    public Order(UUID id, String name, Temperature temp, float shelfLife, float decayRate) {
+    public Order(UUID id, String name, ShelfType type, float shelfLife, float decayRate) {
         this.id = id;
         this.name = name;
-        this.temp = temp;
+        this.type = type;
         this.shelfLife = shelfLife;
         this.decayRate = decayRate;
         this.created = LocalDateTime.now();
@@ -32,8 +34,8 @@ public class Order {
         return name;
     }
 
-    public Temperature getTemp() {
-        return temp;
+    public ShelfType getType() {
+        return type;
     }
 
     public float getShelfLife() {
@@ -64,7 +66,7 @@ public class Order {
         return new Order(
                 UUID.fromString(jsonOrder.id),
                 jsonOrder.name,
-                Temperature.valueOf(jsonOrder.temp.toUpperCase()),
+                ShelfType.valueOf(jsonOrder.temp.toUpperCase()),
                 jsonOrder.shelfLife,
                 jsonOrder.decayRate
         );
@@ -74,7 +76,7 @@ public class Order {
     public String toString() {
         return "{id: " + id + ", " +
                 "name: " + name + ", " +
-                "temp: " + temp + ", " +
+                "type: " + type + ", " +
                 "value: " + remainingValue + "}";
     }
 }

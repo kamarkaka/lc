@@ -52,6 +52,8 @@ public class AvalancheNumber {
             result++;
         }
 
+
+
         return result + 1;
     }
 

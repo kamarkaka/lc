@@ -1,26 +1,29 @@
-package com.kamarkaka.cloudkitchen;
+package com.kamarkaka.cloudkitchen.runnables;
 
+import com.kamarkaka.cloudkitchen.orderstream.Order;
+import com.kamarkaka.cloudkitchen.orderstream.OrderStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class OrderIngestor implements Runnable {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderIngestor.class);
     private static final int INGESTION_RATE = 2; // # of orders per sec
     private final ConcurrentLinkedQueue<Order> queue;
-    private final OrderStream orderStream;
+    private final OrderStream OrderStream;
 
-    public OrderIngestor(ConcurrentLinkedQueue<Order> queue, OrderStream orderStream) {
+    public OrderIngestor(ConcurrentLinkedQueue<Order> queue, OrderStream OrderStream) {
         this.queue = queue;
-        this.orderStream = orderStream;
+        this.OrderStream = OrderStream;
     }
 
     @Override
     public void run() {
         Order order;
         int orderCount = 0;
-        while ((order = orderStream.nextOrder()) != null) {
+        while ((order = OrderStream.nextOrder()) != null) {
             queue.add(order);
             LOGGER.info("Received order: {}", order);
 

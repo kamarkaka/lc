@@ -9,8 +9,8 @@ import java.util.Map;
  * For example: The sun is the largest object in the solar system. It is the only star.
  * "the" appears 4 times, "is" appears 2 time so return value is 3 + 1 = 4
  */
-public class RepeatedWords {
-    public int repetitionNumber(String paragraph) {
+public class CountRepitition {
+    public static int repetitionNumber(String paragraph) {
         Map<String, Integer> wordCount = new HashMap<>();
 
         String[] words = paragraph.split(" ");
@@ -27,7 +27,7 @@ public class RepeatedWords {
     }
 
     public static void main(String[] args) {
-        RepeatedWords solution = new RepeatedWords();
-        System.out.println(solution.repetitionNumber("The sun is the largest object in the solar system. It is the only star."));
+        System.out.println(CountRepitition.repetitionNumber("The sun is the largest object in the solar system. It is the only star."));
+        System.out.println(CountRepitition.repetitionNumber("Hello, world. World hello"));
     }
 }
