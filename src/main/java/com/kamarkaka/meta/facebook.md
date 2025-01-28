@@ -254,6 +254,17 @@ different working style
         - design the project with independent components so ppl can work independently (minimize dependencies)
     - r: project was a success
 challenge/conflict
+    - s: users pushed back on migration to new caos
+    - t: persuade them
+    - a:
+        - understand their use of existing system (crucial, but no need for new features)
+        - limited resources (migration requires switch from rest client to grpc)
+        - helped create a thin restful wrapper
+        - made sure api endpoints are backward compatible
+        - show reports proofing identical results between new and legacy system
+        - showed improved performance
+        - added customized bulk queries 
+    - r: earned their trust and made the switch
 proud of/interesting project
 bad feedback/how to handle constructive feedback/negative feedback
     - s: user complained about slow delivery of their requests
