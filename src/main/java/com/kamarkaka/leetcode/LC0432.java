@@ -44,8 +44,8 @@ import java.util.TreeMap;
  */
 public class LC0432 {
     class AllOne {
-        HashMap<String, Integer> hmap;
-        TreeMap<Integer, Set<String>> tMap;
+        private final HashMap<String, Integer> hmap;
+        private final TreeMap<Integer, Set<String>> tMap;
 
         /** Initialize your data structure here. */
         public AllOne() {
@@ -60,7 +60,7 @@ public class LC0432 {
                 hmap.put(key, count + 1);
                 Set<String> set = tMap.get(count);
                 set.remove(key);
-                if (set.size() == 0) tMap.remove(count);
+                if (set.isEmpty()) tMap.remove(count);
 
                 if (tMap.containsKey(count + 1)) {
                     set = tMap.get(count + 1);
@@ -93,12 +93,12 @@ public class LC0432 {
                 hmap.remove(key);
                 Set<String> set = tMap.get(1);
                 set.remove(key);
-                if (set.size() == 0) tMap.remove(1);
+                if (set.isEmpty()) tMap.remove(1);
             } else {
                 hmap.put(key, count - 1);
                 Set<String> set = tMap.get(count);
                 set.remove(key);
-                if (set.size() == 0) tMap.remove(count);
+                if (set.isEmpty()) tMap.remove(count);
 
                 if (tMap.containsKey(count - 1)) {
                     set = tMap.get(count - 1);
@@ -113,20 +113,20 @@ public class LC0432 {
 
         /** Returns one of the keys with maximal value. */
         public String getMaxKey() {
-            if (tMap.size() == 0) return "";
+            if (tMap.isEmpty()) return "";
             Map.Entry<Integer, Set<String>> entry = tMap.lastEntry();
             Set<String> set = entry.getValue();
             List<String> list = new ArrayList<>(set);
-            return list.get(0);
+            return list.getFirst();
         }
 
         /** Returns one of the keys with Minimal value. */
         public String getMinKey() {
-            if (tMap.size() == 0) return "";
+            if (tMap.isEmpty()) return "";
             Map.Entry<Integer, Set<String>> entry = tMap.firstEntry();
             Set<String> set = entry.getValue();
             List<String> list = new ArrayList<>(set);
-            return list.get(0);
+            return list.getFirst();
         }
     }
 }

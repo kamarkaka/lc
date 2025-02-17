@@ -1,6 +1,7 @@
 package com.kamarkaka.leetcode;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -30,7 +31,7 @@ public class LC0373 {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
         if (nums1.length == 0 || nums2.length == 0) return result;
-        PriorityQueue<List<Integer>> pq = new PriorityQueue<>((l1, l2) -> Integer.compare(l1.get(0) + l1.get(1), l2.get(0) + l2.get(1)));
+        PriorityQueue<List<Integer>> pq = new PriorityQueue<>(Comparator.comparingInt(l -> l.get(0) + l.get(1)));
 
         for (int i = 0; i < Math.min(k, nums1.length); i++) {
             for (int j = 0; j < Math.min(k, nums2.length); j++) {

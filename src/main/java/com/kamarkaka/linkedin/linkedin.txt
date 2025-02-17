@@ -1,3 +1,116 @@
+LC0716. Max Stack (Hard)
+    - use a linked list where each node stores 1) id, 2) current value, 3) if the node is deleted
+    - use a priority queue to maintain node with max value
+    - push: create a new node, add it to the head of the linked list, and push node to pq
+    - pop: remove deleted heads in linked list, mark node head deleted
+    - top: remove deleted heads in linked list, return head value
+    - peekMax: remove deleted nodes in pq, return pq peek value
+    - popMax: remove deleted nodes in pq, poll node from pq, mark it deleted
+
+LC0364. Nested List Weight Sum II (Medium)
+    - recursion
+    - find max depth
+    - calculate weighted sum
+
+LC0432. All O`one Data Structure (Hard)
+    - a hashmap with string to their counts
+    - a treemap with counts to set of strings
+
+LC1004. Max Consecutive Ones III (Medium)
+    - two pointers: left and right
+    - k-- whenever right reaches a 0
+    - if k < 0, move left rightwards, k++ when reaches 0
+    - update maxLen if k >= 0
+
+LC0277. Find the Celebrity (Medium)
+    - if i knows j, then i is a candidate of celebrity
+    - then check if i is a celebrity by checking if i knows j but j doesn't know i, if so, i is NOT a celebrity
+
+LC0366. Find Leaves of Binary Tree (Medium)
+    - recursively remove leaves
+
+LC0244. Shortest Word Distance II (Medium)
+    - hashmap where key is word, value is a list of indexes occurred in the dictionary
+    - get the two list of the two words from hashmap
+    - two pointers, increment one with smaller index and update minDiff along the way
+
+LC0020. Valid Parentheses (Easy)
+    - stack
+    - only pop if top of stack has matching pairs
+
+LC0605. Can Place Flowers (Easy)
+    - greedy
+
+LC0127. Word Ladder (Hard)
+    - begin set and end set for from and to words
+    - for each word in begin set, find all possible transformations, and the ones that are in dictionary as next step
+    - swap begin and end set so that begin set is always smaller
+
+LC0053. Maximum Subarray (Medium)
+    - recursion
+    - find mid point, and find max sum from left side and right side respectively
+    - find max sum including mid point by calculating max sum starting at mid point and max sum ending at mid point
+    - find max of the three
+
+LC0256. Paint House (Medium)
+    - dp[n][0-2] means min cost for house 0 - n with house n colored in a specific color
+    - dp[n][0-2] can be derived purely by dp[n-1][0-2]
+    - can optimize dp[n][0-2] to dp[0-2] since 0 - (n-1) can be discarded once we have dp[n]
+
+LC0698. Partition to K Equal Sum Subsets (Medium)
+    - backtrack
+    - get target sum which is total sum / k
+    - take numbers and see if current sum equals target sum, backtrack
+
+LC0380. Insert Delete GetRandom O(1) (Medium)
+    - use a list to store elements
+    - use a hashmap to store element value to index
+
+LC0381. Insert Delete GetRandom O(1) - Duplicates allowed (Hard)
+    - same as LC0380
+
+LC0516. Longest Palindromic Subsequence (Medium)
+    - dp[i][j] means the max subsequence within [i,j]
+    - if s[i] == s[j], len = 2 + dp[i+1][j-1]
+    - if s[i] != s[j], 3 possible scenarios
+        - len1 = dp[i+1][j] (skip s[i])
+        - len2 = dp[i][j-1] (skip s[j])
+        - len3 = dp[i+1[j-1] (skip both s[i] and s[j])
+    - result is dp[0][s.length]
+
+LC0373. Find K Pairs with Smallest Sums (Medium)
+LC0152. Maximum Product Subarray (Medium)
+LC0886. Possible Bipartition (Medium)
+LC0156. Binary Tree Upside Down (Medium)
+LC0671. Second Minimum Node In a Binary Tree (Easy)
+LC0033. Search in Rotated Sorted Array (Medium)
+LC0034. Find First and Last Position of Element in Sorted Array (Medium)
+LC0069. Sqrt(x) (Easy)
+LC0200. Number of Islands (Medium)
+LC0076. Minimum Window Substring (Hard)
+LC0339. Nested List Weight Sum (Medium)
+LC0235. Lowest Common Ancestor of a Binary Search Tree (Medium)
+LC0384. Shuffle an Array (Medium)
+LC0763. Partition Labels (Medium)
+LC0001. Two Sum (Easy)
+LC0875. Koko Eating Bananas (Medium)
+LC0528. Random Pick with Weight (Medium)
+LC0017. Letter Combinations of a Phone Number (Medium)
+LC0274. H-Index (Medium)
+LC0658. Find K Closest Elements (Medium)
+LC0542. 01 Matrix (Medium)
+LC0040. Combination Sum II (Medium)
+LC0050. Pow(x, n) (Medium)
+LC2964. Number of Divisible Triplet Sums (Medium)
+LC0695. Max Area of Island (Medium)
+LC0925. Long Pressed Name (Easy)
+LC0341. Flatten Nested List Iterator (Medium)
+LC2040. Kth Smallest Product of Two Sorted Arrays (Hard)
+LC0236. Lowest Common Ancestor of a Binary Tree (Medium)
+LC0243. Shortest Word Distance (Easy)
+LC1650. Lowest Common Ancestor of a Binary Tree III (Medium)
+
+-----
 
 LC0020. Valid Parentheses
 LC0023. Merge k Sorted Lists

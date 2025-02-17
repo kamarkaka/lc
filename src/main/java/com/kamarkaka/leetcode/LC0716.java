@@ -39,65 +39,68 @@ import java.util.PriorityQueue;
  */
 public class LC0716 {
     class MaxStack {
-        Node head;
-        Node tail;
 
-        /** initialize your data structure here. */
-        public MaxStack() {
-            this.head = new Node(Integer.MIN_VALUE, Integer.MIN_VALUE);
-            this.tail = new Node(Integer.MAX_VALUE, Integer.MAX_VALUE);
-            head.next = tail;
-            tail.prev = head;
+        private class Node {
+
+            private final int id;
+            private final int val;
+            private boolean deleted;
+            private final Node next;
+
+            private Node(int val, Node next) {
+                this.id = count++;
+                this.val = val;
+                this.next = next;
+            }
         }
 
+        private int count = 0;
+        private Node head = new Node(0, null);
+        private final PriorityQueue<Node> heap = new PriorityQueue<>((a, b) -> b.val != a.val ? b.val - a.val : b.id - a.id);
+
         public void push(int x) {
-            Node newNode = new Node(Math.max(tail.prev.max, x), x);
-            tail.prev.next = newNode;
-            newNode.prev = tail.prev;
-            tail.prev = newNode;
-            newNode.next = tail;
+            Node node = new Node(x, head);
+            head = node;
+            heap.offer(node);
         }
 
         public int pop() {
-            Node curr = tail.prev;
-            curr.prev.next = tail;
-            tail.prev = curr.prev;
-            return curr.val;
+            cleanHead();
+
+            int val = head.val;
+            head.deleted = true;
+            head = head.next;
+            return val;
         }
 
         public int top() {
-            return tail.prev.val;
+            cleanHead();
+            return head.val;
         }
 
         public int peekMax() {
-            return tail.prev.max;
+            cleanHeap();
+            return heap.peek().val;
         }
 
         public int popMax() {
-            int max = tail.prev.max;
-            Node curr = tail.prev;
-            while (curr.val != max) curr = curr.prev;
-            curr.prev.next = curr.next;
-            curr.next.prev = curr.prev;
-            curr = curr.next;
-            while (curr!=tail) {
-                curr.max = Math.max(curr.val, curr.prev.max);
-                curr = curr.next;
-            }
-            return max;
+            cleanHeap();
+
+            Node node = heap.poll();
+            node.deleted = true;
+
+            return node.val;
         }
 
-        class Node {
-            int max;
-            int val;
-            Node next;
-            Node prev;
+        private void cleanHead() {
+            while (head.deleted) {
+                head = head.next;
+            }
+        }
 
-            public Node(int max, int val) {
-                this.max = max;
-                this.val = val;
-                this.next = null;
-                this.prev = null;
+        private void cleanHeap() {
+            while (heap.peek().deleted) {
+                heap.poll();
             }
         }
     }

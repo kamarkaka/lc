@@ -35,9 +35,10 @@ public class LC0020 {
          if (c == '(' || c == '[' || c == '{') {
             stack.push(c);
          } else if (
-                   (c == ')' && !stack.empty() && stack.peek() == '(') ||
-                      (c == ']' && !stack.empty() && stack.peek() == '[') ||
-                      (c == '}' && !stack.empty() && stack.peek() == '{')) {
+            (c == ')' && !stack.empty() && stack.peek() == '(') ||
+            (c == ']' && !stack.empty() && stack.peek() == '[') ||
+            (c == '}' && !stack.empty() && stack.peek() == '{'))
+         {
             stack.pop();
          } else {
             return false;
