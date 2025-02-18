@@ -79,11 +79,28 @@ LC0516. Longest Palindromic Subsequence (Medium)
     - result is dp[0][s.length]
 
 LC0373. Find K Pairs with Smallest Sums (Medium)
+    - pq holds all pairs sorted by sum
+
 LC0152. Maximum Product Subarray (Medium)
+    - keep track of min so far and max so far
+
 LC0886. Possible Bipartition (Medium)
+    - paint ppl into 2 colors
+    - bfs
+
 LC0156. Binary Tree Upside Down (Medium)
+    - recursion
+    - do as told
+
 LC0671. Second Minimum Node In a Binary Tree (Easy)
+    - dfs
+    - min is root
+    - keep track of second min
+
 LC0033. Search in Rotated Sorted Array (Medium)
+    - recursion
+    - check if pivot is in current range, if no, do a regular binary search, otherwise chech both halves
+
 LC0034. Find First and Last Position of Element in Sorted Array (Medium)
 LC0069. Sqrt(x) (Easy)
 LC0200. Number of Islands (Medium)
